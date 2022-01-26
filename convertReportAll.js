@@ -4,6 +4,7 @@ const footerHTML = require('./Components/footerPage')
 const previewInfo = require('./Components/previewInfo')
 const gut = require('./Components/gutAnalysisPage')
 const core = require('./Components/coreIndex')
+const bloodTest = require('./Components/bloodTest')
 const appendix = require('./Components/appendix')
 const computed = require('./Components/computed')
 
@@ -30,6 +31,9 @@ try {
     core.index1(data, dynamicText, 15 + newPages) +
     core.index2(data, dynamicText, 16 + newPages) +
     core.index3(data, dynamicText, 17 + newPages) +
+    bloodTest.pagination(18 + newPages) +
+    bloodTest.table1(19 + newPages) +
+    bloodTest.table2(20 + newPages) +
     appendix.pagination(32 + newPages) +
     appendix.gutBiome(33 + newPages) +
     appendix.howToGutBiome(34 + newPages) +
