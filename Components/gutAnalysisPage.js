@@ -28,8 +28,8 @@ const summary = (data) => {
   const immuneIndex = indexStatus(parseInt(data.indices.immuneindex))
   const giFunction = indexStatus(parseInt(data.indices.gifunction))
 
-  const brain = bodyFunctionStatus(parseInt(data.bodyFunction.cvd.score))
-  const cardiovascular = bodyFunctionStatus(parseInt(data.bodyFunction.PDAD.score))
+  const brain = bodyFunctionStatus(parseInt(data.bodyFunction.PDAD.score))
+  const cardiovascular = bodyFunctionStatus(parseInt(data.bodyFunction.cvd.score))
   const lung = bodyFunctionStatus(parseInt(data.bodyFunction.lung.score))
   const liver = bodyFunctionStatus(parseInt(data.bodyFunction.nafld.score))
   const kidney = bodyFunctionStatus(parseInt(data.bodyFunction.ckd.score))

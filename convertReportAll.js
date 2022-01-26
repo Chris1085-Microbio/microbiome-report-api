@@ -5,6 +5,7 @@ const previewInfo = require('./Components/previewInfo')
 const gut = require('./Components/gutAnalysisPage')
 const core = require('./Components/coreIndex')
 const bloodTest = require('./Components/bloodTest')
+const bodyFunction = require('./Components/bodyFunction')
 const appendix = require('./Components/appendix')
 const computed = require('./Components/computed')
 
@@ -34,6 +35,17 @@ try {
     bloodTest.pagination(18 + newPages) +
     bloodTest.table1(19 + newPages) +
     bloodTest.table2(20 + newPages) +
+    bodyFunction.pagination(21 + newPages) +
+    bodyFunction.PDAD(data.bodyFunction.PDAD, 22 + newPages) +
+    bodyFunction.cvd(data.bodyFunction.cvd, 23 + newPages) +
+    bodyFunction.lung(data.bodyFunction.lung, 24 + newPages) +
+    bodyFunction.nafld(data.bodyFunction.nafld, 25 + newPages) +
+    bodyFunction.ckd(data.bodyFunction.ckd, 26 + newPages) +
+    bodyFunction.gastitis(data.bodyFunction.gastitis, 27 + newPages) +
+    bodyFunction.colitis(data.bodyFunction.colitis, 28 + newPages) +
+    bodyFunction.immune(data.bodyFunction.immune, 29 + newPages) +
+    bodyFunction.obesity(data.bodyFunction.obesity, 30 + newPages) +
+    bodyFunction.metabolism(data.bodyFunction.metabolism, 31 + newPages) +
     appendix.pagination(32 + newPages) +
     appendix.gutBiome(33 + newPages) +
     appendix.howToGutBiome(34 + newPages) +
