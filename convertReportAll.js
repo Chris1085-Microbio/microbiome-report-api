@@ -3,6 +3,7 @@ const headerHTML = require('./Components/headerPage')
 const footerHTML = require('./Components/footerPage')
 const previewInfo = require('./Components/previewInfo')
 const gut = require('./Components/gutAnalysisPage')
+const core = require('./Components/coreIndex')
 const appendix = require('./Components/appendix')
 const computed = require('./Components/computed')
 
@@ -24,6 +25,11 @@ try {
     gut.fattyAcidSynthesis(data, dynamicText, 10 + newPages) +
     gut.enterotyping(data, dynamicText, 11 + newPages) +
     gut.biomeSummary(data, 12 + newPages) +
+    core.pagination(13 + newPages) +
+    core.summary(data, dynamicText, 14 + newPages) +
+    core.index1(data, dynamicText, 15 + newPages) +
+    core.index2(data, dynamicText, 16 + newPages) +
+    core.index3(data, dynamicText, 17 + newPages) +
     appendix.pagination(32 + newPages) +
     appendix.gutBiome(33 + newPages) +
     appendix.howToGutBiome(34 + newPages) +

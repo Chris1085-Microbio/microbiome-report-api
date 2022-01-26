@@ -11,7 +11,7 @@
     { "name": "Synergistetes", "chtName": "藍藻門", "percentage": "0.0%" }
   ],
   "indices": {
-    "shannon": "24.0",
+    "shannon": "24",
     "goodbad": "46",
     "glucose": "49",
     "oil": "37",
