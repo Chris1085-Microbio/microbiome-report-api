@@ -957,6 +957,9 @@ header {
   vertical-align: middle;
   border-bottom: none; }
 
+.bloodTest-2 tbody tr {
+  border-bottom: 1px solid #000; }
+
 .table-bordered {
   border: 1px solid #000; }
 
@@ -1153,21 +1156,31 @@ header {
   height: 80%; }
 
 .fb-table {
-  width: 100%; }
+  width: 100%;
+  border: 1px solid #000; }
   .fb-table th,
   .fb-table td {
     font-size: 1.2rem;
     line-height: 2.4rem; }
   .fb-table th {
     background-color: black;
-    color: white;
-    border: 3px solid white; }
+    color: white; }
 
-.commentTitle_ud {
-  border-bottom: 2px solid #000;
-  font-size: 1.8rem;
-  line-height: 2.6rem;
-  font-weight: bold; }
+.comment-container {
+  position: relative;
+  padding-top: 1.5rem !important;
+  border: 5px double #000;
+  border-radius: 10px; }
+  .comment-container .commentTitle {
+    display: block;
+    position: absolute;
+    top: -1.7rem;
+    left: 1.5rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-indent: 0;
+    background-color: white; }
 
 .bg-p10-container {
   z-index: -1; }
@@ -1195,13 +1208,17 @@ header {
   .cards-container .card-body {
     padding: 0.5rem; }
 
+.enterotype-table td {
+  font-size: 1.2rem;
+  line-height: 2rem; }
+
 .tableComment {
   color: gray;
   font-size: 1.2rem; }
 
 .bg-p14 {
-  width: 80%;
-  height: 80%; }
+  width: 75%;
+  height: 75%; }
 
 .indexComment-container {
   border: 2px double #555555;

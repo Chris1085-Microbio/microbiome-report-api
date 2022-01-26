@@ -32,7 +32,7 @@ const getNewPages = (data, dynamicText) => {
   bodyFunctionText = flag == 0 ? dynamicText.bodyFunction.stable : bodyFunctionText
   bodyFunctionText = bodyFunctionText.slice(0, -1) + '。'
 
-  // NOTE 這邊要置換dynamicText.productDescription.BL.length字數限制，第三段文字字數
+  // TODO 這邊要置換dynamicText.productDescription.BL.length字數限制，第三段文字字數
   const lines =
     Math.ceil((indicesText.length + initIndexLen - firstLineLen) / lineTextLen) +
     Math.ceil((bodyFunctionText.length + initBodyLen - firstLineLen) / lineTextLen) +

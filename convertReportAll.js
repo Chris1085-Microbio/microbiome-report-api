@@ -19,6 +19,11 @@ try {
     gut.pagination +
     gut.summary(data) +
     gut.healthGuides(data, dynamicText) +
+    gut.biomeDistribution(data, dynamicText, newPages) +
+    gut.healthIndex(data, dynamicText, 9 + newPages) +
+    gut.fattyAcidSynthesis(data, dynamicText, 10 + newPages) +
+    gut.enterotyping(data, dynamicText, 11 + newPages) +
+    gut.biomeSummary(data, 12 + newPages) +
     appendix.pagination(32 + newPages) +
     appendix.gutBiome(33 + newPages) +
     appendix.howToGutBiome(34 + newPages) +

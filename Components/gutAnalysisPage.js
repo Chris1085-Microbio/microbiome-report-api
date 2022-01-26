@@ -233,7 +233,7 @@ const healthGuides = (data, dynamicText) => {
     // 把第一行插入至secondArr
     secondArr.unshift(tempSlice)
 
-    // NOTE 第三段敘述仍需要改
+    // TODO 第三段敘述仍需要改
     let productDescriptionMod =
       '近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的' +
       productDescription +
@@ -447,6 +447,373 @@ const healthGuides = (data, dynamicText) => {
   return htmlTemplate
 }
 
+const biomeDistribution = (data, dynamicText, pageNum) => {
+  const numGenus = data.analysisResult.numGenus
+  let bactDistDescription = ''
+  let bactDistTodoDescription = ''
+
+  if (numGenus > 80) {
+    bactDistDescription = dynamicText.bactDist.high.description
+    bactDistTodoDescription = dynamicText.bactDist.high.todoDescription
+  } else if (numGenus <= 80 && numGenus > 30) {
+    bactDistDescription = dynamicText.bactDist.medium.description
+    bactDistTodoDescription = dynamicText.bactDist.medium.todoDescription
+  } else {
+    bactDistDescription = dynamicText.bactDist.low.description
+    bactDistTodoDescription = dynamicText.bactDist.low.todoDescription
+  }
+
+  // TODO 需修正分布圖檔案位置
+  const htmlTemplate = `<!-- p8 -->
+      <page size="A4">
+        <header>
+          <div class="logo-container"></div>
+        </header>
+
+        <div class="d-flex flex-column align-items-center">
+          <div class="mt-8 w-100">
+            <div class="col-12 page-title-container mb-5">
+              <h3 class="page-title">1.3 菌相數量分布圖</h3>
+              <div class="parallelogram mr-2"></div>
+              <div class="parallelogram mr-5"></div>
+            </div>
+          </div>
+
+          <div class="mb-5 page-container">
+            <h4 class="py-1 px-2 pageSubtitle"><i class="far fa-chart-bar mr-1"></i>華人腸道菌相數量分布圖</h4>
+            <div class="bg-8-container d-flex justify-content-center mt-4">
+              <img class="bg-8" src="./assets/images/8.png" alt="" />
+            </div>
+            <h4 class="py-1 px-2 pageSubtitle"><i class="far fa-hand-point-right mr-1"></i>圖形說明</h4>
+            <p class="mt-4 text-indent">
+              中天生物科技利用次世代基因定序技術，同時結合國際微生物資料庫及中天生物科技獨有之資料庫進行驗證，建立了專屬華人的平均菌屬數量分布圖。而研究文獻均證實菌相數量和身體的免疫能力有正相關，數量越多，代表身體的免疫能力越強。<br />
+              您的個人菌屬數量為<span class="text-gold">${numGenus}</span>。由資料判斷，<span class="text-gold"
+                >${bactDistDescription}</span
+              >您因此建議您可透過服用中天生物科技所研發的〝腸生態個人化精準調理〞，<span class="text-gold"
+                >${bactDistTodoDescription}</span
+              >
+            </p>
+          </div>
+        </div>
+
+        <footer>
+          <div class="page-number">${pageNum}</div>
+        </footer>
+      </page>`
+
+  return htmlTemplate
+}
+
+const healthIndex = (data, dynamicText, pageNum) => {
+  // TODO 結果分析、評估需要帶入變數
+  const fb = data.analysisResult.FBRatio
+  const fbResult = '偏向厚壁菌門'
+  const fbEvaluate = '有體重增加趨勢'
+  const be = data.analysisResult.BERatio
+  const beResult = '菌群數量平衡'
+  const beEvaluate = '腸道菌相穩定'
+
+  const htmlTemplate = `<!-- p9 -->
+      <page size="A4">
+        <header>
+          <div class="logo-container"></div>
+        </header>
+
+        <div class="d-flex flex-column align-items-center">
+          <div class="mt-8 w-100">
+            <div class="col-12 page-title-container mb-5">
+              <h3 class="page-title">1.4 健康分析指標</h3>
+              <div class="parallelogram mr-2"></div>
+              <div class="parallelogram mr-5"></div>
+            </div>
+          </div>
+
+          <div class="mb-5 page-container">
+            <h4 class="py-1 px-2 pageSubtitle"><i class="fas fa-table mr-1"></i>F/B比值</h4>
+            <table class="fb-table text-center my-4">
+              <th>檢測數值</th>
+              <th>結果分析</th>
+              <th>評估</th>
+              <tr>
+                <td>${fb}</td>
+                <td>${fbResult}</td>
+                <td>${fbEvaluate}</td>
+              </tr>
+            </table>
+            <p class="comment-container ls-1 my-5 text-justify text-indent p-2">
+              <span class="commentTitle">檢測說明</span>
+
+              F/B分別指的是腸道菌群中的厚壁菌門 (F, Firmicutes) 和擬桿菌門 (B,
+              Bacteroidetes)，目前研究顯示F/B比值反應身體質量指數 (BMI)，與肥胖傾向相關。
+              厚壁菌門使碳水化合物代謝(carbohydrate
+              metabolism)，導致脂肪堆積造成體重增加。所以調控F/B比值有助於體重控制。
+            </p>
+
+            <h4 class="py-1 px-2 pageSubtitle"><i class="fas fa-table mr-1"></i>B/E比值</h4>
+
+            <table class="fb-table text-center my-4">
+              <th>檢測數值</th>
+              <th>結果分析</th>
+              <th>評估</th>
+              <tr>
+                <td>${be}</td>
+                <td>${beResult}</td>
+                <td>${beEvaluate}</td>
+              </tr>
+            </table>
+            <p class="comment-container ls-1 my-5 text-justify text-indent p-2">
+              <span class="commentTitle">檢測說明</span>
+              B/E比值是指雙歧桿菌屬（Bifidobacterium）和腸桿菌科（Enterobacteriaceae）的比值，目前研究顯示B/E比值反應腸道菌相平衡。若B/E數值大於1，表示腸道菌群處於平衡狀態；但若B/E數值小於1，表示腸道菌群處於失衡狀態，可能會造成腹瀉、過敏或代謝失調等等現象。
+            </p>
+          </div>
+        </div>
+
+        <footer>
+          <div class="page-number">${pageNum}</div>
+        </footer>
+      </page>`
+
+  return htmlTemplate
+}
+
+const fattyAcidSynthesis = (data, dynamicText, pageNum) => {
+  // TODO 結果分析、評估需要帶入變數
+  const acidB = '0.0011'
+  const acidBEvluate = '<span class="text-danger">合成能力偏低</span>'
+  const acidC = '0.2458'
+  const acidCEvluate = '合成能力正常'
+  const acidD = '2.3509'
+  const acidDEvluate = '合成能力正常'
+
+  const htmlTemplate = `<!-- p10 -->
+      <page size="A4">
+        <header>
+          <div class="logo-container"></div>
+        </header>
+
+        <div class="d-flex flex-column align-items-center">
+          <div class="mt-8 w-100">
+            <div class="col-12 page-title-container mb-5">
+              <h3 class="page-title">1.5 短鏈脂肪酸合成能力</h3>
+              <div class="parallelogram mr-2"></div>
+              <div class="parallelogram mr-5"></div>
+            </div>
+          </div>
+
+          <div class="mb-5 page-container">
+            <h4 class="py-1 px-2 pageSubtitle"><i class="fas fa-table mr-1"></i>檢測結果</h4>
+            <table class="fb-table text-center my-4">
+              <th>檢測數值</th>
+              <th>結果分析</th>
+              <th>評估</th>
+              <tr class="border-bottom border-dark">
+                <td>乙酸</td>
+                <td>${acidB} %</td>
+                <td>${acidBEvluate}</td>
+              </tr>
+              <tr class="border-bottom border-dark">
+                <td>丙酸</td>
+                <td>${acidC} %</td>
+                <td>${acidCEvluate}</td>
+              </tr>
+              <tr class="border-bottom border-dark">
+                <td>丁酸</td>
+                <td>${acidD} %</td>
+
+                <td>${acidDEvluate}</td>
+              </tr>
+            </table>
+            <h4 class="py-1 px-2 pageSubtitle"><i class="far fa-hand-point-right mr-1"></i>檢測說明</h4>
+            <p class="ls-1 my-4 text-justify text-indent">
+              飲食中人體無法消化分解的膳食纖維，經由腸道中的益菌發酵成為可吸收利用的短鏈脂肪酸。腸道中的短鏈脂肪酸以乙酸、丙酸、丁酸這三種為主，主要功能為提供腸道細胞能量、促進腸道細胞分化、維持腸道粘膜健康與健全益菌生長環境。目前文獻證實丁酸具有調節免疫細胞的功能，為次世代保健食品，透過增加調節性T細胞，使腸道維持健康的免疫狀態
+              ; 同時丁酸具有促進腸道激素(腸泌素)釋放，達到穩定血糖的作用。
+            </p>
+
+            <div class="bg-container bg-p10-container">
+              <div class="bg-ori bg-p10"></div>
+              <div class="bg-mask"></div>
+            </div>
+          </div>
+        </div>
+
+        <footer>
+          <div class="page-number">${pageNum}</div>
+        </footer>
+      </page>`
+
+  return htmlTemplate
+}
+
+const enterotyping = (data, dynamicText, pageNum) => {
+  let type = data.analysisResult.enterotype
+  const typeText = dynamicText.enterotype[type]
+  type = type.replace('type', '腸型')
+
+  const htmlTemplate = `<!-- p11 -->
+      <page size="A4">
+        <header>
+          <div class="logo-container"></div>
+        </header>
+
+        <div class="d-flex flex-column align-items-center">
+          <div class="mt-8 w-100">
+            <div class="col-12 page-title-container mb-5">
+              <h3 class="page-title">1.6 腸型分析</h3>
+              <div class="parallelogram mr-2"></div>
+              <div class="parallelogram mr-5"></div>
+            </div>
+          </div>
+
+          <div class="mb-5 page-container">
+            <h4 class="py-1 px-2 pageSubtitle"><i class="fas fa-table mr-1"></i>檢測結果</h4>
+            <table class="fb-table my-4 enterotype-table">
+              <th class="col-3 text-center">檢測數值</th>
+              <th class="col-9 text-center">結果分析</th>
+              <tr>
+                <td class="text-center align-middle"><h4>${type}</h4></td>
+                <td class="text-justify p-2">
+                  ${typeText}
+                </td>
+              </tr>
+            </table>
+            <h4 class="py-1 px-2 pageSubtitle"><i class="far fa-hand-point-right mr-1"></i>檢測說明</h4>
+            <div class="cards-container d-flex justify-content-between mt-4">
+              <div class="card col-4 d-flex flex-column align-items-center">
+                <h5 class="text-center my-2 fw-bold">腸型1</h5>
+                <img src="./assets/images/Gut_mod-1.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h6 class="card-title text-center w-100">擬桿菌Bacteroides</h6>
+                  <p class="card-text ls-1">
+                    此類人群，飲食傾向高脂肪及高蛋白攝取，腸道中富含擬桿菌，較易分解碳水化合物及蛋白質來獲取所需能量，此類人群較不易肥胖。
+                  </p>
+                </div>
+              </div>
+              <div class="card col-4 d-flex flex-column align-items-center">
+                <h5 class="text-center my-2 fw-bold">腸型2</h5>
+                <img src="./assets/images/Gut_mod-2.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h6 class="card-title text-center w-100">普氏菌 Prevotella</h6>
+                  <p class="card-text ls-1">
+                    此類人群，飲食傾向高纖維食物攝取，腸道中富含普氏菌
+                    ，導致腸道黏液分解，腸道防護力下降，較易有腸道疼痛不適的狀況。
+                  </p>
+                </div>
+              </div>
+              <div class="card col-4 d-flex flex-column align-items-center">
+                <h5 class="text-center my-2 fw-bold">腸型3</h5>
+                <img src="./assets/images/Gut_mod-3.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h6 class="card-title text-center w-100">瘤胃球菌Ruminococcus</h6>
+                  <p class="card-text ls-1">
+                    此類腸型人群其腸道中富含瘤胃球菌，瘤胃球菌較易吸收糖分，此類腸型人群較容易增重。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer>
+          <div class="page-number">${pageNum}</div>
+        </footer>
+      </page>`
+
+  return htmlTemplate
+}
+
+const biomeSummary = (data, pageNum) => {
+  const gutBiome = data.GutBiome
+  const htmlTemplate = `<!-- p12 -->
+      <page size="A4">
+        <header>
+          <div class="logo-container"></div>
+        </header>
+
+        <div class="d-flex flex-column align-items-center">
+          <div class="mt-8 w-100">
+            <div class="col-12 page-title-container mb-5">
+              <h3 class="page-title">1.7 腸道菌相總覽</h3>
+              <div class="parallelogram mr-2"></div>
+              <div class="parallelogram mr-5"></div>
+            </div>
+          </div>
+
+          <div class="mb-5 page-container">
+            <h4 class="py-1 px-2 pageSubtitle"><i class="far fa-chart-bar mr-1"></i>您的腸道菌相結構分布：</h4>
+
+            <div class="distribution-container d-flex my-2">
+              <img src="./assets/images/12_1.png" alt="" class="col-7" />
+              <img src="./assets/images/12_2.png" alt="" class="col-5" />
+            </div>
+
+            <h4 class="py-1 px-2 pageSubtitle"><i class="fas fa-table mr-1"></i>您的腸道菌：</h4>
+            <span class="tableComment d-block w-100 text-center mt-4"
+              >根據對您腸道菌群的檢測，您的腸道內微生物結構分佈如下表：
+            </span>
+            <table class="fb-table mt-3 text-center">
+              <th class="col-3 text-center">排名</th>
+              <th class="col-6 text-center" colspan="2">細菌菌門</th>
+              <th class="col-3 text-center">比例</th>
+              <tr class="border-bottom border-dark">
+                <td>1</td>
+                <td>${gutBiome[0].name}</td>
+                <td>${gutBiome[0].chtName}</td>
+                <td>${gutBiome[0].percentage}</td>
+              </tr>
+              <tr class="border-bottom border-dark">
+                <td>2</td>
+                <td>${gutBiome[1].name}</td>
+                <td>${gutBiome[1].chtName}</td>
+                <td>${gutBiome[1].percentage}</td>
+              </tr>
+              <tr class="border-bottom border-dark">
+                <td>3</td>
+                <td>${gutBiome[2].name}</td>
+                <td>${gutBiome[2].chtName}</td>
+                <td>${gutBiome[2].percentage}</td>
+              </tr>
+              <tr class="border-bottom border-dark">
+                <td>4</td>
+                <td>${gutBiome[3].name}</td>
+                <td>${gutBiome[3].chtName}</td>
+                <td>${gutBiome[3].percentage}</td>
+              </tr>
+              <tr class="border-bottom border-dark">
+                <td>5</td>
+                <td>${gutBiome[4].name}</td>
+                <td>${gutBiome[4].chtName}</td>
+                <td>${gutBiome[4].percentage}</td>
+              </tr>
+              <tr class="border-bottom border-dark">
+                <td>6</td>
+                <td>${gutBiome[5].name}</td>
+                <td>${gutBiome[5].chtName}</td>
+                <td>${gutBiome[5].percentage}</td>
+              </tr>
+              <tr class="border-bottom border-dark">
+                <td>7</td>
+                <td>${gutBiome[6].name}</td>
+                <td>${gutBiome[6].chtName}</td>
+                <td>${gutBiome[6].percentage}</td>
+              </tr>
+              <tr class="border-bottom border-dark">
+                <td>8</td>
+                <td>${gutBiome[7].name}</td>
+                <td>${gutBiome[7].chtName}</td>
+                <td>${gutBiome[7].percentage}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <footer>
+          <div class="page-number">${pageNum}</div>
+        </footer>
+      </page>`
+
+  return htmlTemplate
+}
+
 const indexStatus = (value) => {
   if (81 <= value && value <= 100) {
     return '優良'
@@ -467,4 +834,13 @@ const bodyFunctionStatus = (value) => {
   }
 }
 
-module.exports = { pagination, summary, healthGuides }
+module.exports = {
+  pagination,
+  summary,
+  healthGuides,
+  biomeDistribution,
+  healthIndex,
+  fattyAcidSynthesis,
+  enterotyping,
+  biomeSummary
+}
