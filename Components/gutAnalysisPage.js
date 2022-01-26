@@ -168,8 +168,281 @@ const summary = (data) => {
 }
 
 const healthGuides = (data, dynamicText) => {
-  const { newPages, indicesText, bodyFunctionText } = computed.getNewPages(data, dynamicText)
+  // 計算在指引頁上需要填入的資料及是否有新增頁數
+  const { newPages, indicesText, bodyFunctionText, productDescription } = computed.getNewPages(data, dynamicText)
   let htmlTemplate = ''
+
+  // 假如沒有新增頁數
+  if (newPages == 0) {
+    htmlTemplate = `<!-- p7 -->
+      <page size="A4" class="bg-p7">
+        <header>
+          <div class="logo-container"></div>
+        </header>
+
+        <div class="d-flex flex-column align-items-center w-100">
+          <div class="mt-8 w-100 zi-1">
+            <div class="col-12 page-title-container mb-5">
+              <h3 class="page-title">1.2 腸道健康指引</h3>
+              <div class="parallelogram mr-2"></div>
+              <div class="parallelogram mr-5"></div>
+            </div>
+          </div>
+
+          <!-- <div class="mb-5 page-container "> -->
+          <div class="healthGuide-container">
+            <p class="fw-bold text-indent">
+              在您這次的腸道菌相檢測結果，首先在六大核心指數中，<span class="text-gold"
+                >${indicesText}
+              </span>
+            </p>
+            <br />
+            <p class="fw-bold text-indent">
+              其次，在身體功能評估方面<span class="text-gold"
+                >${bodyFunctionText}
+              </span>
+            </p>
+            <br />
+            <p class="fw-bold text-indent">
+              近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的<span
+                class="text-gold"
+                >${productDescription}</span
+              >使您的身體常保青春活力。
+            </p>
+          </div>
+          <!-- </div> -->
+        </div>
+
+        <footer>
+          <div class="page-number">7</div>
+        </footer>
+      </page>`
+  } else {
+    // 假如有新增頁數
+    // 先取出字串第一段第一個字與不需要顯色的文字敘述拼成第一行
+    let tempSlice = '在您這次的腸道菌相檢測結果，首先在六大核心指數中，' + indicesText.slice(0, 1)
+    // 取出後面文字並以27字數為一行算行數
+    let firstArr = indicesText.slice(1).match(/.{1,27}/g)
+    // 把第一行插入至firstArr
+    firstArr.unshift(tempSlice)
+
+    // 先取出字串第二段14個字與不需要顯色的文字敘述拼成第一行
+    tempSlice = '其次，在身體功能評估方面' + bodyFunctionText.slice(0, 14)
+    // 取出後面文字並以27字數為一行算行數
+    let secondArr = bodyFunctionText.slice(14).match(/.{1,27}/g)
+    // 把第一行插入至secondArr
+    secondArr.unshift(tempSlice)
+
+    // NOTE 第三段敘述仍需要改
+    let productDescriptionMod =
+      '近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的' +
+      productDescription +
+      '使您的身體常保青春活力。'
+
+    // 取出文字並以26字數為第一行
+    tempSlice = productDescriptionMod.slice(0, 26)
+    // 取出後面文字並以27字數為一行算行數
+    let thirdArr = productDescriptionMod.slice(26).match(/.{1,27}/g)
+    // 把第一行插入至thirdArr
+    thirdArr.unshift(tempSlice)
+
+    // 將25行以前以後分為page1Arr及page2Arr
+    let page1Arr = firstArr.concat(secondArr).concat(thirdArr).slice(0, 25)
+    let page2Arr = firstArr.concat(secondArr).concat(thirdArr).slice(25)
+    let page1Part2 = ''
+    let page1Part3 = ''
+    let page2Part2 = ''
+    let page2Part3 = ''
+
+    // 假如第二頁文字是卡在第二段時
+    if (firstArr.length + secondArr.length > 25) {
+      // 計算page1Part2
+      page1Part2 = page1Arr.join('').split('其次，在身體功能評估方面，').slice(-1)
+      // 計算page2Part2
+      page2Part2 = page2Arr
+        .join('')
+        .split(
+          '近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的'
+        )
+        .slice(0, 1)
+
+      // 計算page2Part3
+      page2Part3 = productDescription
+
+      // 塞入htmlTemplate
+      htmlTemplate = `<!-- p7 -->
+      <page size="A4" class="bg-p7">
+        <header>
+          <div class="logo-container"></div>
+        </header>
+
+        <div class="d-flex flex-column align-items-center w-100">
+          <div class="mt-8 w-100 zi-1">
+            <div class="col-12 page-title-container mb-5">
+              <h3 class="page-title">1.2 腸道健康指引</h3>
+              <div class="parallelogram mr-2"></div>
+              <div class="parallelogram mr-5"></div>
+            </div>
+          </div>
+
+          <!-- <div class="mb-5 page-container "> -->
+          <div class="healthGuide-container">
+            <p class="fw-bold text-indent">
+              在您這次的腸道菌相檢測結果，首先在六大核心指數中，<span class="text-gold"
+                >${indicesText}
+              </span>
+            </p>
+            <br />
+            <p class="fw-bold text-indent">
+              其次，在身體功能評估方面，<span class="text-gold"
+                >${page1Part2}
+              </span>
+            </p>
+          </div>
+          <!-- </div> -->
+        </div>
+
+        <footer>
+          <div class="page-number">7</div>
+        </footer>
+      </page>`
+
+      htmlTemplate += `
+      <!-- p7 -->
+      <page size="A4" class="bg-p7">
+        <header>
+          <div class="logo-container"></div>
+        </header>
+
+        <div class="d-flex flex-column align-items-center w-100">
+          <div class="mt-8 w-100 zi-1">
+            <div class="col-12 page-title-container mb-5">
+              <h3 class="page-title">1.2 腸道健康指引</h3>
+              <div class="parallelogram mr-2"></div>
+              <div class="parallelogram mr-5"></div>
+            </div>
+          </div>
+
+          <!-- <div class="mb-5 page-container "> -->
+          <div class="healthGuide-container">
+            <p class="fw-bold text-indent">
+              其次，在身體功能評估方面<span class="text-gold"
+                >${page2Part2}
+              </span>
+            </p>
+            <br />
+            <p class="fw-bold text-indent">
+              近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的<span
+                class="text-gold"
+                >${page2Part3}</span
+              >使您的身體常保青春活力。
+            </p>
+          </div>
+          <!-- </div> -->
+        </div>
+
+        <footer>
+          <div class="page-number">8</div>
+        </footer>
+      </page>
+      `
+    } else if (firstArr.length + secondArr.length + thirdArr.length > 25) {
+      // 假如第二頁文字是卡在第三段時
+      // 計算page1Part3
+      page1Part3 = page1Arr
+        .join('')
+        .split('近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的')
+        .slice(-1)
+        .join('')
+        .split('關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技')
+        .slice(-1)
+        .join('')
+        .split('所研發的')
+        .slice(-1)
+
+      // 計算page2Part3
+      page2Part3 = page2Arr.join('').split('所研發的').slice(-1).join('').split('使您的身體常保青春活力。')[0]
+
+      // 塞入htmlTemplate
+      htmlTemplate = `<!-- p7 -->
+      <page size="A4" class="bg-p7">
+        <header>
+          <div class="logo-container"></div>
+        </header>
+
+        <div class="d-flex flex-column align-items-center w-100">
+          <div class="mt-8 w-100 zi-1">
+            <div class="col-12 page-title-container mb-5">
+              <h3 class="page-title">1.2 腸道健康指引</h3>
+              <div class="parallelogram mr-2"></div>
+              <div class="parallelogram mr-5"></div>
+            </div>
+          </div>
+
+          <!-- <div class="mb-5 page-container "> -->
+          <div class="healthGuide-container">
+            <p class="fw-bold text-indent">
+              在您這次的腸道菌相檢測結果，首先在六大核心指數中，<span class="text-gold"
+                >${indicesText}
+              </span>
+            </p>
+            <br />
+            <p class="fw-bold text-indent">
+              其次，在身體功能評估方面，<span class="text-gold"
+                >${bodyFunctionText}
+              </span>
+            </p>
+            <br />
+            <p class="fw-bold text-indent">
+              近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的<span
+                class="text-gold"
+                >${page1Part3}</span
+              >使您的身體常保青春活力。
+            </p>
+          </div>
+          <!-- </div> -->
+        </div>
+
+        <footer>
+          <div class="page-number">7</div>
+        </footer>
+      </page>`
+
+      htmlTemplate += `
+      <!-- p7 -->
+      <page size="A4" class="bg-p7">
+        <header>
+          <div class="logo-container"></div>
+        </header>
+
+        <div class="d-flex flex-column align-items-center w-100">
+          <div class="mt-8 w-100 zi-1">
+            <div class="col-12 page-title-container mb-5">
+              <h3 class="page-title">1.2 腸道健康指引</h3>
+              <div class="parallelogram mr-2"></div>
+              <div class="parallelogram mr-5"></div>
+            </div>
+          </div>
+
+          <!-- <div class="mb-5 page-container "> -->
+          <div class="healthGuide-container">
+            <p class="fw-bold text-indent">
+              近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的<span
+                class="text-gold"
+                >${page2Part3}</span
+              >使您的身體常保青春活力。
+            </p>
+          </div>
+          <!-- </div> -->
+        </div>
+
+        <footer>
+          <div class="page-number">8</div>
+        </footer>
+      </page>
+      `
+    }
+  }
 
   return htmlTemplate
 }

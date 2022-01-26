@@ -9,7 +9,6 @@ const computed = require('./Components/computed')
 try {
   const data = JSON.parse(fs.readFileSync('./json/All.json'))
   const dynamicText = JSON.parse(fs.readFileSync('./json/dynamicText.json'))
-
   const { newPages } = computed.getNewPages(data, dynamicText)
 
   let template =
