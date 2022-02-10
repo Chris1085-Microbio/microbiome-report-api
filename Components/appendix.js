@@ -153,7 +153,7 @@ const bloodTestMeaning = (pageNum) => {
         </div>
 
         <footer>
-          <div class="page-number">${pageNum}5</div>
+          <div class="page-number">${pageNum}</div>
         </footer>
       </page>`
 }

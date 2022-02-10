@@ -1,4 +1,5 @@
 const fs = require('fs')
+const moment = require('moment')
 const headerHTML = require('./Components/headerPage')
 const footerHTML = require('./Components/footerPage')
 const previewInfo = require('./Components/previewInfo')
@@ -8,6 +9,7 @@ const bloodTest = require('./Components/bloodTest')
 const bodyFunction = require('./Components/bodyFunction')
 const appendix = require('./Components/appendix')
 const computed = require('./Components/computed')
+const date = moment().format('YYYY-MM-DD HH:mm:ss')
 
 try {
   const data = JSON.parse(fs.readFileSync('./json/All.json'))
@@ -55,6 +57,8 @@ try {
     footerHTML
 
   fs.writeFileSync('./report.html', template)
+
+  console.log(`[${date}] OK! Template File converted to ./report.html!`)
 } catch (err) {
   console.error(err)
 }
