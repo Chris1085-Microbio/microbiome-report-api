@@ -12,7 +12,7 @@ const computed = require('./Components/computed')
 const date = moment().format('YYYY-MM-DD HH:mm:ss')
 
 try {
-  const data = JSON.parse(fs.readFileSync('./json/All.json'))
+  const data = JSON.parse(fs.readFileSync('./json/Adam.json'))
   const dynamicText = JSON.parse(fs.readFileSync('./json/dynamicText.json'))
   const { newPages } = computed.getNewPages(data, dynamicText)
 
@@ -24,7 +24,7 @@ try {
     gut.pagination +
     gut.summary(data) +
     gut.healthGuides(data, dynamicText) +
-    gut.biomeDistribution(data, dynamicText, newPages) +
+    gut.biomeDistribution(data, dynamicText, 8 + newPages) +
     gut.healthIndex(data, dynamicText, 9 + newPages) +
     gut.fattyAcidSynthesis(data, dynamicText, 10 + newPages) +
     gut.enterotyping(data, dynamicText, 11 + newPages) +
@@ -38,16 +38,16 @@ try {
     bloodTest.table1(19 + newPages) +
     bloodTest.table2(20 + newPages) +
     bodyFunction.pagination(21 + newPages) +
-    bodyFunction.PDAD(data.bodyFunction.PDAD, 22 + newPages) +
-    bodyFunction.cvd(data.bodyFunction.cvd, 23 + newPages) +
-    bodyFunction.lung(data.bodyFunction.lung, 24 + newPages) +
-    bodyFunction.nafld(data.bodyFunction.nafld, 25 + newPages) +
-    bodyFunction.ckd(data.bodyFunction.ckd, 26 + newPages) +
-    bodyFunction.gastitis(data.bodyFunction.gastitis, 27 + newPages) +
-    bodyFunction.colitis(data.bodyFunction.colitis, 28 + newPages) +
-    bodyFunction.immune(data.bodyFunction.immune, 29 + newPages) +
-    bodyFunction.obesity(data.bodyFunction.obesity, 30 + newPages) +
-    bodyFunction.metabolism(data.bodyFunction.metabolism, 31 + newPages) +
+    bodyFunction.PDAD(data.PDAD, 22 + newPages) +
+    bodyFunction.cvd(data.HeartVessel, 23 + newPages) +
+    bodyFunction.lung(data.Lung, 24 + newPages) +
+    bodyFunction.nafld(data.Liver, 25 + newPages) +
+    bodyFunction.ckd(data.Kidney, 26 + newPages) +
+    bodyFunction.gastitis(data.Stomach, 27 + newPages) +
+    bodyFunction.colitis(data.Intestine, 28 + newPages) +
+    bodyFunction.immune(data.Immune, 29 + newPages) +
+    bodyFunction.obesity(data.Obesity, 30 + newPages) +
+    bodyFunction.metabolism(data.Metabolism, 31 + newPages) +
     appendix.pagination(32 + newPages) +
     appendix.gutBiome(33 + newPages) +
     appendix.howToGutBiome(34 + newPages) +

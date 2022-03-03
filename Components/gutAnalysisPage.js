@@ -22,22 +22,22 @@ const pagination = `      <!-- p5 -->
 const summary = (data) => {
   // NOTE gutSummary API
   const shannon = indexStatus(parseInt(data.indices.shannon))
-  const goodBad = indexStatus(parseInt(data.indices.goodBad))
-  const glucose = indexStatus(parseInt(data.indices.glucose))
-  const oil = indexStatus(parseInt(data.indices.oil))
-  const immuneIndex = indexStatus(parseInt(data.indices.immuneindex))
-  const giFunction = indexStatus(parseInt(data.indices.gifunction))
+  const goodBad = indexStatus(parseInt(data.indices.GoodBad))
+  const glucose = indexStatus(parseInt(data.indices.GlucoseIndex))
+  const oil = indexStatus(parseInt(data.indices.OilIndex))
+  const immuneIndex = indexStatus(parseInt(data.indices.ImmuneIndex))
+  const giFunction = indexStatus(parseInt(data.indices.GutFunction))
 
-  const brain = bodyFunctionStatus(parseInt(data.bodyFunction.PDAD.score))
-  const cardiovascular = bodyFunctionStatus(parseInt(data.bodyFunction.cvd.score))
-  const lung = bodyFunctionStatus(parseInt(data.bodyFunction.lung.score))
-  const liver = bodyFunctionStatus(parseInt(data.bodyFunction.nafld.score))
-  const kidney = bodyFunctionStatus(parseInt(data.bodyFunction.ckd.score))
-  const gastric = bodyFunctionStatus(parseInt(data.bodyFunction.gastitis.score))
-  const colitis = bodyFunctionStatus(parseInt(data.bodyFunction.colitis.score))
-  const immune = bodyFunctionStatus(parseInt(data.bodyFunction.immune.score))
-  const obesity = bodyFunctionStatus(parseInt(data.bodyFunction.obesity.score))
-  const metabolism = bodyFunctionStatus(parseInt(data.bodyFunction.metabolism.score))
+  const brain = bodyFunctionStatus(parseInt(data.PDAD.score))
+  const cardiovascular = bodyFunctionStatus(parseInt(data.HeartVessel.score))
+  const lung = bodyFunctionStatus(parseInt(data.Lung.score))
+  const liver = bodyFunctionStatus(parseInt(data.Liver.score))
+  const kidney = bodyFunctionStatus(parseInt(data.Kidney.score))
+  const gastric = bodyFunctionStatus(parseInt(data.Stomach.score))
+  const colitis = bodyFunctionStatus(parseInt(data.Intestine.score))
+  const immune = bodyFunctionStatus(parseInt(data.Immune.score))
+  const obesity = bodyFunctionStatus(parseInt(data.Obesity.score))
+  const metabolism = bodyFunctionStatus(parseInt(data.Metabolism.score))
 
   const htmlTemplate = `<!-- p6 -->
       <page size="A4">
@@ -446,9 +446,8 @@ const healthGuides = (data, dynamicText) => {
 
   return htmlTemplate
 }
-
 const biomeDistribution = (data, dynamicText, pageNum) => {
-  const numGenus = data.analysisResult.numGenus
+  const numGenus = data.analysisResult.NumberOfGenus
   let bactDistDescription = ''
   let bactDistTodoDescription = ''
 
@@ -462,6 +461,7 @@ const biomeDistribution = (data, dynamicText, pageNum) => {
     bactDistDescription = dynamicText.bactDist.low.description
     bactDistTodoDescription = dynamicText.bactDist.low.todoDescription
   }
+  console.log(pageNum)
 
   // TODO 需修正分布圖檔案位置
   const htmlTemplate = `<!-- p8 -->
@@ -482,7 +482,7 @@ const biomeDistribution = (data, dynamicText, pageNum) => {
           <div class="mb-5 page-container">
             <h4 class="py-1 px-2 pageSubtitle"><i class="far fa-chart-bar mr-1"></i>華人腸道菌相數量分布圖</h4>
             <div class="bg-8-container d-flex justify-content-center mt-4">
-              <img class="bg-8" src="./assets/images/8.png" alt="" />
+              <img class="bg-8" src="./assets/images/8_test.png" alt="" />
             </div>
             <h4 class="py-1 px-2 pageSubtitle"><i class="far fa-hand-point-right mr-1"></i>圖形說明</h4>
             <p class="mt-4 text-indent">
@@ -507,11 +507,11 @@ const biomeDistribution = (data, dynamicText, pageNum) => {
 const healthIndex = (data, dynamicText, pageNum) => {
   // TODO 結果分析、評估需要帶入變數
   const fb = data.analysisResult.FBRatio
-  const fbResult = '偏向厚壁菌門'
-  const fbEvaluate = '有體重增加趨勢'
+  const fbResult = fb > 1 ? '偏向厚壁菌門' : '偏向擬桿菌門'
+  const fbEvaluate = fb > 1 ? '有體重增加趨勢' : '體重穩定'
   const be = data.analysisResult.BERatio
-  const beResult = '菌群數量平衡'
-  const beEvaluate = '腸道菌相穩定'
+  const beResult = be <= 30 ? '<span class="text-danger">菌群數量失衡</span>' : '菌群數量平衡'
+  const beEvaluate = be <= 30 ? '<span class="text-danger">腸道菌項失衡</span>' : '腸道菌相穩定'
 
   const htmlTemplate = `<!-- p9 -->
       <page size="A4">
@@ -578,12 +578,17 @@ const healthIndex = (data, dynamicText, pageNum) => {
 
 const fattyAcidSynthesis = (data, dynamicText, pageNum) => {
   // TODO 結果分析、評估需要帶入變數
-  const acidB = '0.0011'
-  const acidBEvluate = '<span class="text-danger">合成能力偏低</span>'
-  const acidC = '0.2458'
-  const acidCEvluate = '合成能力正常'
-  const acidD = '2.3509'
-  const acidDEvluate = '合成能力正常'
+  const acidB = roundToTwo(data.analysisResult.TotalAcetateAbundance * 100)
+  const acidB_percentile = data.analysisResult.TotalAcetatePercentile
+  const acidBEvluate = acidB_percentile <= 30 ? '<span class="text-danger">合成能力偏低</span>' : '合成能力正常'
+
+  const acidC = roundToTwo(data.analysisResult.TotalPropionateAbundance * 100)
+  const acidC_percentile = data.analysisResult.TotalPropionatePercentile
+  const acidCEvluate = acidC_percentile <= 30 ? '<span class="text-danger">合成能力偏低</span>' : '合成能力正常'
+
+  const acidD = roundToTwo(data.analysisResult.TotalButyrateAbundance * 100)
+  const acidD_percentile = data.analysisResult.TotalButyratePercentile
+  const acidDEvluate = acidD_percentile <= 30 ? '<span class="text-danger">合成能力偏低</span>' : '合成能力正常'
 
   const htmlTemplate = `<!-- p10 -->
       <page size="A4">
@@ -645,8 +650,8 @@ const fattyAcidSynthesis = (data, dynamicText, pageNum) => {
 }
 
 const enterotyping = (data, dynamicText, pageNum) => {
-  let type = data.analysisResult.enterotype
-  const typeText = dynamicText.enterotype[type]
+  let type = data.analysisResult.Enterotype
+  const typeText = dynamicText.Enterotype[type]
   type = type.replace('type', '腸型')
 
   const htmlTemplate = `<!-- p11 -->
@@ -742,8 +747,7 @@ const biomeSummary = (data, pageNum) => {
             <h4 class="py-1 px-2 pageSubtitle"><i class="far fa-chart-bar mr-1"></i>您的腸道菌相結構分布：</h4>
 
             <div class="distribution-container d-flex my-2">
-              <img src="./assets/images/12_1.png" alt="" class="col-7" />
-              <img src="./assets/images/12_2.png" alt="" class="col-5" />
+              <img src="./assets/images/12_test.png" alt="" class="col-12" />
             </div>
 
             <h4 class="py-1 px-2 pageSubtitle"><i class="fas fa-table mr-1"></i>您的腸道菌：</h4>
@@ -832,6 +836,10 @@ const bodyFunctionStatus = (value) => {
   } else {
     return '<span class="text-danger">高度風險</span>'
   }
+}
+
+function roundToTwo(num) {
+  return +(Math.round(num + 'e+2') + 'e-2')
 }
 
 module.exports = {

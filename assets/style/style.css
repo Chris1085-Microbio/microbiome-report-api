@@ -1220,6 +1220,18 @@ header {
   width: 75%;
   height: 75%; }
 
+.sixcore {
+  position: relative; }
+  .sixcore::after {
+    position: absolute;
+    content: '';
+    background-image: url("../images/SixCoreIndexLegend.png");
+    background-size: 96px 168px;
+    height: 168px;
+    width: 96px;
+    bottom: 20px;
+    right: 60px; }
+
 .indexComment-container {
   border: 2px solid #555555;
   position: relative; }

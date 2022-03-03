@@ -41,16 +41,16 @@ const previewText = `      <!-- p2 -->
 
 const customerInfo = (data) => {
   // TODO customerInfo 需要更多資訊放在API上實作
-  const name = 'TEST'
-  const age = 29
-  const gender = '男'
-  const id = 'F012345678'
-  const sampleId = 'GI22-99999-B1'
-  const sampleDate = '2022-01-01'
-  const reciveDate = '2022-01-02'
-  const reportDate = '2022-02-01'
-  const sendPlace = 'NTUH'
-  const analysisItem = 'FMC'
+  const name = data.customer.id
+  const age = ''
+  const gender = ''
+  const id = ''
+  const sampleId = ''
+  const sampleDate = ''
+  const reciveDate = ''
+  const reportDate = ''
+  const sendPlace = ''
+  const analysisItem = ''
 
   let htmlTemplate = `<!-- p3 -->
       <page size="A4">

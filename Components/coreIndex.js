@@ -29,6 +29,8 @@ const summary = (data, dynamicText, newPages) => {
     }
   })
 
+  tempText = tempText == '' ? dynamicText.indicesDescription.stable : tempText
+
   // TODO 需要置換圖檔
   const htmlTemplate = `<!-- p14 -->
       <page size="A4">
@@ -46,8 +48,8 @@ const summary = (data, dynamicText, newPages) => {
           </div>
 
           <div class="page-container">
-            <div class="image-container d-flex justify-content-center w-100">
-              <img src="./assets/images/14.png" alt="" class="bg-p14" />
+            <div class="image-container d-flex justify-content-center w-100 sixcore">
+              <img src="./assets/images/SixCoreIndex.png" alt="" class="bg-p14" />
             </div>
 
             <h4 class="py-1 px-2 pageSubtitle"><i class="far fa-hand-point-right mr-1"></i>結果說明</h4>
@@ -69,7 +71,7 @@ const summary = (data, dynamicText, newPages) => {
 
 const index1 = (data, dynamicText, newPages) => {
   const shannon = getBtnTemplate(data.indices, 'shannon')
-  const goodbad = getBtnTemplate(data.indices, 'goodbad')
+  const goodbad = getBtnTemplate(data.indices, 'GoodBad')
 
   // TODO 需要置換圖檔
   const htmlTemplate = `<!-- p15 -->
@@ -92,7 +94,7 @@ const index1 = (data, dynamicText, newPages) => {
             <div class="d-flex justify-content-between mt-4">
               ${shannon}
               <div class="bg-p15-1-container">
-                <img src="./assets/images/15_1.png" alt="" class="indexImg" />
+                <img src="./assets/images/15_1_1.png" alt="" class="indexImg" />
               </div>
             </div>
             <div class="indexComment-container d-flex justify-content-between mb-4 p-2">
@@ -107,7 +109,7 @@ const index1 = (data, dynamicText, newPages) => {
             <div class="d-flex justify-content-between mt-4">
               ${goodbad}
               <div class="bg-p15-1-container">
-                <img src="./assets/images/15_2.png" alt="" class="indexImg" />
+                <img src="./assets/images/15_2_1.png" alt="" class="indexImg" />
               </div>
             </div>
             <div class="indexComment-container d-flex justify-content-between p-2">
@@ -137,8 +139,8 @@ const index1 = (data, dynamicText, newPages) => {
 }
 
 const index2 = (data, dynamicText, newPages) => {
-  const glucose = getBtnTemplate(data.indices, 'glucose')
-  const oil = getBtnTemplate(data.indices, 'oil')
+  const glucose = getBtnTemplate(data.indices, 'GlucoseIndex')
+  const oil = getBtnTemplate(data.indices, 'OilIndex')
 
   // TODO 需要置換圖檔
   const htmlTemplate = `<!-- p16 -->
@@ -161,7 +163,7 @@ const index2 = (data, dynamicText, newPages) => {
             <div class="d-flex justify-content-between mt-4">
               ${glucose}
               <div class="bg-p15-1-container">
-                <img src="./assets/images/16_1.png" alt="" class="indexImg" />
+                <img src="./assets/images/16_1_1.png" alt="" class="indexImg" />
               </div>
             </div>
             <div class="indexComment-container d-flex justify-content-between mb-4 p-2">
@@ -178,7 +180,7 @@ const index2 = (data, dynamicText, newPages) => {
             <div class="d-flex justify-content-between mt-4">
               ${oil}
               <div class="bg-p15-1-container">
-                <img src="./assets/images/16_2.png" alt="" class="indexImg" />
+                <img src="./assets/images/16_2_1.png" alt="" class="indexImg" />
               </div>
             </div>
             <div class="indexComment-container d-flex justify-content-between p-2">
@@ -207,8 +209,8 @@ const index2 = (data, dynamicText, newPages) => {
 }
 
 const index3 = (data, dynamicText, newPages) => {
-  const immuneindex = getBtnTemplate(data.indices, 'immuneindex')
-  const gifunction = getBtnTemplate(data.indices, 'gifunction')
+  const immuneindex = getBtnTemplate(data.indices, 'ImmuneIndex')
+  const gifunction = getBtnTemplate(data.indices, 'GutFunction')
   // TODO 需要置換圖檔
   const htmlTemplate = `<!-- p17 -->
       <page size="A4">
@@ -230,7 +232,7 @@ const index3 = (data, dynamicText, newPages) => {
             <div class="d-flex justify-content-between mt-4">
               ${immuneindex}
               <div class="bg-p15-1-container">
-                <img src="./assets/images/17_1.png" alt="" class="indexImg" />
+                <img src="./assets/images/17_1_1.png" alt="" class="indexImg" />
               </div>
             </div>
             <div class="indexComment-container d-flex justify-content-between mb-4 p-2">
@@ -247,7 +249,7 @@ const index3 = (data, dynamicText, newPages) => {
             <div class="d-flex justify-content-between mt-4">
               ${gifunction}
               <div class="bg-p15-1-container">
-                <img src="./assets/images/17_2.png" alt="" class="indexImg" />
+                <img src="./assets/images/17_2_1.png" alt="" class="indexImg" />
               </div>
             </div>
             <div class="indexComment-container d-flex justify-content-between p-2">

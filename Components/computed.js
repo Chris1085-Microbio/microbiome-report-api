@@ -22,8 +22,11 @@ const getNewPages = (data, dynamicText) => {
   flag = 0
   indicesText = indicesText.slice(0, -1) + '。'
 
-  Object.keys(data.bodyFunction).forEach((index) => {
-    if (parseInt(data.bodyFunction[index].score) < 30) {
+  const { Immune, Metabolism, PDAD, Lung, Intestine, Liver, Obesity, Stomach, HeartVessel, Kidney } = data
+  const bodyFunction = { Immune, Metabolism, PDAD, Lung, Intestine, Liver, Obesity, Stomach, HeartVessel, Kidney }
+
+  Object.keys(bodyFunction).forEach((index) => {
+    if (parseInt(bodyFunction[index].score) < 30) {
       flag = 1
       bodyFunctionText += dynamicText.bodyFunction[index]
     }

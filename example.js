@@ -29,7 +29,7 @@ async function html2pdf() {
     })
 
     await page.pdf({
-      path: `${dir}/example_${samplename}.pdf`,
+      path: `${dir}/${samplename}.pdf`,
       format: 'a4',
       printBackground: true,
       preferCSSPageSize: true
