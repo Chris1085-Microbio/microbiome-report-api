@@ -9,7 +9,7 @@ const args = process.argv
 const samplename = args[2]
 const date = moment().format('YYYY-MM-DD HH:mm:ss')
 const curYear = moment().year()
-const dir = `./reports/${curYear}` // directory to check if exists
+const dir = `./reports/${curYear}/pdf` // directory to check if exists
 
 // check if file exists
 if (typeof args[2] === 'undefined') {

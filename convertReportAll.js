@@ -13,6 +13,7 @@ const process = require('process')
 const args = process.argv
 const samplename = args[2]
 const date = moment().format('YYYY-MM-DD HH:mm:ss')
+const curYear = moment().year()
 
 try {
   const data = JSON.parse(fs.readFileSync(`./json/${samplename}.json`))
@@ -60,6 +61,7 @@ try {
     footerHTML
 
   fs.writeFileSync('./report.html', template)
+  fs.writeFileSync(`./reports/${curYear}/html/${samplename}.html`, template)
 
   console.log(`[${date}] OK! Template File converted to ./report.html!`)
 } catch (err) {
