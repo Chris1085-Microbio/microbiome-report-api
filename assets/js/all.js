@@ -1,5 +1,4 @@
-"use strict";
+'use strict'
 
-$(document).ready(function () {// console.log('HesSchool Hello!!')
-});
+$(document).ready(function () {})
 //# sourceMappingURL=all.js.map

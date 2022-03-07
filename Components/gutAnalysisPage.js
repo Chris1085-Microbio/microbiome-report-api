@@ -227,7 +227,7 @@ const healthGuides = (data, dynamicText) => {
     firstArr.unshift(tempSlice)
 
     // 先取出字串第二段14個字與不需要顯色的文字敘述拼成第一行
-    tempSlice = '其次，在身體功能評估方面' + bodyFunctionText.slice(0, 14)
+    tempSlice = '其次，在身體功能評估方面，' + bodyFunctionText.slice(0, 14)
     // 取出後面文字並以27字數為一行算行數
     let secondArr = bodyFunctionText.slice(14).match(/.{1,27}/g)
     // 把第一行插入至secondArr
@@ -247,17 +247,18 @@ const healthGuides = (data, dynamicText) => {
     thirdArr.unshift(tempSlice)
 
     // 將25行以前以後分為page1Arr及page2Arr
-    let page1Arr = firstArr.concat(secondArr).concat(thirdArr).slice(0, 25)
-    let page2Arr = firstArr.concat(secondArr).concat(thirdArr).slice(25)
+    let page1Arr = secondArr.concat(thirdArr).slice(0, 26 - firstArr.length)
+    let page2Arr = firstArr.concat(secondArr).concat(thirdArr).slice(26)
     let page1Part2 = ''
     let page1Part3 = ''
     let page2Part2 = ''
     let page2Part3 = ''
 
     // 假如第二頁文字是卡在第二段時
-    if (firstArr.length + secondArr.length > 25) {
+    if (firstArr.length + secondArr.length > 25 && secondArr.length < 37) {
       // 計算page1Part2
       page1Part2 = page1Arr.join('').split('其次，在身體功能評估方面，').slice(-1)
+      // console.log(page1Arr)
       // 計算page2Part2
       page2Part2 = page2Arr
         .join('')
@@ -292,7 +293,7 @@ const healthGuides = (data, dynamicText) => {
                 >${indicesText}
               </span>
             </p>
-            <br />
+    
             <p class="fw-bold text-indent">
               其次，在身體功能評估方面，<span class="text-gold"
                 >${page1Part2}
@@ -325,12 +326,12 @@ const healthGuides = (data, dynamicText) => {
 
           <!-- <div class="mb-5 page-container "> -->
           <div class="healthGuide-container">
-            <p class="fw-bold text-indent">
-              其次，在身體功能評估方面<span class="text-gold"
+            <p class="fw-bold">
+              <span class="text-gold"
                 >${page2Part2}
               </span>
             </p>
-            <br />
+          
             <p class="fw-bold text-indent">
               近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的<span
                 class="text-gold"
@@ -343,6 +344,148 @@ const healthGuides = (data, dynamicText) => {
 
         <footer>
           <div class="page-number">8</div>
+        </footer>
+      </page>
+      `
+    } else if (firstArr.length + secondArr.length > 25 && secondArr.length >= 37) {
+      // console.log(firstArr.length, secondArr.length)
+
+      // 計算page1Part2
+      page1Part2 = page1Arr.join('').split('其次，在身體功能評估方面，').slice(-1)
+      // console.log(page1Arr)
+      // 計算page2Part2
+      page2Part2 = page2Arr
+        .join('')
+        .split(
+          '近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的'
+        )
+        .slice(0, 1)
+        .join('')
+        .match(/.{1,27}/g)
+        .slice(0, 27)
+        .join('')
+
+      page3Part2 = page2Arr
+        .join('')
+        .split(
+          '近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的'
+        )
+        .slice(0, 1)
+        .join('')
+        .match(/.{1,27}/g)
+        .slice(27)
+        .join('')
+
+      // 計算page2Part3
+      page3Part3 = productDescription
+
+      // 塞入htmlTemplate
+      htmlTemplate = `<!-- p7 -->
+      <page size="A4" class="bg-p7">
+        <header>
+          <div class="logo-container"></div>
+        </header>
+
+        <div class="d-flex flex-column align-items-center w-100">
+          <div class="mt-8 w-100 zi-1">
+            <div class="col-12 page-title-container mb-5">
+              <h3 class="page-title">1.2 腸道健康指引</h3>
+              <div class="parallelogram mr-2"></div>
+              <div class="parallelogram mr-5"></div>
+            </div>
+          </div>
+
+          <!-- <div class="mb-5 page-container "> -->
+          <div class="healthGuide-container">
+            <p class="fw-bold text-indent">
+              在您這次的腸道菌相檢測結果，首先在六大核心指數中，<span class="text-gold"
+                >${indicesText}
+              </span>
+            </p>
+    
+            <p class="fw-bold text-indent">
+              其次，在身體功能評估方面，<span class="text-gold"
+                >${page1Part2}
+              </span>
+            </p>
+          </div>
+          <!-- </div> -->
+        </div>
+
+        <footer>
+          <div class="page-number">7</div>
+        </footer>
+      </page>`
+
+      htmlTemplate += `
+      <!-- p8 -->
+      <page size="A4" class="bg-p7">
+        <header>
+          <div class="logo-container"></div>
+        </header>
+
+        <div class="d-flex flex-column align-items-center w-100">
+          <div class="mt-8 w-100 zi-1">
+            <div class="col-12 page-title-container mb-5">
+              <h3 class="page-title">1.2 腸道健康指引</h3>
+              <div class="parallelogram mr-2"></div>
+              <div class="parallelogram mr-5"></div>
+            </div>
+          </div>
+
+          <!-- <div class="mb-5 page-container "> -->
+          <div class="healthGuide-container">
+            <p class="fw-bold">
+              <span class="text-gold"
+                >${page2Part2}
+              </span>
+            </p>
+          </div>
+          <!-- </div> -->
+        </div>
+
+        <footer>
+          <div class="page-number">8</div>
+        </footer>
+      </page>
+      `
+
+      htmlTemplate += `
+      <!-- p9 -->
+      <page size="A4" class="bg-p7">
+        <header>
+          <div class="logo-container"></div>
+        </header>
+
+        <div class="d-flex flex-column align-items-center w-100">
+          <div class="mt-8 w-100 zi-1">
+            <div class="col-12 page-title-container mb-5">
+              <h3 class="page-title">1.2 腸道健康指引</h3>
+              <div class="parallelogram mr-2"></div>
+              <div class="parallelogram mr-5"></div>
+            </div>
+          </div>
+
+          <!-- <div class="mb-5 page-container "> -->
+          <div class="healthGuide-container">
+            <p class="fw-bold">
+              <span class="text-gold"
+                >${page3Part2}
+              </span>
+            </p>
+          
+            <p class="fw-bold text-indent">
+              近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的<span
+                class="text-gold"
+                >${page3Part3}</span
+              >使您的身體常保青春活力。
+            </p>
+          </div>
+          <!-- </div> -->
+        </div>
+
+        <footer>
+          <div class="page-number">9</div>
         </footer>
       </page>
       `
@@ -461,7 +604,6 @@ const biomeDistribution = (data, dynamicText, pageNum) => {
     bactDistDescription = dynamicText.bactDist.low.description
     bactDistTodoDescription = dynamicText.bactDist.low.todoDescription
   }
-  console.log(pageNum)
 
   // TODO 需修正分布圖檔案位置
   const htmlTemplate = `<!-- p8 -->
@@ -509,7 +651,9 @@ const healthIndex = (data, dynamicText, pageNum) => {
   const fb = data.analysisResult.FBRatio
   const fbResult = fb > 1 ? '偏向厚壁菌門' : '偏向擬桿菌門'
   const fbEvaluate = fb > 1 ? '有體重增加趨勢' : '體重穩定'
-  const be = data.analysisResult.BERatio
+  let be = data.analysisResult.BERatio
+  be = be >= 100 ? 100 : be
+
   const beResult = be <= 30 ? '<span class="text-danger">菌群數量失衡</span>' : '菌群數量平衡'
   const beEvaluate = be <= 30 ? '<span class="text-danger">腸道菌項失衡</span>' : '腸道菌相穩定'
 
@@ -761,49 +905,49 @@ const biomeSummary = (data, pageNum) => {
               <tr class="border-bottom border-dark">
                 <td>1</td>
                 <td>${gutBiome[0].name}</td>
-                <td>${gutBiome[0].chtName}</td>
+                <td>厚壁菌門</td>
                 <td>${gutBiome[0].percentage}</td>
               </tr>
               <tr class="border-bottom border-dark">
                 <td>2</td>
                 <td>${gutBiome[1].name}</td>
-                <td>${gutBiome[1].chtName}</td>
+                <td>擬桿菌門</td>
                 <td>${gutBiome[1].percentage}</td>
               </tr>
               <tr class="border-bottom border-dark">
                 <td>3</td>
                 <td>${gutBiome[2].name}</td>
-                <td>${gutBiome[2].chtName}</td>
+                <td>變形菌門</td>
                 <td>${gutBiome[2].percentage}</td>
               </tr>
               <tr class="border-bottom border-dark">
                 <td>4</td>
                 <td>${gutBiome[3].name}</td>
-                <td>${gutBiome[3].chtName}</td>
+                <td>疣微菌門</td>
                 <td>${gutBiome[3].percentage}</td>
               </tr>
               <tr class="border-bottom border-dark">
                 <td>5</td>
                 <td>${gutBiome[4].name}</td>
-                <td>${gutBiome[4].chtName}</td>
+                <td>梭桿菌門</td>
                 <td>${gutBiome[4].percentage}</td>
               </tr>
               <tr class="border-bottom border-dark">
                 <td>6</td>
                 <td>${gutBiome[5].name}</td>
-                <td>${gutBiome[5].chtName}</td>
+                <td>放線菌門</td>
                 <td>${gutBiome[5].percentage}</td>
               </tr>
               <tr class="border-bottom border-dark">
                 <td>7</td>
                 <td>${gutBiome[6].name}</td>
-                <td>${gutBiome[6].chtName}</td>
+                <td>軟壁菌門</td>
                 <td>${gutBiome[6].percentage}</td>
               </tr>
               <tr class="border-bottom border-dark">
                 <td>8</td>
                 <td>${gutBiome[7].name}</td>
-                <td>${gutBiome[7].chtName}</td>
+                <td>藍藻門</td>
                 <td>${gutBiome[7].percentage}</td>
               </tr>
             </table>

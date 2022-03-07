@@ -42,6 +42,7 @@ const getNewPages = (data, dynamicText) => {
     Math.ceil((dynamicText.productDescription.BL.length - firstLineLen) / lineTextLen) +
     3
 
+  // console.log(Math.ceil((bodyFunctionText.length + initBodyLen - firstLineLen) / lineTextLen))
   newPages = Math.ceil(lines / pageLine) - 1
 
   const productDescription = dynamicText.productDescription.BL

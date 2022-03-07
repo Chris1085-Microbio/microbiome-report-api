@@ -9,10 +9,13 @@ const bloodTest = require('./Components/bloodTest')
 const bodyFunction = require('./Components/bodyFunction')
 const appendix = require('./Components/appendix')
 const computed = require('./Components/computed')
+const process = require('process')
+const args = process.argv
+const samplename = args[2]
 const date = moment().format('YYYY-MM-DD HH:mm:ss')
 
 try {
-  const data = JSON.parse(fs.readFileSync('./json/Adam.json'))
+  const data = JSON.parse(fs.readFileSync(`./json/${samplename}.json`))
   const dynamicText = JSON.parse(fs.readFileSync('./json/dynamicText.json'))
   const { newPages } = computed.getNewPages(data, dynamicText)
 
