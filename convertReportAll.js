@@ -61,7 +61,7 @@ try {
     footerHTML
 
   fs.writeFileSync('./report.html', template)
-  fs.writeFileSync(`./reports/${curYear}/html/${samplename}.html`, template)
+  // fs.writeFileSync(`./reports/${curYear}/html/${samplename}.html`, template)
 
   console.log(`[${date}] OK! Template File converted to ./report.html!`)
 } catch (err) {

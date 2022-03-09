@@ -707,7 +707,7 @@ const healthIndex = (data, dynamicText, pageNum) => {
             </table>
             <p class="comment-container ls-1 my-5 text-justify text-indent p-2">
               <span class="commentTitle">檢測說明</span>
-              B/E比值是指雙歧桿菌屬（Bifidobacterium）和腸桿菌科（Enterobacteriaceae）的比值，目前研究顯示B/E比值反應腸道菌相平衡。若B/E數值大於1，表示腸道菌群處於平衡狀態；但若B/E數值小於1，表示腸道菌群處於失衡狀態，可能會造成腹瀉、過敏或代謝失調等等現象。
+              B/E比值是指雙歧桿菌屬（Bifidobacterium）和腸桿菌科（Enterobacteriaceae）的比值，目前研究顯示B/E比值反應腸道菌相平衡。若B/E數值大於30，表示腸道菌群處於平衡狀態；但若B/E數值小於30，表示腸道菌群處於失衡狀態，可能會造成腹瀉、過敏或代謝失調等等現象。
             </p>
           </div>
         </div>
