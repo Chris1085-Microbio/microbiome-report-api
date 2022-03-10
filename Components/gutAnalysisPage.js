@@ -655,7 +655,7 @@ const healthIndex = (data, dynamicText, pageNum) => {
   be = be >= 100 ? 100 : be
 
   const beResult = be <= 30 ? '<span class="text-danger">菌群數量失衡</span>' : '菌群數量平衡'
-  const beEvaluate = be <= 30 ? '<span class="text-danger">腸道菌項失衡</span>' : '腸道菌相穩定'
+  const beEvaluate = be <= 30 ? '<span class="text-danger">腸道菌相失衡</span>' : '腸道菌相穩定'
 
   const htmlTemplate = `<!-- p9 -->
       <page size="A4">
