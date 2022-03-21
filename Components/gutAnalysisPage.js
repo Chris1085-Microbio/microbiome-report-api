@@ -21,12 +21,12 @@ const pagination = `      <!-- p5 -->
 
 const summary = (data) => {
   // NOTE gutSummary API
-  const shannon = indexStatus(parseInt(data.indices.shannon));
-  const goodBad = indexStatus(parseInt(data.indices.GoodBad));
+  const shannon = indexStatus(parseInt(data.indices.GutBiomeIndex));
+  const goodBad = indexStatus(parseInt(data.indices.GoodBadIndex));
   const glucose = indexStatus(parseInt(data.indices.GlucoseIndex));
   const oil = indexStatus(parseInt(data.indices.OilIndex));
   const immuneIndex = indexStatus(parseInt(data.indices.ImmuneIndex));
-  const giFunction = indexStatus(parseInt(data.indices.GutFunction));
+  const giFunction = indexStatus(parseInt(data.indices.GutFunctionIndex));
 
   const brain = bodyFunctionStatus(parseInt(data.PDAD.score));
   const cardiovascular = bodyFunctionStatus(parseInt(data.HeartVessel.score));

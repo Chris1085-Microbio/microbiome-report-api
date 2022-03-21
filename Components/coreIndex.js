@@ -25,6 +25,9 @@ const summary = (data, dynamicText, newPages) => {
   let tempText = '';
   Object.keys(data.indices).forEach((index) => {
     if (parseInt(data.indices[index]) < 31) {
+      console.log(index);
+
+      console.log(dynamicText.indicesDescription[index]);
       tempText += dynamicText.indicesDescription[index];
     }
   });
@@ -70,8 +73,8 @@ const summary = (data, dynamicText, newPages) => {
 };
 
 const index1 = (data, dynamicText, newPages) => {
-  const shannon = getBtnTemplate(data.indices, 'shannon');
-  const goodbad = getBtnTemplate(data.indices, 'GoodBad');
+  const shannon = getBtnTemplate(data.indices, 'GutBiomeIndex');
+  const goodbad = getBtnTemplate(data.indices, 'GoodBadIndex');
 
   // TODO 需要置換圖檔
   const htmlTemplate = `<!-- p15 -->
@@ -210,7 +213,7 @@ const index2 = (data, dynamicText, newPages) => {
 
 const index3 = (data, dynamicText, newPages) => {
   const immuneindex = getBtnTemplate(data.indices, 'ImmuneIndex');
-  const gifunction = getBtnTemplate(data.indices, 'GutFunction');
+  const gifunction = getBtnTemplate(data.indices, 'GutFunctionIndex');
   // TODO 需要置換圖檔
   const htmlTemplate = `<!-- p17 -->
       <page size="A4">
