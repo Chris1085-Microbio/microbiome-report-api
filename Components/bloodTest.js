@@ -6,20 +6,20 @@ const pagination = (newPages) => {
         </header>
 
         <div class="d-flex flex-column align-items-center">
-          <div class="titleBoxUpper bg-black w-100"></div>
-          <div class="titleBox bg-black w-100">
-            <h3 class="title-page-text text-center fw-bold text-white w-100">血液生化檢驗</h3>
+          <div class="titleBoxUpper bg-gold w-100"></div>
+          <div class="titleBox bg-gold w-100">
+            <h3 class="title-page-text text-center fw-bold w-100">血液生化檢驗</h3>
           </div>
-          <div class="titleBoxBottom bg-black w-100"></div>
+          <div class="titleBoxBottom bg-gold w-100"></div>
         </div>
 
         <footer>
           <div class="page-number">${newPages}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 
 const table1 = (newPages) => {
   // TODO 可能需要帶入血檢數值
@@ -202,10 +202,10 @@ const table1 = (newPages) => {
         <footer>
           <div class="page-number">${newPages}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 
 const table2 = (newPages) => {
   // TODO 可能需要帶入血檢數值
@@ -330,9 +330,9 @@ const table2 = (newPages) => {
         <footer>
           <div class="page-number">${newPages}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 
-module.exports = { pagination, table1, table2 }
+module.exports = { pagination, table1, table2 };

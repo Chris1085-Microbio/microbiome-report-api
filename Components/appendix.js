@@ -6,18 +6,18 @@ const pagination = (pageNum) => {
         </header>
 
         <div class="d-flex flex-column align-items-center">
-          <div class="titleBoxUpper bg-black w-100"></div>
-          <div class="titleBox bg-black w-100">
-            <h3 class="title-page-text text-center fw-bold text-white w-100">附錄</h3>
+          <div class="titleBoxUpper bg-gold w-100"></div>
+          <div class="titleBox bg-gold w-100">
+            <h3 class="title-page-text text-center fw-bold w-100">附錄</h3>
           </div>
-          <div class="titleBoxBottom bg-black w-100"></div>
+          <div class="titleBoxBottom bg-gold w-100"></div>
         </div>
 
         <footer>
           <div class="page-number">${pageNum}</div>
         </footer>
-      </page>`
-}
+      </page>`;
+};
 
 const gutBiome = (pageNum) => {
   return `<!-- p33 -->
@@ -37,25 +37,25 @@ const gutBiome = (pageNum) => {
 
           <div class="page-container">
             <p class="text-indent">
-              隨著科技的進步，科學家們發現了身體內微生態的奧秘。原來人體內的腸道竟住著大量伴隨著身體共生演化的細菌群體，幾乎占了身體上微生物總量的99%。且腸道微生態蘊含了兩千種以上的不同細菌、帶有超過三百萬個不同的基因，總數幾乎超過了百兆以上，比起人體內細胞總數還多出許多。這些種類豐富，型態各異的細菌群體，共同組成了腸道微生態。
+              人體內的腸道存在大量與身體共生的細菌群體，幾乎占了身體微生物總量的99%。而腸道蘊含了兩千多種不同細菌、帶有三百萬不同基因，總數超過百兆，為人體內細胞總數十倍以上。這些種類豐富，型態各異的細菌群體，共同組成了腸道微生態。
             </p>
             <br />
             <br />
 
             <p class="text-indent">
-              這些細菌中，除了對身體有益的好菌、中性菌之外，也含有會致病的壞菌、病原菌。因此腸道內聚集了人體內大約70%的免疫細胞，所以腸道可以說是人體內最大的免疫器官，是身體免疫系統發展的大本營，為我們抵抗外來敵人的入侵。而腸道的免疫系統就是透過和腸道微生態之間彼此互相”訓練”，維持了身體內健康的平衡。
+              同時腸道聚集人體內大約70%的免疫細胞，為人體內最大的免疫器官。腸道微生態這些細菌中，除了對身體有益的好菌、中性菌之外，也含有會致病的壞菌、病原菌。而腸道的免疫系統就是透過和腸道微生態之間彼此互相”訓練”，維持了身體內健康的平衡。
             </p>
             <br />
             <br />
 
             <p class="text-indent">
-              此外，腸道還佈滿了密密麻麻的神經，將匯集的訊息傳送到中樞神經。近期的研究發現腸道微生態與我們的大腦功能有著千絲萬縷的關聯，憂鬱症、焦慮症、自閉症、慢性疲勞等盛行率極高的身心疾病，都可能與腸道微生態息息相關。
+              此外，腸道還佈滿了密密麻麻的神經，將匯集的訊息傳送到中樞神經。近期的研究發現腸道微生態與我們的大腦功能有著密切的關聯，憂鬱症、焦慮症、自閉症、慢性疲勞等盛行率極高的身心疾病，都可能與腸道微生態息息相關。
             </p>
             <br />
             <br />
 
             <p class="text-indent">
-              現代人因生活繁忙，作息不正常，工作壓力大，最容易忽略腸道生態的健康。近年來國際研究更發現，如果腸道微生態嚴重失調，可能導致多種嚴重疾病，包括代謝問題、過敏問題、以及身體機能出現衰退等各種亞健康的情況。所以腸道可說是百病之源，因此我們更應該好好照顧腸道健康，維護腸道微生態，享受輕鬆、自在，健康的生活。
+              近年來國際研究發現，如果腸道微生態嚴重失衡，可能導致多種嚴重疾病，包括代謝疾病、過敏疾病、以及身體機能出現衰退等各種亞健康的情況。所以腸道可說是百病之源，因此我們更應該好好照顧腸道健康，維護腸道微生態，享受輕鬆、自在，健康的生活。
             </p>
           </div>
 
@@ -68,8 +68,8 @@ const gutBiome = (pageNum) => {
         <footer>
           <div class="page-number">${pageNum}</div>
         </footer>
-      </page>`
-}
+      </page>`;
+};
 
 const howToGutBiome = (pageNum) => {
   return `<!-- p34 -->
@@ -106,8 +106,8 @@ const howToGutBiome = (pageNum) => {
         <footer>
           <div class="page-number">${pageNum}</div>
         </footer>
-      </page>`
-}
+      </page>`;
+};
 
 const bloodTestMeaning = (pageNum) => {
   return `      <!-- p35 -->
@@ -155,8 +155,8 @@ const bloodTestMeaning = (pageNum) => {
         <footer>
           <div class="page-number">${pageNum}</div>
         </footer>
-      </page>`
-}
+      </page>`;
+};
 
 const reference = (pageNum) => {
   return `      <!-- p36 -->
@@ -224,8 +224,8 @@ const reference = (pageNum) => {
         <footer>
           <div class="page-number">${pageNum}</div>
         </footer>
-      </page>`
-}
+      </page>`;
+};
 
 const freeDuty = (pageNum) => {
   return `      <!-- p37 -->
@@ -262,7 +262,7 @@ const freeDuty = (pageNum) => {
         <footer>
           <div class="page-number">${pageNum}</div>
         </footer>
-      </page>`
-}
+      </page>`;
+};
 
-module.exports = { pagination, gutBiome, howToGutBiome, bloodTestMeaning, reference, freeDuty }
+module.exports = { pagination, gutBiome, howToGutBiome, bloodTestMeaning, reference, freeDuty };

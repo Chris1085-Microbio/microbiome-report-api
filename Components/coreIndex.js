@@ -6,30 +6,30 @@ const pagination = (newPages) => {
         </header>
 
         <div class="d-flex flex-column align-items-center">
-          <div class="titleBoxUpper bg-black w-100"></div>
-          <div class="titleBox bg-black w-100">
-            <h3 class="title-page-text text-center fw-bold text-white w-100">六大核心指數</h3>
+          <div class="titleBoxUpper bg-gold w-100"></div>
+          <div class="titleBox bg-gold w-100">
+            <h3 class="title-page-text text-center fw-bold w-100">六大核心指數</h3>
           </div>
-          <div class="titleBoxBottom bg-black w-100"></div>
+          <div class="titleBoxBottom bg-gold w-100"></div>
         </div>
 
         <footer>
           <div class="page-number">${newPages}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 
 const summary = (data, dynamicText, newPages) => {
-  let tempText = ''
+  let tempText = '';
   Object.keys(data.indices).forEach((index) => {
     if (parseInt(data.indices[index]) < 31) {
-      tempText += dynamicText.indicesDescription[index]
+      tempText += dynamicText.indicesDescription[index];
     }
-  })
+  });
 
-  tempText = tempText == '' ? dynamicText.indicesDescription.stable : tempText
+  tempText = tempText == '' ? dynamicText.indicesDescription.stable : tempText;
 
   // TODO 需要置換圖檔
   const htmlTemplate = `<!-- p14 -->
@@ -64,14 +64,14 @@ const summary = (data, dynamicText, newPages) => {
         <footer>
           <div class="page-number">${newPages}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 
 const index1 = (data, dynamicText, newPages) => {
-  const shannon = getBtnTemplate(data.indices, 'shannon')
-  const goodbad = getBtnTemplate(data.indices, 'GoodBad')
+  const shannon = getBtnTemplate(data.indices, 'shannon');
+  const goodbad = getBtnTemplate(data.indices, 'GoodBad');
 
   // TODO 需要置換圖檔
   const htmlTemplate = `<!-- p15 -->
@@ -133,14 +133,14 @@ const index1 = (data, dynamicText, newPages) => {
         <footer>
           <div class="page-number">${newPages}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 
 const index2 = (data, dynamicText, newPages) => {
-  const glucose = getBtnTemplate(data.indices, 'GlucoseIndex')
-  const oil = getBtnTemplate(data.indices, 'OilIndex')
+  const glucose = getBtnTemplate(data.indices, 'GlucoseIndex');
+  const oil = getBtnTemplate(data.indices, 'OilIndex');
 
   // TODO 需要置換圖檔
   const htmlTemplate = `<!-- p16 -->
@@ -203,14 +203,14 @@ const index2 = (data, dynamicText, newPages) => {
         <footer>
           <div class="page-number">${newPages}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 
 const index3 = (data, dynamicText, newPages) => {
-  const immuneindex = getBtnTemplate(data.indices, 'ImmuneIndex')
-  const gifunction = getBtnTemplate(data.indices, 'GutFunction')
+  const immuneindex = getBtnTemplate(data.indices, 'ImmuneIndex');
+  const gifunction = getBtnTemplate(data.indices, 'GutFunction');
   // TODO 需要置換圖檔
   const htmlTemplate = `<!-- p17 -->
       <page size="A4">
@@ -271,10 +271,10 @@ const index3 = (data, dynamicText, newPages) => {
         <footer>
           <div class="page-number">${newPages}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 
 const getBtnTemplate = (data, indexName) => {
   if (parseInt(data[indexName]) < 31) {
@@ -283,23 +283,23 @@ const getBtnTemplate = (data, indexName) => {
                   <span class="text-last-justify d-block">高度風險</span>
                   <span>${data[indexName]} 分</span>
                 </div>
-              </div>`
+              </div>`;
   } else if (parseInt(data[indexName]) > 31 && parseInt(data[indexName]) < 80) {
     return `<div class="indexBtn-container mb-6 ml-4 p-1 border-orange">
                 <div class="indexBtn text-white text-center p-2">
                   <span class="text-last-justify d-block">中度風險</span>
                   <span>${data[indexName]} 分</span>
                 </div>
-              </div>`
+              </div>`;
   } else {
     return `<div class="indexBtn-container mb-6 ml-4 p-1 border-green">
                 <div class="indexBtn text-white text-center p-2">
                   <span class="text-last-justify d-block">低度風險</span>
                   <span>${data[indexName]} 分</span>
                 </div>
-              </div>`
+              </div>`;
   }
-}
+};
 
 module.exports = {
   pagination,
@@ -307,4 +307,4 @@ module.exports = {
   index1,
   index2,
   index3
-}
+};

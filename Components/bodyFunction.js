@@ -6,23 +6,23 @@ const pagination = (newPages) => {
         </header>
 
         <div class="d-flex flex-column align-items-center">
-          <div class="titleBoxUpper bg-black w-100"></div>
-          <div class="titleBox bg-black w-100">
-            <h3 class="title-page-text text-center fw-bold text-white w-100">身體功能評估</h3>
+          <div class="titleBoxUpper bg-gold w-100"></div>
+          <div class="titleBox bg-gold w-100">
+            <h3 class="title-page-text text-center fw-bold w-100">身體功能評估</h3>
           </div>
-          <div class="titleBoxBottom bg-black w-100"></div>
+          <div class="titleBoxBottom bg-gold w-100"></div>
         </div>
 
         <footer>
           <div class="page-number">${newPages}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 
 const PDAD = (data, newPages) => {
-  riskContainerTemplate = riskStatus(data)
+  riskContainerTemplate = riskStatus(data);
   const htmlTemplate = `<!-- p22 -->
       <page size="A4">
         <header>
@@ -32,7 +32,7 @@ const PDAD = (data, newPages) => {
         <div class="d-flex flex-column align-items-center">
           <div class="mt-8 w-100">
             <div class="col-12 page-title-container mb-5">
-              <h3 class="page-title">4.1 腦功能健康指數</h3>
+              <h3 class="page-title">4.1 腦功能風險指數</h3>
               <div class="parallelogram mr-2"></div>
               <div class="parallelogram mr-5"></div>
             </div>
@@ -121,13 +121,13 @@ const PDAD = (data, newPages) => {
         <footer>
           <div class="page-number">${newPages}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 
 const cvd = (data, newPages) => {
-  riskContainerTemplate = riskStatus(data)
+  riskContainerTemplate = riskStatus(data);
   const htmlTemplate = `<!-- p23 -->
       <page size="A4">
         <header>
@@ -137,7 +137,7 @@ const cvd = (data, newPages) => {
         <div class="d-flex flex-column align-items-center">
           <div class="mt-8 w-100">
             <div class="col-12 page-title-container mb-5">
-              <h3 class="page-title">4.2 心血管功能健康指數</h3>
+              <h3 class="page-title">4.2 心血管功能風險指數</h3>
               <div class="parallelogram mr-2"></div>
               <div class="parallelogram mr-5"></div>
             </div>
@@ -228,12 +228,12 @@ const cvd = (data, newPages) => {
           <div class="page-number">${newPages}</div>
         </footer>
       </page>
-`
+`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 const lung = (data, newPages) => {
-  riskContainerTemplate = riskStatus(data)
+  riskContainerTemplate = riskStatus(data);
   const htmlTemplate = `<!-- p24 -->
       <page size="A4">
         <header>
@@ -243,7 +243,7 @@ const lung = (data, newPages) => {
         <div class="d-flex flex-column align-items-center">
           <div class="mt-8 w-100">
             <div class="col-12 page-title-container mb-5">
-              <h3 class="page-title">4.3 肺功能健康指數</h3>
+              <h3 class="page-title">4.3 肺功能風險指數</h3>
               <div class="parallelogram mr-2"></div>
               <div class="parallelogram mr-5"></div>
             </div>
@@ -334,12 +334,12 @@ const lung = (data, newPages) => {
         <footer>
           <div class="page-number">${newPages}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 const nafld = (data, newPages) => {
-  riskContainerTemplate = riskStatus(data)
+  riskContainerTemplate = riskStatus(data);
   const htmlTemplate = `<!-- p25 -->
       <page size="A4">
         <header>
@@ -349,7 +349,7 @@ const nafld = (data, newPages) => {
         <div class="d-flex flex-column align-items-center">
           <div class="mt-8 w-100">
             <div class="col-12 page-title-container mb-5">
-              <h3 class="page-title">4.4 肝功能健康指數</h3>
+              <h3 class="page-title">4.4 肝功能風險指數</h3>
               <div class="parallelogram mr-2"></div>
               <div class="parallelogram mr-5"></div>
             </div>
@@ -438,12 +438,12 @@ const nafld = (data, newPages) => {
         <footer>
           <div class="page-number">${newPages}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 const ckd = (data, newPages) => {
-  riskContainerTemplate = riskStatus(data)
+  riskContainerTemplate = riskStatus(data);
   const htmlTemplate = `<!-- p26 -->
       <page size="A4">
         <header>
@@ -453,7 +453,7 @@ const ckd = (data, newPages) => {
         <div class="d-flex flex-column align-items-center">
           <div class="mt-8 w-100">
             <div class="col-12 page-title-container mb-5">
-              <h3 class="page-title">4.5 腎功能健康指數</h3>
+              <h3 class="page-title">4.5 腎功能風險指數</h3>
               <div class="parallelogram mr-2"></div>
               <div class="parallelogram mr-5"></div>
             </div>
@@ -544,12 +544,12 @@ const ckd = (data, newPages) => {
         <footer>
           <div class="page-number">${newPages}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 const gastitis = (data, newPages) => {
-  riskContainerTemplate = riskStatus(data)
+  riskContainerTemplate = riskStatus(data);
   const htmlTemplate = `<!-- p27 -->
       <page size="A4">
         <header>
@@ -559,7 +559,7 @@ const gastitis = (data, newPages) => {
         <div class="d-flex flex-column align-items-center">
           <div class="mt-8 w-100">
             <div class="col-12 page-title-container mb-5">
-              <h3 class="page-title">4.6 胃功能健康指數</h3>
+              <h3 class="page-title">4.6 胃功能風險指數</h3>
               <div class="parallelogram mr-2"></div>
               <div class="parallelogram mr-5"></div>
             </div>
@@ -648,12 +648,12 @@ const gastitis = (data, newPages) => {
         <footer>
           <div class="page-number">${newPages}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 const colitis = (data, newPages) => {
-  riskContainerTemplate = riskStatus(data)
+  riskContainerTemplate = riskStatus(data);
   const htmlTemplate = `<!-- p28 -->
       <page size="A4">
         <header>
@@ -663,7 +663,7 @@ const colitis = (data, newPages) => {
         <div class="d-flex flex-column align-items-center">
           <div class="mt-8 w-100">
             <div class="col-12 page-title-container mb-5">
-              <h3 class="page-title">4.7 腸功能健康指數</h3>
+              <h3 class="page-title">4.7 腸功能風險指數</h3>
               <div class="parallelogram mr-2"></div>
               <div class="parallelogram mr-5"></div>
             </div>
@@ -752,12 +752,12 @@ const colitis = (data, newPages) => {
         <footer>
           <div class="page-number">${newPages}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 const immune = (data, newPages) => {
-  riskContainerTemplate = riskStatus(data)
+  riskContainerTemplate = riskStatus(data);
   const htmlTemplate = `<!-- p29 -->
       <page size="A4">
         <header>
@@ -767,7 +767,7 @@ const immune = (data, newPages) => {
         <div class="d-flex flex-column align-items-center">
           <div class="mt-8 w-100">
             <div class="col-12 page-title-container mb-5">
-              <h3 class="page-title">4.8 免疫功能健康指數</h3>
+              <h3 class="page-title">4.8 免疫功能風險指數</h3>
               <div class="parallelogram mr-2"></div>
               <div class="parallelogram mr-5"></div>
             </div>
@@ -855,12 +855,12 @@ const immune = (data, newPages) => {
         <footer>
           <div class="page-number">${newPages}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 const obesity = (data, newPages) => {
-  riskContainerTemplate = riskStatus(data)
+  riskContainerTemplate = riskStatus(data);
   const htmlTemplate = `<!-- p30 -->
       <page size="A4">
         <header>
@@ -870,7 +870,7 @@ const obesity = (data, newPages) => {
         <div class="d-flex flex-column align-items-center">
           <div class="mt-8 w-100">
             <div class="col-12 page-title-container mb-5">
-              <h3 class="page-title">4.9 肥胖健康指數</h3>
+              <h3 class="page-title">4.9 肥胖風險指數</h3>
               <div class="parallelogram mr-2"></div>
               <div class="parallelogram mr-5"></div>
             </div>
@@ -959,12 +959,12 @@ const obesity = (data, newPages) => {
         <footer>
           <div class="page-number">${newPages}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 const metabolism = (data, newPages) => {
-  riskContainerTemplate = riskStatus(data)
+  riskContainerTemplate = riskStatus(data);
   const htmlTemplate = `<!-- p31 -->
       <page size="A4">
         <header>
@@ -974,7 +974,7 @@ const metabolism = (data, newPages) => {
         <div class="d-flex flex-column align-items-center">
           <div class="mt-8 w-100">
             <div class="col-12 page-title-container mb-5">
-              <h3 class="page-title">4.10 代謝功能健康指數</h3>
+              <h3 class="page-title">4.10 代謝功能風險指數</h3>
               <div class="parallelogram mr-2"></div>
               <div class="parallelogram mr-5"></div>
             </div>
@@ -1066,29 +1066,29 @@ const metabolism = (data, newPages) => {
         <footer>
           <div class="page-number">${newPages}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 
 const riskStatus = (data) => {
   // 計算分數成十位數四捨五入，分數0時指數為1
-  const score = data.score === 0 ? 1 : Math.ceil(data.score / 10)
-  let riskColor = 'medium'
-  let riskClass = ''
-  let risk = '中度風險'
+  const score = data.score === 0 ? 1 : Math.ceil(data.score / 10);
+  let riskColor = 'medium';
+  let riskClass = '';
+  let risk = '中度風險';
 
   // 判斷要填入的資料低、中、高狀況
   if (score > 7) {
-    risk = '低度風險'
-    riskColor = 'low'
+    risk = '低度風險';
+    riskColor = 'low';
   } else if (score > 3 && score < 8) {
-    risk = '中度風險'
-    riskColor = 'medium'
+    risk = '中度風險';
+    riskColor = 'medium';
   } else {
-    risk = '高度風險'
-    riskClass = 'text-red'
-    riskColor = 'high'
+    risk = '高度風險';
+    riskClass = 'text-red';
+    riskColor = 'high';
   }
 
   // 分數及文字區域
@@ -1097,24 +1097,24 @@ const riskStatus = (data) => {
                   <span>${score} 分</span>
                   <span class="d-block">${risk}</span>
                 </div>
-              </div>`
+              </div>`;
 
   // 人形圖區域第一行
-  htmlTemplate += `<div class="riskImg-container d-flex align-items-center">`
+  htmlTemplate += `<div class="riskImg-container d-flex align-items-center">`;
 
   // 人形圖區域（重複）
   for (let index = 1; index <= 10; index++) {
     if (index <= score) {
-      htmlTemplate += `<img src="./assets/images/${riskColor}.png" alt="" class="riskImg mx-1" />`
+      htmlTemplate += `<img src="./assets/images/${riskColor}.png" alt="" class="riskImg mx-1" />`;
     } else {
-      htmlTemplate += `<img src="./assets/images/normal.png" alt="" class="riskImg mx-1" />`
+      htmlTemplate += `<img src="./assets/images/normal.png" alt="" class="riskImg mx-1" />`;
     }
   }
 
   // 人形圖結尾區域
-  htmlTemplate += `</div>`
+  htmlTemplate += `</div>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 
-module.exports = { pagination, PDAD, cvd, lung, nafld, ckd, gastitis, colitis, immune, obesity, metabolism }
+module.exports = { pagination, PDAD, cvd, lung, nafld, ckd, gastitis, colitis, immune, obesity, metabolism };

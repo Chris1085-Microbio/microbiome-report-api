@@ -1,4 +1,4 @@
-const computed = require('../Components/computed')
+const computed = require('../Components/computed');
 
 const pagination = `      <!-- p5 -->
       <page size="A4">
@@ -7,37 +7,37 @@ const pagination = `      <!-- p5 -->
         </header>
 
         <div class="d-flex flex-column align-items-center">
-          <div class="titleBoxUpper bg-black w-100"></div>
-          <div class="titleBox bg-black w-100">
-            <h3 class="title-page-text text-center fw-bold text-white w-100">腸道健康分析</h3>
+          <div class="titleBoxUpper bg-gold w-100"></div>
+          <div class="titleBox bg-gold w-100">
+            <h3 class="title-page-text text-center fw-bold w-100">腸道健康分析</h3>
           </div>
-          <div class="titleBoxBottom bg-black w-100"></div>
+          <div class="titleBoxBottom bg-gold w-100"></div>
         </div>
 
         <footer>
           <div class="page-number">5</div>
         </footer>
-      </page>`
+      </page>`;
 
 const summary = (data) => {
   // NOTE gutSummary API
-  const shannon = indexStatus(parseInt(data.indices.shannon))
-  const goodBad = indexStatus(parseInt(data.indices.GoodBad))
-  const glucose = indexStatus(parseInt(data.indices.GlucoseIndex))
-  const oil = indexStatus(parseInt(data.indices.OilIndex))
-  const immuneIndex = indexStatus(parseInt(data.indices.ImmuneIndex))
-  const giFunction = indexStatus(parseInt(data.indices.GutFunction))
+  const shannon = indexStatus(parseInt(data.indices.shannon));
+  const goodBad = indexStatus(parseInt(data.indices.GoodBad));
+  const glucose = indexStatus(parseInt(data.indices.GlucoseIndex));
+  const oil = indexStatus(parseInt(data.indices.OilIndex));
+  const immuneIndex = indexStatus(parseInt(data.indices.ImmuneIndex));
+  const giFunction = indexStatus(parseInt(data.indices.GutFunction));
 
-  const brain = bodyFunctionStatus(parseInt(data.PDAD.score))
-  const cardiovascular = bodyFunctionStatus(parseInt(data.HeartVessel.score))
-  const lung = bodyFunctionStatus(parseInt(data.Lung.score))
-  const liver = bodyFunctionStatus(parseInt(data.Liver.score))
-  const kidney = bodyFunctionStatus(parseInt(data.Kidney.score))
-  const gastric = bodyFunctionStatus(parseInt(data.Stomach.score))
-  const colitis = bodyFunctionStatus(parseInt(data.Intestine.score))
-  const immune = bodyFunctionStatus(parseInt(data.Immune.score))
-  const obesity = bodyFunctionStatus(parseInt(data.Obesity.score))
-  const metabolism = bodyFunctionStatus(parseInt(data.Metabolism.score))
+  const brain = bodyFunctionStatus(parseInt(data.PDAD.score));
+  const cardiovascular = bodyFunctionStatus(parseInt(data.HeartVessel.score));
+  const lung = bodyFunctionStatus(parseInt(data.Lung.score));
+  const liver = bodyFunctionStatus(parseInt(data.Liver.score));
+  const kidney = bodyFunctionStatus(parseInt(data.Kidney.score));
+  const gastric = bodyFunctionStatus(parseInt(data.Stomach.score));
+  const colitis = bodyFunctionStatus(parseInt(data.Intestine.score));
+  const immune = bodyFunctionStatus(parseInt(data.Immune.score));
+  const obesity = bodyFunctionStatus(parseInt(data.Obesity.score));
+  const metabolism = bodyFunctionStatus(parseInt(data.Metabolism.score));
 
   const htmlTemplate = `<!-- p6 -->
       <page size="A4">
@@ -65,7 +65,7 @@ const summary = (data) => {
                     <li class="list-item">微生態多樣性：${shannon}</li>
                     <li class="list-item">好壞菌叢指數：${goodBad}</li>
                     <li class="list-item">減糖健康指數：${glucose}</li>
-                    <li class="list-item">減糖健康指數：${oil}</li>
+                    <li class="list-item">油切健康指數：${oil}</li>
                     <li class="list-item">免疫平衡指數：${immuneIndex}</li>
                     <li class="list-item">腸道功能指數：${giFunction}</li>
                   </ul>
@@ -162,15 +162,15 @@ const summary = (data) => {
         <footer>
           <div class="page-number">6</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 
 const healthGuides = (data, dynamicText) => {
   // 計算在指引頁上需要填入的資料及是否有新增頁數
-  const { newPages, indicesText, bodyFunctionText, productDescription } = computed.getNewPages(data, dynamicText)
-  let htmlTemplate = ''
+  const { newPages, indicesText, bodyFunctionText, productDescription } = computed.getNewPages(data, dynamicText);
+  let htmlTemplate = '';
 
   // 假如沒有新增頁數
   if (newPages == 0) {
@@ -216,48 +216,48 @@ const healthGuides = (data, dynamicText) => {
         <footer>
           <div class="page-number">7</div>
         </footer>
-      </page>`
+      </page>`;
   } else {
     // 假如有新增頁數
     // 先取出字串第一段第一個字與不需要顯色的文字敘述拼成第一行
-    let tempSlice = '在您這次的腸道菌相檢測結果，首先在六大核心指數中，' + indicesText.slice(0, 1)
+    let tempSlice = '在您這次的腸道菌相檢測結果，首先在六大核心指數中，' + indicesText.slice(0, 1);
     // 取出後面文字並以27字數為一行算行數
-    let firstArr = indicesText.slice(1).match(/.{1,27}/g)
+    let firstArr = indicesText.slice(1).match(/.{1,27}/g);
     // 把第一行插入至firstArr
-    firstArr.unshift(tempSlice)
+    firstArr.unshift(tempSlice);
 
     // 先取出字串第二段14個字與不需要顯色的文字敘述拼成第一行
-    tempSlice = '其次，在身體功能評估方面，' + bodyFunctionText.slice(0, 14)
+    tempSlice = '其次，在身體功能評估方面，' + bodyFunctionText.slice(0, 14);
     // 取出後面文字並以27字數為一行算行數
-    let secondArr = bodyFunctionText.slice(14).match(/.{1,27}/g)
+    let secondArr = bodyFunctionText.slice(14).match(/.{1,27}/g);
     // 把第一行插入至secondArr
-    secondArr.unshift(tempSlice)
+    secondArr.unshift(tempSlice);
 
     // TODO 第三段敘述仍需要改
     let productDescriptionMod =
       '近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的' +
       productDescription +
-      '使您的身體常保青春活力。'
+      '使您的身體常保青春活力。';
 
     // 取出文字並以26字數為第一行
-    tempSlice = productDescriptionMod.slice(0, 26)
+    tempSlice = productDescriptionMod.slice(0, 26);
     // 取出後面文字並以27字數為一行算行數
-    let thirdArr = productDescriptionMod.slice(26).match(/.{1,27}/g)
+    let thirdArr = productDescriptionMod.slice(26).match(/.{1,27}/g);
     // 把第一行插入至thirdArr
-    thirdArr.unshift(tempSlice)
+    thirdArr.unshift(tempSlice);
 
     // 將25行以前以後分為page1Arr及page2Arr
-    let page1Arr = secondArr.concat(thirdArr).slice(0, 26 - firstArr.length)
-    let page2Arr = firstArr.concat(secondArr).concat(thirdArr).slice(26)
-    let page1Part2 = ''
-    let page1Part3 = ''
-    let page2Part2 = ''
-    let page2Part3 = ''
+    let page1Arr = secondArr.concat(thirdArr).slice(0, 26 - firstArr.length);
+    let page2Arr = firstArr.concat(secondArr).concat(thirdArr).slice(26);
+    let page1Part2 = '';
+    let page1Part3 = '';
+    let page2Part2 = '';
+    let page2Part3 = '';
 
     // 假如第二頁文字是卡在第二段時
     if (firstArr.length + secondArr.length > 25 && secondArr.length < 37) {
       // 計算page1Part2
-      page1Part2 = page1Arr.join('').split('其次，在身體功能評估方面，').slice(-1)
+      page1Part2 = page1Arr.join('').split('其次，在身體功能評估方面，').slice(-1);
       // console.log(page1Arr)
       // 計算page2Part2
       page2Part2 = page2Arr
@@ -265,10 +265,10 @@ const healthGuides = (data, dynamicText) => {
         .split(
           '近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的'
         )
-        .slice(0, 1)
+        .slice(0, 1);
 
       // 計算page2Part3
-      page2Part3 = productDescription
+      page2Part3 = productDescription;
 
       // 塞入htmlTemplate
       htmlTemplate = `<!-- p7 -->
@@ -306,7 +306,7 @@ const healthGuides = (data, dynamicText) => {
         <footer>
           <div class="page-number">7</div>
         </footer>
-      </page>`
+      </page>`;
 
       htmlTemplate += `
       <!-- p7 -->
@@ -346,12 +346,12 @@ const healthGuides = (data, dynamicText) => {
           <div class="page-number">8</div>
         </footer>
       </page>
-      `
+      `;
     } else if (firstArr.length + secondArr.length > 25 && secondArr.length >= 37) {
       // console.log(firstArr.length, secondArr.length)
 
       // 計算page1Part2
-      page1Part2 = page1Arr.join('').split('其次，在身體功能評估方面，').slice(-1)
+      page1Part2 = page1Arr.join('').split('其次，在身體功能評估方面，').slice(-1);
       // console.log(page1Arr)
       // 計算page2Part2
       page2Part2 = page2Arr
@@ -363,7 +363,7 @@ const healthGuides = (data, dynamicText) => {
         .join('')
         .match(/.{1,27}/g)
         .slice(0, 27)
-        .join('')
+        .join('');
 
       page3Part2 = page2Arr
         .join('')
@@ -374,10 +374,10 @@ const healthGuides = (data, dynamicText) => {
         .join('')
         .match(/.{1,27}/g)
         .slice(27)
-        .join('')
+        .join('');
 
       // 計算page2Part3
-      page3Part3 = productDescription
+      page3Part3 = productDescription;
 
       // 塞入htmlTemplate
       htmlTemplate = `<!-- p7 -->
@@ -415,7 +415,7 @@ const healthGuides = (data, dynamicText) => {
         <footer>
           <div class="page-number">7</div>
         </footer>
-      </page>`
+      </page>`;
 
       htmlTemplate += `
       <!-- p8 -->
@@ -448,7 +448,7 @@ const healthGuides = (data, dynamicText) => {
           <div class="page-number">8</div>
         </footer>
       </page>
-      `
+      `;
 
       htmlTemplate += `
       <!-- p9 -->
@@ -488,7 +488,7 @@ const healthGuides = (data, dynamicText) => {
           <div class="page-number">9</div>
         </footer>
       </page>
-      `
+      `;
     } else if (firstArr.length + secondArr.length + thirdArr.length > 25) {
       // 假如第二頁文字是卡在第三段時
       // 計算page1Part3
@@ -501,10 +501,10 @@ const healthGuides = (data, dynamicText) => {
         .slice(-1)
         .join('')
         .split('所研發的')
-        .slice(-1)
+        .slice(-1);
 
       // 計算page2Part3
-      page2Part3 = page2Arr.join('').split('所研發的').slice(-1).join('').split('使您的身體常保青春活力。')[0]
+      page2Part3 = page2Arr.join('').split('所研發的').slice(-1).join('').split('使您的身體常保青春活力。')[0];
 
       // 塞入htmlTemplate
       htmlTemplate = `<!-- p7 -->
@@ -549,7 +549,7 @@ const healthGuides = (data, dynamicText) => {
         <footer>
           <div class="page-number">7</div>
         </footer>
-      </page>`
+      </page>`;
 
       htmlTemplate += `
       <!-- p7 -->
@@ -583,26 +583,26 @@ const healthGuides = (data, dynamicText) => {
           <div class="page-number">8</div>
         </footer>
       </page>
-      `
+      `;
     }
   }
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 const biomeDistribution = (data, dynamicText, pageNum) => {
-  const numGenus = data.analysisResult.NumberOfGenus
-  let bactDistDescription = ''
-  let bactDistTodoDescription = ''
+  const numGenus = data.analysisResult.NumberOfGenus;
+  let bactDistDescription = '';
+  let bactDistTodoDescription = '';
 
   if (numGenus > 80) {
-    bactDistDescription = dynamicText.bactDist.high.description
-    bactDistTodoDescription = dynamicText.bactDist.high.todoDescription
+    bactDistDescription = dynamicText.bactDist.high.description;
+    bactDistTodoDescription = dynamicText.bactDist.high.todoDescription;
   } else if (numGenus <= 80 && numGenus > 30) {
-    bactDistDescription = dynamicText.bactDist.medium.description
-    bactDistTodoDescription = dynamicText.bactDist.medium.todoDescription
+    bactDistDescription = dynamicText.bactDist.medium.description;
+    bactDistTodoDescription = dynamicText.bactDist.medium.todoDescription;
   } else {
-    bactDistDescription = dynamicText.bactDist.low.description
-    bactDistTodoDescription = dynamicText.bactDist.low.todoDescription
+    bactDistDescription = dynamicText.bactDist.low.description;
+    bactDistTodoDescription = dynamicText.bactDist.low.todoDescription;
   }
 
   // TODO 需修正分布圖檔案位置
@@ -641,21 +641,21 @@ const biomeDistribution = (data, dynamicText, pageNum) => {
         <footer>
           <div class="page-number">${pageNum}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 
 const healthIndex = (data, dynamicText, pageNum) => {
   // TODO 結果分析、評估需要帶入變數
-  const fb = data.analysisResult.FBRatio
-  const fbResult = fb > 1 ? '偏向厚壁菌門' : '偏向擬桿菌門'
-  const fbEvaluate = fb > 1 ? '有體重增加趨勢' : '體重穩定'
-  let be = data.analysisResult.BERatio
-  be = be >= 100 ? 100 : be
+  const fb = data.analysisResult.FBRatio;
+  const fbResult = fb > 1 ? '偏向厚壁菌門' : '偏向擬桿菌門';
+  const fbEvaluate = fb > 1 ? '有體重增加趨勢' : '體重穩定';
+  let be = data.analysisResult.BERatio;
+  be = be >= 100 ? 100 : be;
 
-  const beResult = be <= 30 ? '<span class="text-danger">菌群數量失衡</span>' : '菌群數量平衡'
-  const beEvaluate = be <= 30 ? '<span class="text-danger">腸道菌相失衡</span>' : '腸道菌相穩定'
+  const beResult = be <= 30 ? '<span class="text-danger">菌群數量失衡</span>' : '菌群數量平衡';
+  const beEvaluate = be <= 30 ? '<span class="text-danger">腸道菌相失衡</span>' : '腸道菌相穩定';
 
   const htmlTemplate = `<!-- p9 -->
       <page size="A4">
@@ -715,24 +715,24 @@ const healthIndex = (data, dynamicText, pageNum) => {
         <footer>
           <div class="page-number">${pageNum}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 
 const fattyAcidSynthesis = (data, dynamicText, pageNum) => {
   // TODO 結果分析、評估需要帶入變數
-  const acidB = roundToTwo(data.analysisResult.TotalAcetateAbundance * 100)
-  const acidB_percentile = data.analysisResult.TotalAcetatePercentile
-  const acidBEvluate = acidB_percentile <= 30 ? '<span class="text-danger">合成能力偏低</span>' : '合成能力正常'
+  const acidB = roundToTwo(data.analysisResult.TotalAcetateAbundance * 100);
+  const acidB_percentile = data.analysisResult.TotalAcetatePercentile;
+  const acidBEvluate = acidB_percentile <= 30 ? '<span class="text-danger">合成能力偏低</span>' : '合成能力正常';
 
-  const acidC = roundToTwo(data.analysisResult.TotalPropionateAbundance * 100)
-  const acidC_percentile = data.analysisResult.TotalPropionatePercentile
-  const acidCEvluate = acidC_percentile <= 30 ? '<span class="text-danger">合成能力偏低</span>' : '合成能力正常'
+  const acidC = roundToTwo(data.analysisResult.TotalPropionateAbundance * 100);
+  const acidC_percentile = data.analysisResult.TotalPropionatePercentile;
+  const acidCEvluate = acidC_percentile <= 30 ? '<span class="text-danger">合成能力偏低</span>' : '合成能力正常';
 
-  const acidD = roundToTwo(data.analysisResult.TotalButyrateAbundance * 100)
-  const acidD_percentile = data.analysisResult.TotalButyratePercentile
-  const acidDEvluate = acidD_percentile <= 30 ? '<span class="text-danger">合成能力偏低</span>' : '合成能力正常'
+  const acidD = roundToTwo(data.analysisResult.TotalButyrateAbundance * 100);
+  const acidD_percentile = data.analysisResult.TotalButyratePercentile;
+  const acidDEvluate = acidD_percentile <= 30 ? '<span class="text-danger">合成能力偏低</span>' : '合成能力正常';
 
   const htmlTemplate = `<!-- p10 -->
       <page size="A4">
@@ -788,15 +788,15 @@ const fattyAcidSynthesis = (data, dynamicText, pageNum) => {
         <footer>
           <div class="page-number">${pageNum}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 
 const enterotyping = (data, dynamicText, pageNum) => {
-  let type = data.analysisResult.Enterotype
-  const typeText = dynamicText.Enterotype[type]
-  type = type.replace('type', '腸型')
+  let type = data.analysisResult.Enterotype;
+  const typeText = dynamicText.Enterotype[type];
+  type = type.replace('type', '腸型');
 
   const htmlTemplate = `<!-- p11 -->
       <page size="A4">
@@ -833,7 +833,7 @@ const enterotyping = (data, dynamicText, pageNum) => {
                 <div class="card-body">
                   <h6 class="card-title text-center w-100">擬桿菌Bacteroides</h6>
                   <p class="card-text ls-1">
-                    此類人群，飲食傾向高脂肪及高蛋白攝取，腸道中富含擬桿菌，較易分解碳水化合物及蛋白質來獲取所需能量，此類人群較不易肥胖。
+                    此類人群，腸道中富含擬桿菌，較易分解碳水化合物及蛋白質來獲取所需能量，飲食傾向高脂肪及高蛋白攝取。
                   </p>
                 </div>
               </div>
@@ -843,8 +843,7 @@ const enterotyping = (data, dynamicText, pageNum) => {
                 <div class="card-body">
                   <h6 class="card-title text-center w-100">普氏菌 Prevotella</h6>
                   <p class="card-text ls-1">
-                    此類人群，飲食傾向高纖維食物攝取，腸道中富含普氏菌
-                    ，導致腸道黏液分解，腸道防護力下降，較易有腸道疼痛不適的狀況。
+                    此類人群，腸道中富含普氏菌，易使腸道內黏液分解，飲食傾向高纖維食物攝取。
                   </p>
                 </div>
               </div>
@@ -854,7 +853,7 @@ const enterotyping = (data, dynamicText, pageNum) => {
                 <div class="card-body">
                   <h6 class="card-title text-center w-100">瘤胃球菌Ruminococcus</h6>
                   <p class="card-text ls-1">
-                    此類腸型人群其腸道中富含瘤胃球菌，瘤胃球菌較易吸收糖分，此類腸型人群較容易增重。
+                    此類人群，腸道中富含瘤胃球菌，瘤胃球菌較易吸收糖分，使身體內糖分增高。
                   </p>
                 </div>
               </div>
@@ -865,13 +864,13 @@ const enterotyping = (data, dynamicText, pageNum) => {
         <footer>
           <div class="page-number">${pageNum}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 
 const biomeSummary = (data, pageNum) => {
-  const gutBiome = data.GutBiome
+  const gutBiome = data.GutBiome;
   const htmlTemplate = `<!-- p12 -->
       <page size="A4">
         <header>
@@ -957,33 +956,33 @@ const biomeSummary = (data, pageNum) => {
         <footer>
           <div class="page-number">${pageNum}</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 
 const indexStatus = (value) => {
   if (81 <= value && value <= 100) {
-    return '優良'
+    return '優良';
   } else if (31 <= value && value <= 80) {
-    return '正常'
+    return '正常';
   } else {
-    return '<span class="text-danger">偏低</span>'
+    return '<span class="text-danger">偏低</span>';
   }
-}
+};
 
 const bodyFunctionStatus = (value) => {
   if (80 <= value && value <= 100) {
-    return '低度風險'
+    return '低度風險';
   } else if (30 <= value && value <= 79) {
-    return '中度風險'
+    return '中度風險';
   } else {
-    return '<span class="text-danger">高度風險</span>'
+    return '<span class="text-danger">高度風險</span>';
   }
-}
+};
 
 function roundToTwo(num) {
-  return +(Math.round(num + 'e+2') + 'e-2')
+  return +(Math.round(num + 'e+2') + 'e-2');
 }
 
 module.exports = {
@@ -995,4 +994,4 @@ module.exports = {
   fattyAcidSynthesis,
   enterotyping,
   biomeSummary
-}
+};

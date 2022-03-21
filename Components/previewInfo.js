@@ -37,20 +37,20 @@ const previewText = `      <!-- p2 -->
         <footer>
           <div class="page-number">2</div>
         </footer>
-      </page>`
+      </page>`;
 
 const customerInfo = (data) => {
   // TODO customerInfo 需要更多資訊放在API上實作
-  const name = data.customer.id
-  const age = ''
-  const gender = ''
-  const id = ''
-  const sampleId = ''
-  const sampleDate = ''
-  const reciveDate = ''
-  const reportDate = ''
-  const sendPlace = ''
-  const analysisItem = ''
+  const name = data.customer.id;
+  const age = '';
+  const gender = '';
+  const id = '';
+  const sampleId = '';
+  const sampleDate = '';
+  const reciveDate = '';
+  const reportDate = '';
+  const sendPlace = '';
+  const analysisItem = '';
 
   let htmlTemplate = `<!-- p3 -->
       <page size="A4">
@@ -141,10 +141,10 @@ const customerInfo = (data) => {
         <footer>
           <div class="page-number">3</div>
         </footer>
-      </page>`
+      </page>`;
 
-  return htmlTemplate
-}
+  return htmlTemplate;
+};
 
 const categoryText = `<!-- p4 -->
       <page size="A4">
@@ -185,16 +185,16 @@ const categoryText = `<!-- p4 -->
               <div class="col-6 category-right">
                 <h3 class="category-title py-1 px-2 pageSubtitle">4. 身體功能評估</h3>
                 <ul class="category-list mb-4">
-                  <li class="list-item">4.1 腦功能健康指數</li>
-                  <li class="list-item">4.2 心血管功能健康指數</li>
-                  <li class="list-item">4.3 肺功能健康指數</li>
-                  <li class="list-item">4.4 肝功能健康指數</li>
-                  <li class="list-item">4.5 腎功能健康指數</li>
-                  <li class="list-item">4.6 胃功能健康指數</li>
-                  <li class="list-item">4.7 腸功能健康指數</li>
-                  <li class="list-item">4.8 免疫功能健康指數</li>
-                  <li class="list-item">4.9 肥胖健康指數</li>
-                  <li class="list-item">4.10 代謝功能健康指數</li>
+                  <li class="list-item">4.1 腦功能風險指數</li>
+                  <li class="list-item">4.2 心血管功能風險指數</li>
+                  <li class="list-item">4.3 肺功能風險指數</li>
+                  <li class="list-item">4.4 肝功能風險指數</li>
+                  <li class="list-item">4.5 腎功能風險指數</li>
+                  <li class="list-item">4.6 胃功能風險指數</li>
+                  <li class="list-item">4.7 腸功能風險指數</li>
+                  <li class="list-item">4.8 免疫功能風險指數</li>
+                  <li class="list-item">4.9 肥胖風險指數</li>
+                  <li class="list-item">4.10 代謝功能風險指數</li>
                 </ul>
 
                 <h3 class="category-title py-1 px-2 pageSubtitle">5. 附錄</h3>
@@ -217,6 +217,6 @@ const categoryText = `<!-- p4 -->
         <footer>
           <div class="page-number">4</div>
         </footer>
-      </page>`
+      </page>`;
 
-module.exports = { previewText, customerInfo, categoryText }
+module.exports = { previewText, customerInfo, categoryText };

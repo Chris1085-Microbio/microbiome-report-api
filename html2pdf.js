@@ -13,9 +13,11 @@ const dir = `./reports/${curYear}/pdf` // directory to check if exists
 
 // check if file exists
 if (typeof args[2] === 'undefined') {
-  return console.log(`[${date}] ERR! Samplename not existed. exit.`)
+  console.log(`[${date}] ERR! Samplename not existed. exit.`)
+  exit
 } else if (fs.existsSync(`${dir}/example_${samplename}.pdf`)) {
-  return console.log(`[${date}] example_${samplename}.pdf exists. Skip html2pdf process.`)
+  console.log(`[${date}] example_${samplename}.pdf exists. Skip html2pdf process.`)
+  exit
 } else {
   html2pdf()
 }
