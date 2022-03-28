@@ -25,9 +25,6 @@ const summary = (data, dynamicText, newPages) => {
   let tempText = '';
   Object.keys(data.indices).forEach((index) => {
     if (parseInt(data.indices[index]) < 31) {
-      console.log(index);
-
-      console.log(dynamicText.indicesDescription[index]);
       tempText += dynamicText.indicesDescription[index];
     }
   });
@@ -57,7 +54,7 @@ const summary = (data, dynamicText, newPages) => {
 
             <h4 class="py-1 px-2 pageSubtitle"><i class="far fa-hand-point-right mr-1"></i>結果說明</h4>
             <p class="text-indent mt-4">
-              中天生物科技利用腸道菌相變化建立六大核心指數。根據您的檢測結果，<span class="text-primary"
+              中天生物科技利用腸道菌相變化建立六大核心指數。根據您的檢測結果，<span class="text-gold"
                 >${tempText}</span
               >
             </p>

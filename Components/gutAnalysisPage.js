@@ -904,49 +904,49 @@ const biomeSummary = (data, pageNum) => {
               <tr class="border-bottom border-dark">
                 <td>1</td>
                 <td>${gutBiome[0].name}</td>
-                <td>厚壁菌門</td>
+                <td>${gutBiome[0].chtName}</td>
                 <td>${gutBiome[0].percentage}</td>
               </tr>
               <tr class="border-bottom border-dark">
                 <td>2</td>
                 <td>${gutBiome[1].name}</td>
-                <td>擬桿菌門</td>
+                <td>${gutBiome[1].chtName}</td>
                 <td>${gutBiome[1].percentage}</td>
               </tr>
               <tr class="border-bottom border-dark">
                 <td>3</td>
                 <td>${gutBiome[2].name}</td>
-                <td>變形菌門</td>
+                <td>${gutBiome[2].chtName}</td>
                 <td>${gutBiome[2].percentage}</td>
               </tr>
               <tr class="border-bottom border-dark">
                 <td>4</td>
                 <td>${gutBiome[3].name}</td>
-                <td>疣微菌門</td>
+                <td>${gutBiome[3].chtName}</td>
                 <td>${gutBiome[3].percentage}</td>
               </tr>
               <tr class="border-bottom border-dark">
                 <td>5</td>
                 <td>${gutBiome[4].name}</td>
-                <td>梭桿菌門</td>
+                <td>${gutBiome[4].chtName}</td>
                 <td>${gutBiome[4].percentage}</td>
               </tr>
               <tr class="border-bottom border-dark">
                 <td>6</td>
                 <td>${gutBiome[5].name}</td>
-                <td>放線菌門</td>
+                <td>${gutBiome[5].chtName}</td>
                 <td>${gutBiome[5].percentage}</td>
               </tr>
               <tr class="border-bottom border-dark">
                 <td>7</td>
                 <td>${gutBiome[6].name}</td>
-                <td>軟壁菌門</td>
+                <td>${gutBiome[6].chtName}</td>
                 <td>${gutBiome[6].percentage}</td>
               </tr>
               <tr class="border-bottom border-dark">
                 <td>8</td>
                 <td>${gutBiome[7].name}</td>
-                <td>藍藻門</td>
+                <td>${gutBiome[7].chtName}</td>
                 <td>${gutBiome[7].percentage}</td>
               </tr>
             </table>
