@@ -9,16 +9,16 @@ do
 
 	echo "Six plot $JSON_NAME"
 	sh $SIX_DIR/plot.sh $FILE
-	sleep 2
+	sleep 1
 
 #	cp $FILE ./json/
 	echo "Covert report  $JSON_NAME"
 	node convertReportAll.js $FILE
-	sleep 2
+	sleep 1
 
 	echo "Html2pdf $JSON_NAME"
 	node html2pdf.js $JSON_NAME	
-	sleep 2
+	sleep 1
 
 done
 
