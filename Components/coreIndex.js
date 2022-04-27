@@ -31,7 +31,6 @@ const summary = (data, dynamicText, newPages) => {
 
   tempText = tempText == '' ? dynamicText.indicesDescription.stable : tempText;
 
-  // TODO 需要置換圖檔
   const htmlTemplate = `<!-- p14 -->
       <page size="A4">
         <header>

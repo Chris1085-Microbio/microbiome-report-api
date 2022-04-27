@@ -13,7 +13,7 @@ do
 
 #	cp $FILE ./json/
 	echo "Covert report  $JSON_NAME"
-	node convertReportAll.js $JSON_NAME $FILE
+	node convertReportAll.js $FILE
 	sleep 2
 
 	echo "Html2pdf $JSON_NAME"

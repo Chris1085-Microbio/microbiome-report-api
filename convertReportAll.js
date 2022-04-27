@@ -12,12 +12,12 @@ const computed = require('./Components/computed');
 const process = require('process');
 const args = process.argv;
 const samplename = args[2];
-const jsonDir = args[3];
+const jsonFile = args[2];
 const date = moment().format('YYYY-MM-DD HH:mm:ss');
 const curYear = moment().year();
 
 try {
-  const data = JSON.parse(fs.readFileSync(`${jsonDir}`));
+  const data = JSON.parse(fs.readFileSync(`${jsonFile}`));
   const dynamicText = JSON.parse(fs.readFileSync('./json/dynamicText.json'));
   const { newPages } = computed.getNewPages(data, dynamicText);
 

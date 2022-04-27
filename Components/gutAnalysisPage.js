@@ -171,6 +171,7 @@ const healthGuides = (data, dynamicText) => {
   // 計算在指引頁上需要填入的資料及是否有新增頁數
   const { newPages, indicesText, bodyFunctionText, productDescription } = computed.getNewPages(data, dynamicText);
   let htmlTemplate = '';
+  console.log('指引總頁數：', newPages + 1);
 
   // 假如沒有新增頁數
   if (newPages == 0) {
@@ -233,7 +234,6 @@ const healthGuides = (data, dynamicText) => {
     // 把第一行插入至secondArr
     secondArr.unshift(tempSlice);
 
-    // TODO 第三段敘述仍需要改
     let productDescriptionMod =
       '近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的' +
       productDescription +
@@ -255,7 +255,9 @@ const healthGuides = (data, dynamicText) => {
     let page2Part3 = '';
 
     // 假如第二頁文字是卡在第二段時
-    if (firstArr.length + secondArr.length > 25 && secondArr.length < 37) {
+    if (firstArr.length + secondArr.length > 25 && secondArr.length < 36) {
+      // console.log(firstArr.length, secondArr.length);
+
       // 計算page1Part2
       page1Part2 = page1Arr.join('').split('其次，在身體功能評估方面，').slice(-1);
       // console.log(page1Arr)
@@ -347,8 +349,8 @@ const healthGuides = (data, dynamicText) => {
         </footer>
       </page>
       `;
-    } else if (firstArr.length + secondArr.length > 25 && secondArr.length >= 37) {
-      // console.log(firstArr.length, secondArr.length)
+    } else if (firstArr.length + secondArr.length > 25 && secondArr.length >= 36) {
+      // console.log(firstArr.length, secondArr.length);
 
       // 計算page1Part2
       page1Part2 = page1Arr.join('').split('其次，在身體功能評估方面，').slice(-1);
@@ -492,6 +494,7 @@ const healthGuides = (data, dynamicText) => {
     } else if (firstArr.length + secondArr.length + thirdArr.length > 25) {
       // 假如第二頁文字是卡在第三段時
       // 計算page1Part3
+
       page1Part3 = page1Arr
         .join('')
         .split('近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的')
