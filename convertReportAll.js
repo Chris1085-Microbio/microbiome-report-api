@@ -17,7 +17,7 @@ const date = moment().format('YYYY-MM-DD HH:mm:ss');
 const curYear = moment().year();
 
 try {
-  const data = JSON.parse(fs.readFileSync(`${jsonDir}/${samplename}.json`));
+  const data = JSON.parse(fs.readFileSync(`${jsonDir}`));
   const dynamicText = JSON.parse(fs.readFileSync('./json/dynamicText.json'));
   const { newPages } = computed.getNewPages(data, dynamicText);
 

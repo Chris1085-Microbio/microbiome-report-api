@@ -11,7 +11,7 @@ do
 	sh $SIX_DIR/plot.sh $FILE
 	sleep 2
 
-	cp $FILE ./json/
+#	cp $FILE ./json/
 	echo "Covert report  $JSON_NAME"
 	node convertReportAll.js $JSON_NAME $FILE
 	sleep 2
