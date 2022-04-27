@@ -1,24 +1,25 @@
-const fs = require('fs')
-const moment = require('moment')
-const headerHTML = require('./Components/headerPage')
-const footerHTML = require('./Components/footerPage')
-const previewInfo = require('./Components/previewInfo')
-const gut = require('./Components/gutAnalysisPage')
-const core = require('./Components/coreIndex')
-const bloodTest = require('./Components/bloodTest')
-const bodyFunction = require('./Components/bodyFunction')
-const appendix = require('./Components/appendix')
-const computed = require('./Components/computed')
-const process = require('process')
-const args = process.argv
-const samplename = args[2]
-const date = moment().format('YYYY-MM-DD HH:mm:ss')
-const curYear = moment().year()
+const fs = require('fs');
+const moment = require('moment');
+const headerHTML = require('./Components/headerPage');
+const footerHTML = require('./Components/footerPage');
+const previewInfo = require('./Components/previewInfo');
+const gut = require('./Components/gutAnalysisPage');
+const core = require('./Components/coreIndex');
+const bloodTest = require('./Components/bloodTest');
+const bodyFunction = require('./Components/bodyFunction');
+const appendix = require('./Components/appendix');
+const computed = require('./Components/computed');
+const process = require('process');
+const args = process.argv;
+const samplename = args[2];
+const jsonDir = args[3];
+const date = moment().format('YYYY-MM-DD HH:mm:ss');
+const curYear = moment().year();
 
 try {
-  const data = JSON.parse(fs.readFileSync(`./json/${samplename}.json`))
-  const dynamicText = JSON.parse(fs.readFileSync('./json/dynamicText.json'))
-  const { newPages } = computed.getNewPages(data, dynamicText)
+  const data = JSON.parse(fs.readFileSync(`${jsonDir}/${samplename}.json`));
+  const dynamicText = JSON.parse(fs.readFileSync('./json/dynamicText.json'));
+  const { newPages } = computed.getNewPages(data, dynamicText);
 
   let template =
     headerHTML +
@@ -58,12 +59,12 @@ try {
     appendix.bloodTestMeaning(35 + newPages) +
     appendix.reference(36 + newPages) +
     appendix.freeDuty(37 + newPages) +
-    footerHTML
+    footerHTML;
 
-  fs.writeFileSync('./report.html', template)
+  fs.writeFileSync('./report.html', template);
   // fs.writeFileSync(`./reports/${curYear}/html/${samplename}.html`, template)
 
-  console.log(`[${date}] OK! Template File converted to ./report.html!`)
+  console.log(`[${date}] OK! Template File converted to ./report.html!`);
 } catch (err) {
-  console.error(err)
+  console.error(err);
 }
