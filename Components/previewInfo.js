@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 const previewText = `      <!-- p2 -->
       <page size="A4">
         <header>
@@ -39,18 +41,44 @@ const previewText = `      <!-- p2 -->
         </footer>
       </page>`;
 
-const customerInfo = (data) => {
+const customerInfo = (data, jsonFile) => {
   // TODO customerInfo 需要更多資訊放在API上實作
-  const name = data.customer.id;
-  const age = '';
-  const gender = '';
-  const id = '';
-  const sampleId = '';
-  const sampleDate = '';
-  const reciveDate = '';
-  const reportDate = '';
-  const sendPlace = '';
-  const analysisItem = '';
+  const sampleData = require('../json/HP_220426_sampleInfo.json');
+  const filename = jsonFile.split('/').pop().replace(/.json/, '');
+
+  console.log(filename);
+  const {
+    Name: name,
+    Age: birth,
+    Gender: gender,
+    ID: id,
+    Sample: sampleId,
+    SamplingDateTime: sampleDate,
+    ReceiveDate: reciveDate,
+    ReceiveFrom: sendPlace,
+    TestMethod: analysisItem
+  } = sampleData.find((item) => {
+    return item.FileName === filename;
+  });
+
+  const receiveAge = moment(birth, 'YYYY/MM/DD')
+    .month(0)
+    .from(moment(reciveDate, 'YYYY/MM/DD').month(0))
+    .replace(/ years ago/, '');
+
+  const reportDate = moment().format('YYYY/M/D');
+  console.log(moment());
+
+  // const name = data.customer.id;
+  // const age = '';
+  // const gender = '';
+  // const id = '';
+  // const sampleId = '';
+  // const sampleDate = '';
+  // const reciveDate = '';
+  // const reportDate = '';
+  // const sendPlace = '';
+  // const analysisItem = '';
 
   let htmlTemplate = `<!-- p3 -->
       <page size="A4">
@@ -77,7 +105,7 @@ const customerInfo = (data) => {
                   </li>
                   <li class="list-item d-flex justify-content-between">
                     <span class="col-6 text-last-justify">年齡</span>
-                    <span class="field col-6 text-center">${age}</span>
+                    <span class="field col-6 text-center">${receiveAge}</span>
                   </li>
                   <li class="list-item d-flex justify-content-between">
                     <span class="col-6 text-last-justify">性別</span>

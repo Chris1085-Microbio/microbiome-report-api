@@ -24,7 +24,7 @@ try {
   let template =
     headerHTML +
     previewInfo.previewText +
-    previewInfo.customerInfo(data) +
+    previewInfo.customerInfo(data, jsonFile) +
     previewInfo.categoryText +
     gut.pagination +
     gut.summary(data) +

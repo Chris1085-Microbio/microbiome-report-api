@@ -1,4 +1,4 @@
-DIR=/Users/chuanfang/Downloads/medical_HP_report_js
+DIR=/Users/chuanfang/Downloads/HP_220426_report_js
 SIX_DIR=/Users/chuanfang/chuanfang/Website/microbiome-report-api/SixCorepIndicesPlots_new
 
 for FILE in "$DIR"/*
