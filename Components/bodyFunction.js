@@ -1,3 +1,5 @@
+const bacteriaList = require('../json/bacteriaList.json');
+
 const pagination = (newPages) => {
   const htmlTemplate = `<!-- p21 -->
       <page size="A4">
@@ -23,6 +25,9 @@ const pagination = (newPages) => {
 
 const PDAD = (data, newPages) => {
   riskContainerTemplate = riskStatus(data);
+
+  const { goodBacteriaStatus, badBacteriaStatus } = checkBacteriaStatus(data, 'PDAD');
+
   const htmlTemplate = `<!-- p22 -->
       <page size="A4">
         <header>
@@ -67,7 +72,7 @@ const PDAD = (data, newPages) => {
                     <span class="d-block">促進腸道粘膜免疫力與障蔽功能、調節代謝與菌叢平衡。 </span>
 
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[0].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[0]}</span>
                     </div>
                   </li>
                   <li class="list-item text-end">
@@ -75,7 +80,7 @@ const PDAD = (data, newPages) => {
                     <span class="d-block font-italic">(Faecalibacterium prausnitzii) </span>
                     <span class="d-block">促進短鏈脂肪酸生成、提供腸道細胞能量，抑制壞菌。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[1].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[1]}</span>
                     </div>
                   </li>
                   <li class="list-item text-end">
@@ -83,7 +88,7 @@ const PDAD = (data, newPages) => {
                     <span class="d-block font-italic">(Bifidobacterium) </span>
                     <span class="d-block">促進調節性T細胞功能、腸道免疫平衡與減少脂肪堆積。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[2].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[2]}</span>
                     </div>
                   </li>
                 </ul>
@@ -93,7 +98,7 @@ const PDAD = (data, newPages) => {
                     <span class="d-block font-italic">(Porphyromonas gingivalis) </span>
                     <span class="d-block">牙周病菌，產生毒性物質使神經病變，造成神經退化。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[0].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[0]}</span>
                     </div>
                   </li>
                   <li class="list-item text-start">
@@ -101,7 +106,7 @@ const PDAD = (data, newPages) => {
                     <span class="d-block font-italic">(Klebsiella) </span>
                     <span class="d-block">產生內毒素，造成全身慢性發炎。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[1].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[1]}</span>
                     </div>
                   </li>
                   <li class="list-item text-start">
@@ -109,7 +114,7 @@ const PDAD = (data, newPages) => {
                     <span class="d-block font-italic">(Gardnerella) </span>
                     <span class="d-block">神經退化疾病關鍵菌。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[2].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[2]}</span>
                     </div>
                   </li>
                 </ul>
@@ -128,6 +133,9 @@ const PDAD = (data, newPages) => {
 
 const cvd = (data, newPages) => {
   riskContainerTemplate = riskStatus(data);
+
+  const { goodBacteriaStatus, badBacteriaStatus } = checkBacteriaStatus(data, 'HeartVessel');
+
   const htmlTemplate = `<!-- p23 -->
       <page size="A4">
         <header>
@@ -173,7 +181,7 @@ const cvd = (data, newPages) => {
                     <span class="d-block">促進腸道粘膜免疫力與障蔽功能、調節代謝與菌叢平衡。 </span>
 
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[0].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[0]}</span>
                     </div>
                   </li>
                   <li class="list-item text-end">
@@ -181,7 +189,7 @@ const cvd = (data, newPages) => {
                     <span class="d-block font-italic">(Intestinibacter) </span>
                     <span class="d-block">改善心血管疾病的關鍵細菌，與血脂及發炎呈現負相關。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[1].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[1]}</span>
                     </div>
                   </li>
                   <li class="list-item text-end">
@@ -189,7 +197,7 @@ const cvd = (data, newPages) => {
                     <span class="d-block font-italic">(Roseburia intestinalis) </span>
                     <span class="d-block">促進調節性T細胞功能、腸道免疫平衡與減少脂肪堆積。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[2].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[2]}</span>
                     </div>
                   </li>
                 </ul>
@@ -199,7 +207,7 @@ const cvd = (data, newPages) => {
                     <span class="d-block font-italic">(Eggerthella) </span>
                     <span class="d-block">製造三甲胺，使血管病變、血脂上升及血管阻塞。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[0].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[0]}</span>
                     </div>
                   </li>
                   <li class="list-item text-start">
@@ -207,7 +215,7 @@ const cvd = (data, newPages) => {
                     <span class="d-block font-italic">(Collinsella) </span>
                     <span class="d-block">製造三甲胺，使血管病變、血脂上升及血管阻塞。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[1].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[1]}</span>
                     </div>
                   </li>
                   <li class="list-item text-start">
@@ -215,7 +223,7 @@ const cvd = (data, newPages) => {
                     <span class="d-block font-italic">(Ruminococcus gnavus) </span>
                     <span class="d-block">腸道炎症關鍵菌，導致腸道損傷與發炎。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[2].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[2]}</span>
                     </div>
                   </li>
                 </ul>
@@ -234,6 +242,9 @@ const cvd = (data, newPages) => {
 };
 const lung = (data, newPages) => {
   riskContainerTemplate = riskStatus(data);
+
+  const { goodBacteriaStatus, badBacteriaStatus } = checkBacteriaStatus(data, 'Lung');
+
   const htmlTemplate = `<!-- p24 -->
       <page size="A4">
         <header>
@@ -280,7 +291,7 @@ const lung = (data, newPages) => {
                     <span class="d-block">促進短鏈脂肪酸生成、提供腸道細胞能量，抑制壞菌。 </span>
 
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[0].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[0]}</span>
                     </div>
                   </li>
                   <li class="list-item text-end">
@@ -288,7 +299,7 @@ const lung = (data, newPages) => {
                     <span class="d-block font-italic">(Roseburia intestinalis) </span>
                     <span class="d-block">促進調節性T細胞功能、腸道免疫平衡與減少脂肪堆積。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[1].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[1]}</span>
                     </div>
                   </li>
                   <li class="list-item text-end">
@@ -296,7 +307,7 @@ const lung = (data, newPages) => {
                     <span class="d-block font-italic">(Bifidobacterium longum) </span>
                     <span class="d-block">促進調節性T細胞功能、腸道免疫平衡與減少脂肪堆積。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[2].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[2]}</span>
                     </div>
                   </li>
                 </ul>
@@ -306,7 +317,7 @@ const lung = (data, newPages) => {
                     <span class="d-block font-italic">(Atopobium) </span>
                     <span class="d-block">過敏性呼吸道疾病指標。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[0].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[0]}</span>
                     </div>
                   </li>
                   <li class="list-item text-start">
@@ -314,7 +325,7 @@ const lung = (data, newPages) => {
                     <span class="d-block font-italic">(Streptococcus pneumoniae) </span>
                     <span class="d-block"> 肺部感染病原菌。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[1].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[1]}</span>
                     </div>
                   </li>
                   <li class="list-item text-start">
@@ -322,7 +333,7 @@ const lung = (data, newPages) => {
                     <span class="d-block font-italic">(Haemophilus influenza) </span>
                     <span class="d-block">呼吸道感染病原菌。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[2].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[2]}</span>
                     </div>
                   </li>
                 </ul>
@@ -338,8 +349,12 @@ const lung = (data, newPages) => {
 
   return htmlTemplate;
 };
+
 const nafld = (data, newPages) => {
   riskContainerTemplate = riskStatus(data);
+
+  const { goodBacteriaStatus, badBacteriaStatus } = checkBacteriaStatus(data, 'Liver');
+
   const htmlTemplate = `<!-- p25 -->
       <page size="A4">
         <header>
@@ -384,15 +399,15 @@ const nafld = (data, newPages) => {
                     <span class="d-block">促進腸道粘膜免疫力與障蔽功能、調節代謝與菌叢平衡。 </span>
 
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[0].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[0]}</span>
                     </div>
                   </li>
                   <li class="list-item text-end">
                     <span class="d-block">霍氏真桿菌 </span>
-                    <span class="d-block font-italic">(FEubacterium hallii) </span>
+                    <span class="d-block font-italic">(Eubacterium hallii) </span>
                     <span class="d-block">促進短鏈脂肪酸生成、增強腸粘膜屏障功能。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[1].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[1]}</span>
                     </div>
                   </li>
                   <li class="list-item text-end">
@@ -400,7 +415,7 @@ const nafld = (data, newPages) => {
                     <span class="d-block font-italic">(Roseburia intestinalis) </span>
                     <span class="d-block">促進調節性T細胞功能、腸道免疫平衡與減少脂肪堆積。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[2].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[2]}</span>
                     </div>
                   </li>
                 </ul>
@@ -410,7 +425,7 @@ const nafld = (data, newPages) => {
                     <span class="d-block font-italic">(Klebsiella pneumoniae) </span>
                     <span class="d-block">造成脂肪肝、脂肪性肝炎與酒精性肝炎。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[0].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[0]}</span>
                     </div>
                   </li>
                   <li class="list-item text-start">
@@ -418,7 +433,7 @@ const nafld = (data, newPages) => {
                     <span class="d-block font-italic">(Klebsiella pneumonia) </span>
                     <span class="d-block">高脂飲食導致此菌增生，造成肝臟發炎與纖維化。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[1].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[1]}</span>
                     </div>
                   </li>
                   <li class="list-item text-start">
@@ -426,7 +441,7 @@ const nafld = (data, newPages) => {
                     <span class="d-block font-italic">(Clostridium sordellii) </span>
                     <span class="d-block">高脂飲食導致此菌增生，造成肝臟發炎與纖維化。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[2].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[2]}</span>
                     </div>
                   </li>
                 </ul>
@@ -444,6 +459,9 @@ const nafld = (data, newPages) => {
 };
 const ckd = (data, newPages) => {
   riskContainerTemplate = riskStatus(data);
+
+  const { goodBacteriaStatus, badBacteriaStatus } = checkBacteriaStatus(data, 'Kidney');
+
   const htmlTemplate = `<!-- p26 -->
       <page size="A4">
         <header>
@@ -490,7 +508,7 @@ const ckd = (data, newPages) => {
                     <span class="d-block">促進腸道粘膜免疫力與障蔽功能、調節代謝與菌叢平衡。 </span>
 
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[0].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[0]}</span>
                     </div>
                   </li>
                   <li class="list-item text-end">
@@ -498,7 +516,7 @@ const ckd = (data, newPages) => {
                     <span class="d-block font-italic">(Bifidobacterium) </span>
                     <span class="d-block">促進調節性T細胞功能、腸道免疫平衡與減少脂肪堆積。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[1].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[1]}</span>
                     </div>
                   </li>
                   <li class="list-item text-end">
@@ -506,7 +524,7 @@ const ckd = (data, newPages) => {
                     <span class="d-block font-italic">(Eubacterium) </span>
                     <span class="d-block">增強腸粘膜屏障功能。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[2].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[2]}</span>
                     </div>
                   </li>
                 </ul>
@@ -516,7 +534,7 @@ const ckd = (data, newPages) => {
                     <span class="d-block font-italic">(Ruminococcus torques) </span>
                     <span class="d-block">腸道失衡關鍵菌，使腸黏膜屏障功能降低。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[0].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[0]}</span>
                     </div>
                   </li>
                   <li class="list-item text-start">
@@ -524,7 +542,7 @@ const ckd = (data, newPages) => {
                     <span class="d-block font-italic">(Ruminococcus gnavus) </span>
                     <span class="d-block">腸道炎症關鍵菌，導致腸道損傷與發炎。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[1].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[1]}</span>
                     </div>
                   </li>
                   <li class="list-item text-start">
@@ -532,7 +550,7 @@ const ckd = (data, newPages) => {
                     <span class="d-block font-italic">(Oxalobacter formigenes) </span>
                     <span class="d-block">導致腎結石之關鍵壞菌。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[2].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[2]}</span>
                     </div>
                   </li>
                 </ul>
@@ -550,6 +568,9 @@ const ckd = (data, newPages) => {
 };
 const gastitis = (data, newPages) => {
   riskContainerTemplate = riskStatus(data);
+
+  const { goodBacteriaStatus, badBacteriaStatus } = checkBacteriaStatus(data, 'Stomach');
+
   const htmlTemplate = `<!-- p27 -->
       <page size="A4">
         <header>
@@ -594,7 +615,7 @@ const gastitis = (data, newPages) => {
                     <span class="d-block">促進調節性T細胞功能、腸道免疫平衡與減少脂肪堆積。 </span>
 
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[0].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[0]}</span>
                     </div>
                   </li>
                   <li class="list-item text-end">
@@ -602,7 +623,7 @@ const gastitis = (data, newPages) => {
                     <span class="d-block font-italic">(Oscillibacter) </span>
                     <span class="d-block">增強腸粘膜屏障功能。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[1].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[1]}</span>
                     </div>
                   </li>
                   <li class="list-item text-end">
@@ -610,7 +631,7 @@ const gastitis = (data, newPages) => {
                     <span class="d-block font-italic">(Lachnoclostridium) </span>
                     <span class="d-block">促進短鏈脂肪酸生成、提供腸道細胞能量，抑制壞菌。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[2].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[2]}</span>
                     </div>
                   </li>
                 </ul>
@@ -620,7 +641,7 @@ const gastitis = (data, newPages) => {
                     <span class="d-block font-italic">(Helicobacter pylori) </span>
                     <span class="d-block">胃潰瘍、胃癌致病菌，使胃壁發炎、潰瘍與癌化。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[0].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[0]}</span>
                     </div>
                   </li>
                   <li class="list-item text-start">
@@ -628,7 +649,7 @@ const gastitis = (data, newPages) => {
                     <span class="d-block font-italic">(Peptostreptococcus stomatis) </span>
                     <span class="d-block">導致粘膜發炎關鍵壞菌。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[1].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[1]}</span>
                     </div>
                   </li>
                   <li class="list-item text-start">
@@ -636,7 +657,7 @@ const gastitis = (data, newPages) => {
                     <span class="d-block font-italic">(Dialister pneumosintes) </span>
                     <span class="d-block">胃炎與胃癌上升指標菌，造成黏膜發炎。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[2].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[2]}</span>
                     </div>
                   </li>
                 </ul>
@@ -652,8 +673,12 @@ const gastitis = (data, newPages) => {
 
   return htmlTemplate;
 };
+
 const colitis = (data, newPages) => {
   riskContainerTemplate = riskStatus(data);
+
+  const { goodBacteriaStatus, badBacteriaStatus } = checkBacteriaStatus(data, 'Intestine');
+
   const htmlTemplate = `<!-- p28 -->
       <page size="A4">
         <header>
@@ -698,7 +723,7 @@ const colitis = (data, newPages) => {
                     <span class="d-block">促進腸道粘膜免疫力與障蔽功能、調節代謝與菌叢平衡。 </span>
 
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[0].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[0]}</span>
                     </div>
                   </li>
                   <li class="list-item text-end">
@@ -706,7 +731,7 @@ const colitis = (data, newPages) => {
                     <span class="d-block font-italic">(Eubacterium) </span>
                     <span class="d-block">增強腸粘膜屏障功能。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[1].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[1]}</span>
                     </div>
                   </li>
                   <li class="list-item text-end">
@@ -714,7 +739,7 @@ const colitis = (data, newPages) => {
                     <span class="d-block font-italic">(Roseburia intestinalis) </span>
                     <span class="d-block">促進調節性T細胞功能、腸道免疫平衡與減少脂肪堆積。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[2].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[2]}</span>
                     </div>
                   </li>
                 </ul>
@@ -724,7 +749,7 @@ const colitis = (data, newPages) => {
                     <span class="d-block font-italic">(Fusobacterium nucleatum) </span>
                     <span class="d-block">產生毒素使腸道細胞發炎，造成腸炎與腹瀉。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[0].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[0]}</span>
                     </div>
                   </li>
                   <li class="list-item text-start">
@@ -732,7 +757,7 @@ const colitis = (data, newPages) => {
                     <span class="d-block font-italic">(Peptostreptococcus stomatis) </span>
                     <span class="d-block">導致粘膜發炎關鍵壞菌。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[1].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[1]}</span>
                     </div>
                   </li>
                   <li class="list-item text-start">
@@ -740,7 +765,7 @@ const colitis = (data, newPages) => {
                     <span class="d-block font-italic">(Ruminococcus torques) </span>
                     <span class="d-block">腸道失衡關鍵菌，使腸黏膜屏障功能降低。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[2].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[2]}</span>
                     </div>
                   </li>
                 </ul>
@@ -756,8 +781,12 @@ const colitis = (data, newPages) => {
 
   return htmlTemplate;
 };
+
 const immune = (data, newPages) => {
   riskContainerTemplate = riskStatus(data);
+
+  const { goodBacteriaStatus, badBacteriaStatus } = checkBacteriaStatus(data, 'Immune');
+
   const htmlTemplate = `<!-- p29 -->
       <page size="A4">
         <header>
@@ -801,7 +830,7 @@ const immune = (data, newPages) => {
                     <span class="d-block font-italic">(Bifidobacterium) </span>
                     <span class="d-block">促進調節性T細胞功能、腸道免疫平衡與減少脂肪堆積。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[0].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[0]}</span>
                     </div>
                   </li>
                   <li class="list-item text-end">
@@ -809,7 +838,7 @@ const immune = (data, newPages) => {
                     <span class="d-block font-italic">(Roseburia intestinalis) </span>
                     <span class="d-block">促進調節性T細胞功能、腸道免疫平衡與減少脂肪堆積。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[1].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[1]}</span>
                     </div>
                   </li>
                   <li class="list-item text-end">
@@ -817,7 +846,7 @@ const immune = (data, newPages) => {
                     <span class="d-block font-italic">(Clostridium leptum) </span>
                     <span class="d-block">促進短鏈脂肪酸生成、提供腸道細胞能量，抑制壞菌。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[2].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[2]}</span>
                     </div>
                   </li>
                 </ul>
@@ -827,7 +856,7 @@ const immune = (data, newPages) => {
                     <span class="d-block font-italic">(Staphylococcus aureus) </span>
                     <span class="d-block">伺機性感染菌，易造成軟組織發炎。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[0].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[0]}</span>
                     </div>
                   </li>
                   <li class="list-item text-start">
@@ -835,7 +864,7 @@ const immune = (data, newPages) => {
                     <span class="d-block font-italic">(Eggerthella) </span>
                     <span class="d-block">製造三甲胺，使血管病變、血脂上升及血管阻塞。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[1].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[1]}</span>
                     </div>
                   </li>
                   <li class="list-item text-start">
@@ -843,7 +872,7 @@ const immune = (data, newPages) => {
                     <span class="d-block font-italic">(Collinsella) </span>
                     <span class="d-block">製造三甲胺，使血管病變、血脂上升及血管阻塞。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[2].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[2]}</span>
                     </div>
                   </li>
                 </ul>
@@ -861,6 +890,9 @@ const immune = (data, newPages) => {
 };
 const obesity = (data, newPages) => {
   riskContainerTemplate = riskStatus(data);
+
+  const { goodBacteriaStatus, badBacteriaStatus } = checkBacteriaStatus(data, 'Obesity');
+
   const htmlTemplate = `<!-- p30 -->
       <page size="A4">
         <header>
@@ -905,7 +937,7 @@ const obesity = (data, newPages) => {
                     <span class="d-block">促進腸道粘膜免疫力與障蔽功能、調節代謝與菌叢平衡。 </span>
 
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[0].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[0]}</span>
                     </div>
                   </li>
                   <li class="list-item text-end">
@@ -913,7 +945,7 @@ const obesity = (data, newPages) => {
                     <span class="d-block font-italic">(Roseburia intestinalis) </span>
                     <span class="d-block">促進調節性T細胞功能、腸道免疫平衡與減少脂肪堆積。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[1].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[1]}</span>
                     </div>
                   </li>
                   <li class="list-item text-end">
@@ -921,7 +953,7 @@ const obesity = (data, newPages) => {
                     <span class="d-block font-italic">(Bifidobacterium longum) </span>
                     <span class="d-block">促進調節性T細胞功能、腸道免疫平衡與減少脂肪堆積。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[2].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[2]}</span>
                     </div>
                   </li>
                 </ul>
@@ -931,7 +963,7 @@ const obesity = (data, newPages) => {
                     <span class="d-block font-italic">(Bacteroides vulgatus) </span>
                     <span class="d-block">肝臟纖維化上升指標菌，膽汁酸代謝異常及造成發炎。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[0].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[0]}</span>
                     </div>
                   </li>
                   <li class="list-item text-start">
@@ -939,7 +971,7 @@ const obesity = (data, newPages) => {
                     <span class="d-block font-italic">(Clostridium scindens) </span>
                     <span class="d-block">高脂飲食導致此菌增生，造成肝臟發炎與纖維化。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[1].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[1]}</span>
                     </div>
                   </li>
                   <li class="list-item text-start">
@@ -947,7 +979,7 @@ const obesity = (data, newPages) => {
                     <span class="d-block font-italic">(Clostridium sordellii) </span>
                     <span class="d-block">高脂飲食導致此菌增生，造成肝臟發炎與纖維化。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[2].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[2]}</span>
                     </div>
                   </li>
                 </ul>
@@ -965,6 +997,9 @@ const obesity = (data, newPages) => {
 };
 const metabolism = (data, newPages) => {
   riskContainerTemplate = riskStatus(data);
+
+  const { goodBacteriaStatus, badBacteriaStatus } = checkBacteriaStatus(data, 'Metabolism');
+
   const htmlTemplate = `<!-- p31 -->
       <page size="A4">
         <header>
@@ -1012,7 +1047,7 @@ const metabolism = (data, newPages) => {
                     <span class="d-block">促進腸道粘膜免疫力與障蔽功能、調節代謝與菌叢平衡。 </span>
 
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[0].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[0]}</span>
                     </div>
                   </li>
                   <li class="list-item text-end">
@@ -1020,7 +1055,7 @@ const metabolism = (data, newPages) => {
                     <span class="d-block font-italic">(Eubacterium rectale) </span>
                     <span class="d-block">增強腸粘膜屏障功能。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[1].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[1]}</span>
                     </div>
                   </li>
                   <li class="list-item text-end">
@@ -1028,7 +1063,7 @@ const metabolism = (data, newPages) => {
                     <span class="d-block font-italic">(Roseburia intestinalis) </span>
                     <span class="d-block">促進調節性T細胞功能、腸道免疫平衡與減少脂肪堆積。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.good[2].status}</span>
+                      <span class="bacteriaScore">${goodBacteriaStatus[2]}</span>
                     </div>
                   </li>
                 </ul>
@@ -1038,7 +1073,7 @@ const metabolism = (data, newPages) => {
                     <span class="d-block font-italic">(Ruminococcus gnavus) </span>
                     <span class="d-block">腸道炎症生物指標菌，導致腸道損傷與發炎。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[0].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[0]}</span>
                     </div>
                   </li>
                   <li class="list-item text-start">
@@ -1046,7 +1081,7 @@ const metabolism = (data, newPages) => {
                     <span class="d-block font-italic">(Eggerthella lenta) </span>
                     <span class="d-block">產生丙酸咪唑，造成胰島素阻抗，導致醣類代謝異常。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[1].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[1]}</span>
                     </div>
                   </li>
                   <li class="list-item text-start">
@@ -1054,7 +1089,7 @@ const metabolism = (data, newPages) => {
                     <span class="d-block font-italic">(Bilophila wadsworthia) </span>
                     <span class="d-block">造成脂肪代謝異常、全身性發炎。 </span>
                     <div class="bacteriaScore-container text-center">
-                      <span class="bacteriaScore">${data.bad[2].status}</span>
+                      <span class="bacteriaScore">${badBacteriaStatus[2]}</span>
                     </div>
                   </li>
                 </ul>
@@ -1115,6 +1150,25 @@ const riskStatus = (data) => {
   htmlTemplate += `</div>`;
 
   return htmlTemplate;
+};
+
+const checkBacteriaStatus = (data, bodyName) => {
+  let goodBacteriaStatus = [];
+  let badBacteriaStatus = [];
+
+  for (let i = 0; i < 3; i++) {
+    const goodBacteria = data.good.find((bacteria) => {
+      return bacteria.name === bacteriaList[bodyName].good[i].name;
+    }) || { status: '偏低' };
+
+    const badBacteria = data.bad.find((bacteria) => {
+      return bacteria.name === bacteriaList[bodyName].bad[i].name;
+    }) || { status: '偏低' };
+
+    goodBacteriaStatus.push(goodBacteria.status);
+    badBacteriaStatus.push(badBacteria.status);
+  }
+  return { goodBacteriaStatus, badBacteriaStatus };
 };
 
 module.exports = { pagination, PDAD, cvd, lung, nafld, ckd, gastitis, colitis, immune, obesity, metabolism };
