@@ -1112,7 +1112,6 @@ const riskStatus = (data) => {
   let riskColor = 'medium';
   let riskClass = '';
   let risk = '中度風險';
-  console.log('riskStatus:' + score);
 
   // 判斷要填入的資料低、中、高狀況
   if (score > 7) {

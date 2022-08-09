@@ -38,7 +38,6 @@ const summary = (data) => {
   const immune = bodyFunctionStatus(parseInt(data.Immune.score));
   const obesity = bodyFunctionStatus(parseInt(data.Obesity.score));
   const metabolism = bodyFunctionStatus(parseInt(data.Metabolism.score));
-  console.log('obesity:' + obesity);
 
   const htmlTemplate = `<!-- p6 -->
       <page size="A4">
@@ -257,7 +256,6 @@ const healthGuides = (data, dynamicText) => {
 
     // 假如第二頁文字是卡在第二段時
     if (firstArr.length + secondArr.length > 25 && secondArr.length <= 29) {
-      console.log('secondArr length: ', secondArr.length);
       // 計算page1Part2
       page1Part2 = page1Arr.join('').split('其次，在身體功能評估方面，').slice(-1);
       // console.log(page1Arr)
@@ -607,9 +605,188 @@ const healthGuides = (data, dynamicText) => {
         </footer>
       </page>
       `;
+    } else if (firstArr.length + secondArr.length == 25) {
+      // 計算page1Part2
+      page1Arr.pop();
+      // console.log(page1Arr);
+      page1Part2 = page1Arr.join('').split('其次，在身體功能評估方面，').slice(-1);
+      // 計算page2Part2
+      page2Part2 = page2Arr
+        .join('')
+        .split(
+          '近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的'
+        )
+        .slice(0, 1);
+
+      // 計算page2Part3
+      page2Part3 = productDescription;
+
+      // 塞入htmlTemplate
+      htmlTemplate = `<!-- p7 -->
+      <page size="A4" class="bg-p7">
+        <header>
+          <div class="logo-container"></div>
+        </header>
+
+        <div class="d-flex flex-column align-items-center w-100">
+          <div class="mt-8 w-100 zi-1">
+            <div class="col-12 page-title-container mb-5">
+              <h3 class="page-title">1.2 腸道健康指引</h3>
+              <div class="parallelogram mr-2"></div>
+              <div class="parallelogram mr-5"></div>
+            </div>
+          </div>
+
+          <!-- <div class="mb-5 page-container "> -->
+          <div class="healthGuide-container">
+            <p class="fw-bold text-indent">
+              在您這次的腸道菌相檢測結果，首先在六大核心指數中，<span class="text-gold"
+                >${indicesText}
+              </span>
+            </p>
+    
+            <p class="fw-bold text-indent">
+              其次，在身體功能評估方面，<span class="text-gold"
+                >${page1Part2}
+              </span>
+            </p>
+          </div>
+          <!-- </div> -->
+        </div>
+
+        <footer>
+          <div class="page-number">7</div>
+        </footer>
+      </page>`;
+
+      htmlTemplate += `
+      <!-- p7 -->
+      <page size="A4" class="bg-p7">
+        <header>
+          <div class="logo-container"></div>
+        </header>
+
+        <div class="d-flex flex-column align-items-center w-100">
+          <div class="mt-8 w-100 zi-1">
+            <div class="col-12 page-title-container mb-5">
+              <h3 class="page-title">1.2 腸道健康指引</h3>
+              <div class="parallelogram mr-2"></div>
+              <div class="parallelogram mr-5"></div>
+            </div>
+          </div>
+
+          <!-- <div class="mb-5 page-container "> -->
+          <div class="healthGuide-container">          
+            <p class="fw-bold text-indent">
+              近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的<span
+                class="text-gold"
+                >${page2Part3}</span
+              >使您的身體常保青春活力。
+            </p>
+          </div>
+          <!-- </div> -->
+        </div>
+
+        <footer>
+          <div class="page-number">8</div>
+        </footer>
+      </page>
+      `;
+    } else if (firstArr.length + secondArr.length == 24) {
+      // 假如第二頁文字是卡在第三段時
+      // 計算page1Part3
+      // console.log(page1Arr);
+
+      page1Part3 = page1Arr
+        .join('')
+        .split('近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的')
+        .slice(-1)
+        .join('')
+        .split('關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技')
+        .slice(-1)
+        .join('')
+        .split('所研發的')
+        .slice(-1);
+
+      // 計算page2Part3
+      page2Part3 = page2Arr.join('').split('所研發的').slice(-1).join('').split('使您的身體常保青春活力。')[0];
+
+      // 塞入htmlTemplate
+      htmlTemplate = `<!-- p7 -->
+      <page size="A4" class="bg-p7">
+        <header>
+          <div class="logo-container"></div>
+        </header>
+
+        <div class="d-flex flex-column align-items-center w-100">
+          <div class="mt-8 w-100 zi-1">
+            <div class="col-12 page-title-container mb-5">
+              <h3 class="page-title">1.2 腸道健康指引</h3>
+              <div class="parallelogram mr-2"></div>
+              <div class="parallelogram mr-5"></div>
+            </div>
+          </div>
+
+          <!-- <div class="mb-5 page-container "> -->
+          <div class="healthGuide-container">
+            <p class="fw-bold text-indent">
+              在您這次的腸道菌相檢測結果，首先在六大核心指數中，<span class="text-gold"
+                >${indicesText}
+              </span>
+            </p>
+            <br />
+            <p class="fw-bold text-indent">
+              其次，在身體功能評估方面，<span class="text-gold"
+                >${bodyFunctionText}
+              </span>
+            </p>
+            <br />
+          </div>
+          <!-- </div> -->
+        </div>
+
+        <footer>
+          <div class="page-number">7</div>
+        </footer>
+      </page>`;
+
+      htmlTemplate += `
+      <!-- p7 -->
+      <page size="A4" class="bg-p7">
+        <header>
+          <div class="logo-container"></div>
+        </header>
+
+        <div class="d-flex flex-column align-items-center w-100">
+          <div class="mt-8 w-100 zi-1">
+            <div class="col-12 page-title-container mb-5">
+              <h3 class="page-title">1.2 腸道健康指引</h3>
+              <div class="parallelogram mr-2"></div>
+              <div class="parallelogram mr-5"></div>
+            </div>
+          </div>
+
+          <!-- <div class="mb-5 page-container "> -->
+          <div class="healthGuide-container">
+            <p class="fw-bold text-indent">
+              近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的<span
+                class="text-gold"
+                >${page2Part3}</span
+              >使您的身體常保青春活力。
+            </p>
+          </div>
+          <!-- </div> -->
+        </div>
+
+        <footer>
+          <div class="page-number">8</div>
+        </footer>
+      </page>
+      `;
     } else if (firstArr.length + secondArr.length + thirdArr.length > 25) {
       // 假如第二頁文字是卡在第三段時
       // 計算page1Part3
+      console.log(page1Arr);
 
       page1Part3 = page1Arr
         .join('')
@@ -1092,7 +1269,6 @@ const indexStatus = (value) => {
 
 const bodyFunctionStatus = (value) => {
   const score = value === 0 ? 1 : Math.ceil(value / 10);
-  console.log('score:' + score);
 
   // 判斷要填入的資料低、中、高狀況
   if (score > 7) {

@@ -1,0 +1,163 @@
+{
+  "customer": { "id": "GI22-00014-I1", "dataPoint": "V1-1" },
+  "analysisResult": {
+    "Enterotype": "type1",
+    "NumberOfGenus": "66",
+    "FBRatio": "1.34",
+    "BERatio": "6.82",
+    "TotalAcetateAbundance": "0.5008922351683797",
+    "TotalAcetatePercentile": "75",
+    "TotalButyrateAbundance": "0.13153550332560382",
+    "TotalButyratePercentile": "56",
+    "TotalPropionateAbundance": "0.3563787657572548",
+    "TotalPropionatePercentile": "80"
+  },
+  "GutBiome": [
+    { "name": "Firmicutes", "chtName": "厚壁菌門", "percentage": "52.2%" },
+    { "name": "Bacteroidetes", "chtName": "擬桿菌門", "percentage": "38.9%" },
+    { "name": "Actinobacteria", "chtName": "放線菌門", "percentage": "7.0%" },
+    { "name": "Proteobacteria", "chtName": "變形菌門", "percentage": "1.6%" },
+    { "name": "Fusobacteria", "chtName": "梭桿菌門", "percentage": "0.3%" },
+    { "name": "Tenericutes", "chtName": "軟壁菌門", "percentage": "0.0%" },
+    { "name": "Synergistetes", "chtName": "互養菌門", "percentage": "0.0%" },
+    { "name": "Verrucomicrobia", "chtName": "疣微菌門", "percentage": "0.0%" }
+  ],
+  "indices": {
+    "GutBiomeIndex": "73.0",
+    "GoodBadIndex": "75",
+    "GlucoseIndex": "94",
+    "OilIndex": "86",
+    "ImmuneIndex": "94",
+    "GutFunctionIndex": "96"
+  },
+  "Immune": {
+    "score": "94",
+    "good": [
+      { "name": "Bacteroides uniformis", "status": "一般" },
+      { "name": "Bifidobacterium longum", "status": "一般" },
+      { "name": "Faecalibacterium prausnitzii", "status": "一般" }
+    ],
+    "bad": [
+      { "name": "Porphyromonas", "status": "偏低" },
+      { "name": "Enterobacter cloacae", "status": "偏低" },
+      { "name": "Haemophilus", "status": "偏低" }
+    ]
+  },
+  "Metabolism": {
+    "score": "80",
+    "good": [
+      { "name": "Bacteroides uniformis", "status": "一般" },
+      { "name": "Subdoligranulum", "status": "一般" },
+      { "name": "Oscillibacter", "status": "一般" }
+    ],
+    "bad": [
+      { "name": "Fusobacterium", "status": "一般" },
+      { "name": "Collinsella", "status": "一般" },
+      { "name": "Clostridium symbiosum", "status": "偏低" }
+    ]
+  },
+  "PDAD": {
+    "score": "62",
+    "good": [
+      { "name": "Clostridium", "status": "一般" },
+      { "name": "Prevotella copri", "status": "偏低" },
+      { "name": "Turicibacter", "status": "偏低" }
+    ],
+    "bad": [
+      { "name": "Enterococcus", "status": "一般" },
+      { "name": "Veillonella", "status": "一般" },
+      { "name": "Aquabacterium", "status": "偏低" }
+    ]
+  },
+  "Lung": {
+    "score": "100",
+    "good": [
+      { "name": "Bacteroides uniformis", "status": "一般" },
+      { "name": "Bifidobacterium", "status": "一般" },
+      { "name": "Roseburia", "status": "一般" }
+    ],
+    "bad": [
+      { "name": "Porphyromonas", "status": "偏低" },
+      { "name": "Granulicatella", "status": "偏低" },
+      { "name": "Haemophilus", "status": "偏低" }
+    ]
+  },
+  "Intestine": {
+    "score": "77",
+    "good": [
+      { "name": "Bacteroides uniformis", "status": "一般" },
+      { "name": "Bifidobacterium", "status": "一般" },
+      { "name": "Roseburia", "status": "一般" }
+    ],
+    "bad": [
+      { "name": "Enterococcus", "status": "一般" },
+      { "name": "Escherichia coli", "status": "一般" },
+      { "name": "Ruminococcus gnavus", "status": "一般" }
+    ]
+  },
+  "Liver": {
+    "score": "97",
+    "good": [
+      { "name": "Bacteroides uniformis", "status": "一般" },
+      { "name": "Bifidobacterium", "status": "一般" },
+      { "name": "Roseburia", "status": "一般" }
+    ],
+    "bad": [
+      { "name": "Clostridium", "status": "一般" },
+      { "name": "Enterococcus", "status": "一般" },
+      { "name": "Enterobacter cloacae", "status": "偏低" }
+    ]
+  },
+  "Obesity": {
+    "score": "74",
+    "good": [
+      { "name": "Bacteroides uniformis", "status": "一般" },
+      { "name": "Bifidobacterium", "status": "一般" },
+      { "name": "Oscillibacter", "status": "一般" }
+    ],
+    "bad": [
+      { "name": "Clostridium", "status": "一般" },
+      { "name": "Prevotella copri", "status": "偏低" },
+      { "name": "Enterobacter cloacae", "status": "偏低" }
+    ]
+  },
+  "Stomach": {
+    "score": "66",
+    "good": [
+      { "name": "Bifidobacterium", "status": "一般" },
+      { "name": "Oscillibacter", "status": "一般" },
+      { "name": "Prevotella", "status": "一般" }
+    ],
+    "bad": [
+      { "name": "Subdoligranulum", "status": "一般" },
+      { "name": "Dialister pneumosintes", "status": "偏低" },
+      { "name": "Parvimonas micra", "status": "偏高" }
+    ]
+  },
+  "HeartVessel": {
+    "score": "83",
+    "good": [
+      { "name": "Prevotella copri", "status": "偏低" },
+      { "name": "Oscillibacter", "status": "一般" },
+      { "name": "Bifidobacterium longum", "status": "一般" }
+    ],
+    "bad": [
+      { "name": "Enterococcus", "status": "一般" },
+      { "name": "Megamonas", "status": "偏低" },
+      { "name": "Collinsella", "status": "一般" }
+    ]
+  },
+  "Kidney": {
+    "score": "86",
+    "good": [
+      { "name": "Subdoligranulum", "status": "一般" },
+      { "name": "Bifidobacterium", "status": "一般" },
+      { "name": "Roseburia", "status": "一般" }
+    ],
+    "bad": [
+      { "name": "Erysipelatoclostridium", "status": "一般" },
+      { "name": "Turicibacter", "status": "偏低" },
+      { "name": "Lactobacillus fermentum", "status": "偏低" }
+    ]
+  }
+}
