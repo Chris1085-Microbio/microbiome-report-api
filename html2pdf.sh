@@ -1,4 +1,4 @@
-DIR=/Users/chuanfang/Downloads/HP_220426_report_js
+DIR=./data
 SIX_DIR=/Users/chuanfang/chuanfang/Website/microbiome-report-api/SixCorepIndicesPlots_new
 
 for FILE in "$DIR"/*
@@ -14,7 +14,7 @@ do
 #	cp $FILE ./json/
 	echo "Covert report  $JSON_NAME"
 	node convertReportAll.js $FILE
-	sleep 1
+	sleep 3
 
 	echo "Html2pdf $JSON_NAME"
 	node html2pdf.js $JSON_NAME	

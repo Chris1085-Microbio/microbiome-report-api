@@ -43,10 +43,10 @@ const previewText = `      <!-- p2 -->
 
 const customerInfo = (data, jsonFile) => {
   // TODO customerInfo 需要更多資訊放在API上實作
-  const sampleData = require('../json/HP_220426_sampleInfo.json');
+  const sampleData = require('../json/sampleIA.json');
   const filename = jsonFile.split('/').pop().replace(/.json/, '');
 
-  console.log(filename);
+  // console.log(filename, sampleData[0].FileName);
   const {
     Name: name,
     Age: birth,
@@ -61,24 +61,27 @@ const customerInfo = (data, jsonFile) => {
     return item.FileName === filename;
   });
 
-  const receiveAge = moment(birth, 'YYYY/MM/DD')
-    .month(0)
-    .from(moment(reciveDate, 'YYYY/MM/DD').month(0))
-    .replace(/ years ago/, '');
+  const receiveAge =
+    birth != ''
+      ? moment(birth, 'YYYY/MM/DD')
+          .month(0)
+          .from(moment(reciveDate, 'YYYY/MM/DD').month(0))
+          .replace(/ years ago/, '')
+      : '';
 
   const reportDate = moment().format('YYYY/M/D');
   console.log(moment());
 
-  // const name = data.customer.id;
-  // const age = '';
-  // const gender = '';
-  // const id = '';
-  // const sampleId = '';
-  // const sampleDate = '';
-  // const reciveDate = '';
-  // const reportDate = '';
-  // const sendPlace = '';
-  // const analysisItem = '';
+  // const name = '李筑婷';
+  // const receiveAge = '27';
+  // const gender = '女';
+  // const id = 'R224688003';
+  // const sampleId = data.customer.id;
+  // const sampleDate = '2022/4/8';
+  // const reciveDate = '2022/4/8';
+  // const reportDate = '2022/5/7';
+  // const sendPlace = '中天';
+  // const analysisItem = '個人化腸生態';
 
   let htmlTemplate = `<!-- p3 -->
       <page size="A4">

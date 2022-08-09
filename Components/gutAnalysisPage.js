@@ -38,6 +38,7 @@ const summary = (data) => {
   const immune = bodyFunctionStatus(parseInt(data.Immune.score));
   const obesity = bodyFunctionStatus(parseInt(data.Obesity.score));
   const metabolism = bodyFunctionStatus(parseInt(data.Metabolism.score));
+  console.log('obesity:' + obesity);
 
   const htmlTemplate = `<!-- p6 -->
       <page size="A4">
@@ -1090,9 +1091,13 @@ const indexStatus = (value) => {
 };
 
 const bodyFunctionStatus = (value) => {
-  if (80 <= value && value <= 100) {
+  const score = value === 0 ? 1 : Math.ceil(value / 10);
+  console.log('score:' + score);
+
+  // 判斷要填入的資料低、中、高狀況
+  if (score > 7) {
     return '低度風險';
-  } else if (30 <= value && value <= 79) {
+  } else if (score > 3 && score < 8) {
     return '中度風險';
   } else {
     return '<span class="text-danger">高度風險</span>';
