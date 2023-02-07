@@ -9,3 +9,5 @@ node_modules
 *.gz
 json
 data
+data_backup
+csv

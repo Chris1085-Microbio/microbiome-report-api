@@ -41,12 +41,12 @@ const previewText = `      <!-- p2 -->
         </footer>
       </page>`;
 
-const customerInfo = (data, jsonFile) => {
+const customerInfo = (data, jsonFile, sampleInfoFile) => {
   // TODO customerInfo 需要更多資訊放在API上實作
-  const sampleData = require('../json/sampleIA.json');
+  const sampleData = require(`../json/${sampleInfoFile}.json`);
   const filename = jsonFile.split('/').pop().replace(/.json/, '');
 
-  // console.log(filename, sampleData[0].FileName);
+  console.log(filename, sampleData[0].FileName);
   const {
     Name: name,
     Age: birth,
@@ -70,18 +70,18 @@ const customerInfo = (data, jsonFile) => {
       : '';
 
   const reportDate = moment().format('YYYY/M/D');
-  console.log(moment());
+  // const reportDate = '2023/1/3';
 
-  // const name = '李筑婷';
-  // const receiveAge = '27';
-  // const gender = '女';
-  // const id = 'R224688003';
+  // const name = '';
+  // const receiveAge = '';
+  // const gender = '';
+  // const id = '';
   // const sampleId = data.customer.id;
-  // const sampleDate = '2022/4/8';
-  // const reciveDate = '2022/4/8';
-  // const reportDate = '2022/5/7';
-  // const sendPlace = '中天';
-  // const analysisItem = '個人化腸生態';
+  // const sampleDate = '';
+  // const reciveDate = '';
+  // const reportDate = '';
+  // const sendPlace = '';
+  // const analysisItem = '';
 
   let htmlTemplate = `<!-- p3 -->
       <page size="A4">

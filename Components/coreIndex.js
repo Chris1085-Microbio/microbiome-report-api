@@ -280,21 +280,21 @@ const getBtnTemplate = (data, indexName) => {
     return `<div class="indexBtn-container mb-6 ml-4 p-1 border-red">
                 <div class="indexBtn text-white text-center p-2 bg-red">
                   <span class="text-last-justify d-block">高度風險</span>
-                  <span>${data[indexName]} 分</span>
+                  <span>${parseInt(data[indexName])} 分</span>
                 </div>
               </div>`;
   } else if (parseInt(data[indexName]) > 31 && parseInt(data[indexName]) < 80) {
     return `<div class="indexBtn-container mb-6 ml-4 p-1 border-orange">
                 <div class="indexBtn text-white text-center p-2">
                   <span class="text-last-justify d-block">中度風險</span>
-                  <span>${data[indexName]} 分</span>
+                  <span>${parseInt(data[indexName])} 分</span>
                 </div>
               </div>`;
   } else {
     return `<div class="indexBtn-container mb-6 ml-4 p-1 border-green">
                 <div class="indexBtn text-white text-center p-2">
                   <span class="text-last-justify d-block">低度風險</span>
-                  <span>${data[indexName]} 分</span>
+                  <span>${parseInt(data[indexName])} 分</span>
                 </div>
               </div>`;
   }
