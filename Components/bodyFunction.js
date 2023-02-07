@@ -102,9 +102,9 @@ const PDAD = (data, newPages) => {
                     </div>
                   </li>
                   <li class="list-item text-start">
-                    <span class="d-block">克雷伯氏菌屬 </span>
-                    <span class="d-block font-italic">(Klebsiella) </span>
-                    <span class="d-block">產生內毒素，造成全身慢性發炎。 </span>
+                    <span class="d-block">孿生球菌屬 </span>
+                    <span class="d-block font-italic">(Gemella) </span>
+                    <span class="d-block">神經退化疾病關鍵菌。 </span>
                     <div class="bacteriaScore-container text-center">
                       <span class="bacteriaScore">${badBacteriaStatus[1]}</span>
                     </div>
@@ -394,9 +394,9 @@ const nafld = (data, newPages) => {
               <div class="bacteriaList-container d-flex justify-content-between">
                 <ul class="goodBacteriaList col-6 p-2 mt-3">
                   <li class="list-item text-end">
-                    <span class="d-block">艾克曼嗜黏蛋白菌 </span>
-                    <span class="d-block font-italic">(Akkermansia muciniphila) </span>
-                    <span class="d-block">促進腸道粘膜免疫力與障蔽功能、調節代謝與菌叢平衡。 </span>
+                    <span class="d-block">人羅斯氏菌  </span>
+                    <span class="d-block font-italic">(Roseburia hominis) </span>
+                    <span class="d-block">促進調節性T細胞功能、腸道免疫平衡。 </span>
 
                     <div class="bacteriaScore-container text-center">
                       <span class="bacteriaScore">${goodBacteriaStatus[0]}</span>
@@ -753,9 +753,9 @@ const colitis = (data, newPages) => {
                     </div>
                   </li>
                   <li class="list-item text-start">
-                    <span class="d-block">胃消化鏈球菌 </span>
-                    <span class="d-block font-italic">(Peptostreptococcus stomatis) </span>
-                    <span class="d-block">導致粘膜發炎關鍵壞菌。 </span>
+                    <span class="d-block">微小微單胞菌 </span>
+                    <span class="d-block font-italic">(Parvimonas micra) </span>
+                    <span class="d-block">產生毒素使腸道細胞發炎，造成腸炎與腹瀉。 </span>
                     <div class="bacteriaScore-container text-center">
                       <span class="bacteriaScore">${badBacteriaStatus[1]}</span>
                     </div>
@@ -860,16 +860,16 @@ const immune = (data, newPages) => {
                     </div>
                   </li>
                   <li class="list-item text-start">
-                    <span class="d-block">埃格特菌屬 </span>
-                    <span class="d-block font-italic">(Eggerthella) </span>
+                    <span class="d-block">遲緩埃格特菌 </span>
+                    <span class="d-block font-italic">(Eggerthella lenta) </span>
                     <span class="d-block">製造三甲胺，使血管病變、血脂上升及血管阻塞。 </span>
                     <div class="bacteriaScore-container text-center">
                       <span class="bacteriaScore">${badBacteriaStatus[1]}</span>
                     </div>
                   </li>
                   <li class="list-item text-start">
-                    <span class="d-block">柯林斯菌屬 </span>
-                    <span class="d-block font-italic">(Collinsella) </span>
+                    <span class="d-block">產氣柯林斯菌 </span>
+                    <span class="d-block font-italic">(Collinsella aerofaciens) </span>
                     <span class="d-block">製造三甲胺，使血管病變、血脂上升及血管阻塞。 </span>
                     <div class="bacteriaScore-container text-center">
                       <span class="bacteriaScore">${badBacteriaStatus[2]}</span>
