@@ -58,6 +58,13 @@ const getNewPages = (data, dynamicText) => {
   return { newPages, indicesText, bodyFunctionText, productDescription };
 };
 
+/**
+ *
+ * @param {*} bloodData
+ * @param {*} sampleInfoFile
+ * @param {*} jsonFile
+ * @returns
+ */
 const calBloodPages = (bloodData, sampleInfoFile, jsonFile) => {
   let bloodPages = 2;
   bloodPages = bloodData;
@@ -89,8 +96,6 @@ const calcBloodTemplate = (jsonFilename, bloodData) => {
   bloodDataFiltered = bloodData.filter((data) => {
     return data.id === jsonFilename;
   });
-
-  // console.log(bloodDataFiltered);
 
   let title = '';
   let tempTitle = 'tempTitle';
