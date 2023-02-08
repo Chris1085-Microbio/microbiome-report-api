@@ -14,8 +14,10 @@ const { log } = require('console');
 const args = process.argv;
 const jsonFile = args[2];
 const sampleInfoFile = args[3];
-const editDate = args[4];
-const bloodTestFile = args[5];
+const bloodTestFile = args[4];
+// 報告修改日期
+const editDate = args[5];
+
 const date = moment().format('YYYY-MM-DD HH:mm:ss');
 const curYear = moment().year();
 
