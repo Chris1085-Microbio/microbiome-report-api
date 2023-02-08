@@ -72,7 +72,6 @@ const index1 = (data, dynamicText, newPages) => {
   const shannon = getBtnTemplate(data.indices, 'GutBiomeIndex');
   const goodbad = getBtnTemplate(data.indices, 'GoodBadIndex');
 
-  // TODO 需要置換圖檔
   const htmlTemplate = `<!-- p15 -->
       <page size="A4">
         <header>
