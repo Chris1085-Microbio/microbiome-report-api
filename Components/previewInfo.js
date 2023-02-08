@@ -41,12 +41,12 @@ const previewText = `      <!-- p2 -->
         </footer>
       </page>`;
 
-const customerInfo = (data, jsonFile, sampleInfoFile) => {
+const customerInfo = (data, jsonFile, sampleInfoFile, editDate) => {
   // TODO customerInfo 需要更多資訊放在API上實作
   const sampleData = require(`../json/${sampleInfoFile}.json`);
   const filename = jsonFile.split('/').pop().replace(/.json/, '');
 
-  console.log(filename, sampleData[0].FileName);
+  // console.log(filename, sampleData[0].FileName);
   const {
     Name: name,
     Age: birth,
@@ -69,7 +69,8 @@ const customerInfo = (data, jsonFile, sampleInfoFile) => {
           .replace(/ years ago/, '')
       : '';
 
-  const reportDate = moment().format('YYYY/M/D');
+  const reportDate = editDate === '' ? moment().format('YYYY/M/D') : editDate;
+  // const reportDate = moment().format('YYYY/M/D');
   // const reportDate = '2023/1/3';
 
   // const name = '';

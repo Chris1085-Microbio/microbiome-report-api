@@ -20,7 +20,6 @@ const pagination = `      <!-- p5 -->
       </page>`;
 
 const summary = (data) => {
-  // NOTE gutSummary API
   const shannon = indexStatus(parseInt(data.indices.GutBiomeIndex));
   const goodBad = indexStatus(parseInt(data.indices.GoodBadIndex));
   const glucose = indexStatus(parseInt(data.indices.GlucoseIndex));
@@ -901,7 +900,6 @@ const biomeDistribution = (data, dynamicText, pageNum) => {
     bactDistTodoDescription = dynamicText.bactDist.low.todoDescription;
   }
 
-  // TODO 需修正分布圖檔案位置
   const htmlTemplate = `<!-- p8 -->
       <page size="A4">
         <header>
@@ -943,7 +941,7 @@ const biomeDistribution = (data, dynamicText, pageNum) => {
 };
 
 const healthIndex = (data, dynamicText, pageNum) => {
-  // TODO 結果分析、評估需要帶入變數
+  // TODO 修改B/E Ratio
   const fb = data.analysisResult.FBRatio;
   const fbResult = fb > 1 ? '偏向厚壁菌門' : '偏向擬桿菌門';
   const fbEvaluate = fb > 1 ? '有體重增加趨勢' : '體重穩定';
@@ -1017,7 +1015,6 @@ const healthIndex = (data, dynamicText, pageNum) => {
 };
 
 const fattyAcidSynthesis = (data, dynamicText, pageNum) => {
-  // TODO 結果分析、評估需要帶入變數
   const acidB = roundToTwo(data.analysisResult.TotalAcetateAbundance * 100);
   const acidB_percentile = data.analysisResult.TotalAcetatePercentile;
   const acidBEvluate = acidB_percentile <= 30 ? '<span class="text-danger">合成能力偏低</span>' : '合成能力正常';

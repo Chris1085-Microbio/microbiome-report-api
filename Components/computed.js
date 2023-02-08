@@ -1,3 +1,4 @@
+const { log } = require('console');
 const fs = require('fs');
 
 const getNewPages = (data, dynamicText) => {
@@ -57,4 +58,93 @@ const getNewPages = (data, dynamicText) => {
   return { newPages, indicesText, bodyFunctionText, productDescription };
 };
 
-module.exports = { getNewPages };
+/**
+ *
+ * @param {*} bloodData
+ * @param {*} sampleInfoFile
+ * @param {*} jsonFile
+ * @returns
+ */
+const calBloodPages = (bloodData, sampleInfoFile, jsonFile) => {
+  let bloodPages = 2;
+  bloodPages = bloodData;
+
+  const sampleData = require(`../json/${sampleInfoFile}.json`);
+  const filename = jsonFile.split('/').pop().replace(/.json/, '');
+  const { Sample: sampleId } = sampleData.find((item) => {
+    return item.FileName === filename;
+  });
+
+  const idArray = bloodData.map((data) => {
+    return data.id;
+  });
+
+  let idCounts = {};
+
+  idArray.forEach((x) => {
+    idCounts[x] = (idCounts[x] || 0) + 1;
+  });
+
+  bloodPages = idCounts[sampleId] < 24 ? 1 : 2;
+
+  return { bloodPages };
+};
+
+const calcBloodTemplate = (jsonFilename, bloodData) => {
+  let bloodTemplate = ``;
+
+  bloodDataFiltered = bloodData.filter((data) => {
+    return data.id === jsonFilename;
+  });
+
+  let title = '';
+  let tempTitle = 'tempTitle';
+  let itemCounts = {};
+
+  bloodDataFiltered.forEach((x) => {
+    itemCounts[x.riskItem] = (itemCounts[x.riskItem] || 0) + 1;
+  });
+
+  let sameItemCount = 0;
+  bloodDataFiltered.forEach((data) => {
+    const warning = data.warnings.toUpperCase();
+    let isDanger = '';
+
+    if (tempTitle === data.riskItem) {
+      title = '';
+      sameItemCount += 1;
+    } else {
+      title = data.riskItem;
+      tempTitle = data.riskItem;
+      sameItemCount = 1;
+    }
+
+    if (warning === 'Y') {
+      isDanger = 'text-danger';
+    }
+
+    if (sameItemCount === 1) {
+      bloodTemplate += `
+        <tr>
+          <td rowspan="${itemCounts[title]}" class="text-center">${title}</td>
+          <td>${data.checkitem}</td>
+          <td class="text-center ${isDanger}">${data.result}</td>
+          <td class="text-center">${data.reference}</td>
+          <td class="text-center">${data.unit}</td>
+        </tr>
+    `;
+    } else {
+      bloodTemplate += `
+        <tr>
+          <td>${data.checkitem}</td>
+          <td class="text-center ${isDanger}">${data.result}</td>
+          <td class="text-center">${data.reference}</td>
+          <td class="text-center">${data.unit}</td>
+        </tr>
+    `;
+    }
+  });
+  return { bloodTemplate };
+};
+
+module.exports = { getNewPages, calBloodPages, calcBloodTemplate };
