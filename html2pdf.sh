@@ -1,7 +1,7 @@
 # 匯入Sample CSV，製作腸生態報告
 # sh html2pdf.sh <SampleInfo CSV Filename> <Edit CSV Filename> 
 # Usage: sh html2pdf.sh 1230_sampleInfo 
-# NOTICE: SampleInfo, Edit file需放進csv資料夾
+# NOTICE: SampleInfo, Edit file為生化指數相關檔案名稱，皆需放進csv資料夾
 
 DIR=${PWD}/data
 SIX_DIR=/Users/chuanfang/chuanfang/Website/microbiome-report-api/SixCorepIndicesPlots_new
