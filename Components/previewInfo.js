@@ -69,7 +69,7 @@ const customerInfo = (data, jsonFile, sampleInfoFile, editDate) => {
           .replace(/ years ago/, '')
       : '';
 
-  const reportDate = editDate === '' ? moment().format('YYYY/M/D') : editDate;
+  const reportDate = editDate === 'N' ? moment().format('YYYY/M/D') : editDate;
   // const reportDate = moment().format('YYYY/M/D');
   // const reportDate = '2023/1/3';
 

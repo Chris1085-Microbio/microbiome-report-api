@@ -86,16 +86,13 @@ const calBloodPages = (bloodData, sampleInfoFile, jsonFile) => {
   });
 
   bloodPages = idCounts[sampleId] < 24 ? 1 : 2;
+  bloodPages = typeof idCounts[sampleId] === 'undefined' ? 2 : 1;
 
   return { bloodPages };
 };
 
-const calcBloodTemplate = (jsonFilename, bloodData) => {
+const calcBloodTemplate = (bloodDataFiltered) => {
   let bloodTemplate = ``;
-
-  bloodDataFiltered = bloodData.filter((data) => {
-    return data.id === jsonFilename;
-  });
 
   let title = '';
   let tempTitle = 'tempTitle';

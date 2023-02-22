@@ -23,7 +23,7 @@ const curYear = moment().year();
 
 try {
   const data = JSON.parse(fs.readFileSync(`${jsonFile}`));
-  const bloodData = JSON.parse(fs.readFileSync(`${bloodTestFile}`));
+  const bloodData = JSON.parse(fs.readFileSync(`./json/${bloodTestFile}.json`));
   const dynamicText = JSON.parse(fs.readFileSync('./json/dynamicText.json'));
   const { newPages } = computed.getNewPages(data, dynamicText);
   const { bloodPages } = computed.calBloodPages(bloodData, sampleInfoFile, jsonFile);

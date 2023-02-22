@@ -1,6 +1,6 @@
 # 匯入Sample CSV，製作腸生態報告
 # sh html2pdf.sh <SampleInfo CSV Filename> <Edit CSV Filename> 
-# Usage: sh html2pdf.sh 1230_sampleInfo 
+# Usage: sh html2pdf.sh 1230_sampleInfo  blood
 # NOTICE: SampleInfo, Edit file為生化指數相關檔案名稱，皆需放進csv資料夾
 
 DIR=${PWD}/data
@@ -27,7 +27,7 @@ do
 	sleep 1
 
 	echo "Covert report  $JSON_NAME"
-	node ./scripts/convertReportAll.js $FILE $SAMPLE_INFO_FILE $EDIT_DATE $EDIT_FILE
+	node ./scripts/convertReportAll.js $FILE $SAMPLE_INFO_FILE $EDIT_FILE $EDIT_DATE 
 	sleep 3
 
 	echo "Html2pdf $JSON_NAME"

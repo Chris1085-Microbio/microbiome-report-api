@@ -27,7 +27,11 @@ const table1 = (newPages, jsonFilename, bloodData) => {
   // TODO 可能需要帶入血檢數值
   let htmlTemplate = ``;
 
-  if (bloodData.length === 0) {
+  const bloodDataFiltered = bloodData.filter((data) => {
+    return data.id === jsonFilename;
+  });
+
+  if (bloodDataFiltered.length === 0) {
     htmlTemplate = `<!-- p19 -->
           <page size="A4">
           <header>
@@ -237,7 +241,7 @@ const table1 = (newPages, jsonFilename, bloodData) => {
                 </tr>
               </thead>
               <tbody>`;
-    const { bloodTemplate } = computed.calcBloodTemplate(jsonFilename, bloodData);
+    const { bloodTemplate } = computed.calcBloodTemplate(bloodDataFiltered);
     htmlTemplate += bloodTemplate;
     htmlTemplate += `
               </tbody>
@@ -286,7 +290,11 @@ const table2 = (newPages, jsonFilename, bloodData) => {
   // TODO 可能需要帶入血檢數值
   let htmlTemplate = ``;
 
-  if (bloodData.length === 0) {
+  const bloodDataFiltered = bloodData.filter((data) => {
+    return data.id === jsonFilename;
+  });
+
+  if (bloodDataFiltered.length === 0) {
     htmlTemplate = `<!-- p20 -->
       <page size="A4">
         <header>

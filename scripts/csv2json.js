@@ -7,7 +7,7 @@ const csv2json = (fileInputName, fileOutputName) => {
   const csvToJson = require('convert-csv-to-json');
   const json = csvToJson.fieldDelimiter(',').formatValueByType().getJsonFromCsv(fileInputName);
 
-  csvToJson.generateJsonFileFromCsv(fileInputName, fileOutputName);
+  csvToJson.utf8Encoding().generateJsonFileFromCsv(fileInputName, fileOutputName);
 };
 
 csv2json(fileInputName, fileOutputName);
