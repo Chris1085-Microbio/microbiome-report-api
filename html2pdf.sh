@@ -36,4 +36,4 @@ do
 
 done
 
-rm Rplots.pdf
+rm Rplots.pdf ./SixCorepIndicesPlots_new/Rplots.pdf
