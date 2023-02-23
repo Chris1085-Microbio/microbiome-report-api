@@ -8,6 +8,7 @@
 - [Packages-相關套件](#Packages-相關套件)
 - [Installation-專案安裝流程](#Installation-專案安裝流程)
 - [How To Use-操作手冊](#How-To-Use-操作手冊)
+- [注意事項](#注意事項)
 
 ## Packages-相關套件
 * convert-csv-to-json - v1.3.3
@@ -53,3 +54,7 @@ sh html2pdf.sh <SampleInfo CSV Filename> <Edit CSV Filename>
 # Usage: sh html2pdf.sh sampleInfo bloodTest
 # NOTICE: SampleInfo, Edit file為生化指數相關檔案名稱，皆需放進csv資料夾
 ```
+
+## 注意事項
+1. bloodTest.csv 中文須為utf-8，不然會造成亂碼。
+2. ``html2pdf.sh``中可以修改報告日期時間，"N"為不修改，其餘時間或文字格式會直接帶入
