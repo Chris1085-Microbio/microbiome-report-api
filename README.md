@@ -40,12 +40,12 @@ npm install  #(請參考 package.json)
 * json: 待產生報告的檢體資訊JSON(透過csv2json產生之結果)
 * reports: 各檢體轉檔完成之PDF(按照年份)
 * scripts: 自動化執行時所需要的程式檔
-  * bactDiff.js
-  * convertReportAll.js
-  * csv2json.js
-  * html2pdf.js
+  * bactDiff.js: 計算超出Abnormal、Normal的菌及數量。
+  * convertReportAll.js: 執行靜態網頁轉動態網頁的主要js檔。
+  * csv2json.js: 簡單轉csv2json的小程式。
+  * html2pdf.js: 連接外網及http或者preview live時，將html轉至pdf。
 * SixCorepIndicesPlots_new: 製作報告圖檔時所需要的R程式
-* html2pdf.sh: 
+* html2pdf.sh: 批次自動化產生程式。 
 
 ### 網頁內容
 * index.html: 靜態模板
