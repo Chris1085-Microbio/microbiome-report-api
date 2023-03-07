@@ -5,11 +5,17 @@
 </p>
 
  ## Outline-目錄
+- [Environment](#Environment)
 - [Packages-相關套件](#Packages-相關套件)
 - [Installation-專案安裝流程](#Installation-專案安裝流程)
 - [How To Use-操作手冊](#How-To-Use-操作手冊)
 - [後續操作流程](#後續操作流程)
 - [注意事項](#注意事項)
+
+## Environment
+
+* CentOS 8
+* conda qiime2-2021.11
 
 ## Packages-相關套件
 * convert-csv-to-json - v1.3.3
@@ -68,6 +74,7 @@ npm install  #(請參考 package.json)
 4. 執行html2pdf.sh
 
 ```
+cd /opt/lampp/htdocs/microbiome-report-api
 # 匯入Sample CSV，製作腸生態報告
 sh html2pdf.sh <SampleInfo CSV Filename> <Edit CSV Filename> 
 # Usage: sh html2pdf.sh sampleInfo bloodTest
@@ -90,3 +97,4 @@ sh html2pdf.sh <SampleInfo CSV Filename> <Edit CSV Filename>
 1. bloodTest.csv 中文須為utf-8，不然會造成亂碼。
 2. ``html2pdf.sh``中可以修改報告日期時間，"N"為不修改，其餘時間或文字格式會直接帶入
 3. 轉PDF過程需要連網
+4. Check firewall關閉、httpd執行中
