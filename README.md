@@ -8,6 +8,7 @@
 - [Packages-相關套件](#Packages-相關套件)
 - [Installation-專案安裝流程](#Installation-專案安裝流程)
 - [How To Use-操作手冊](#How-To-Use-操作手冊)
+- [後續操作流程](#後續操作流程)
 - [注意事項](#注意事項)
 
 ## Packages-相關套件
@@ -39,7 +40,12 @@ npm install  #(請參考 package.json)
 * json: 待產生報告的檢體資訊JSON(透過csv2json產生之結果)
 * reports: 各檢體轉檔完成之PDF(按照年份)
 * scripts: 自動化執行時所需要的程式檔
+  * bactDiff.js
+  * convertReportAll.js
+  * csv2json.js
+  * html2pdf.js
 * SixCorepIndicesPlots_new: 製作報告圖檔時所需要的R程式
+* html2pdf.sh: 
 
 ### 網頁內容
 * index.html: 靜態模板
@@ -47,7 +53,13 @@ npm install  #(請參考 package.json)
 
 ### Server HTTP/PORT/防火牆權限設定
 
-### 執行
+### 執行及專案邏輯
+1. 轉換sampleInfo.csv：轉換內容為報告客戶欄位所對應之內容
+2. 轉換生化指數內容：檢查轉檔的報告中是否有需要修改的生化指數內容，若無，提供空資料
+3. R功能出相關統計圖表
+4. 動態變更報告模板內容
+5. 轉換報告靜態網頁至PDF
+
 ```
 # 匯入Sample CSV，製作腸生態報告
 sh html2pdf.sh <SampleInfo CSV Filename> <Edit CSV Filename> 
@@ -55,6 +67,19 @@ sh html2pdf.sh <SampleInfo CSV Filename> <Edit CSV Filename>
 # NOTICE: SampleInfo, Edit file為生化指數相關檔案名稱，皆需放進csv資料夾
 ```
 
+## 後續操作流程
+### 排程寄送報告
+1. 打開寄送``範例.xlsm``
+2. 修正對應欄位內容
+
+|  寄送姓名  |  Email  |  附件1檔案路徑  |  附件2檔案路徑  |  附件3檔案路徑(以此類推)  |
+|  ----  |  ----  |  ----  |  ----  |  ----  |
+| 王小明  | smallming@gmail.com | /file1/path.pdf | /file2/path.pdf | /file3/path.pdf
+| 王大明  | bigming@gmail.com | /file1/path.pdf | /file2/path.pdf | /file3/path.pdf
+3. 確認outlook正常執行
+4. ``範例.xlsm``中執行巨集等待報告寄出
+
 ## 注意事項
 1. bloodTest.csv 中文須為utf-8，不然會造成亂碼。
 2. ``html2pdf.sh``中可以修改報告日期時間，"N"為不修改，其餘時間或文字格式會直接帶入
+3. 轉PDF過程需要連網
