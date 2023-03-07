@@ -44,7 +44,8 @@ npm install  #(請參考 package.json)
   * convertReportAll.js: 執行靜態網頁轉動態網頁的主要js檔。
   * csv2json.js: 簡單轉csv2json的小程式。
   * html2pdf.js: 連接外網及http或者preview live時，將html轉至pdf。
-* SixCorepIndicesPlots_new: 製作報告圖檔時所需要的R程式
+* SixCorepIndicesPlots_new: 製作報告圖檔時所需要的R程式。
+* compared: bactDiff計算出來的結果。
 * html2pdf.sh: 批次自動化產生程式。 
 
 ### 網頁內容
