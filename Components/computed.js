@@ -67,7 +67,10 @@ const getNewPages = (data, dynamicText) => {
  */
 const calBloodPages = (bloodData, sampleInfoFile, jsonFile) => {
   let bloodPages = 2;
-  bloodPages = bloodData;
+  if (bloodData.length === 0) {
+    return bloodPages;
+  }
+  // bloodPages = bloodData;
 
   const sampleData = require(`../json/${sampleInfoFile}.json`);
   const filename = jsonFile.split('/').pop().replace(/.json/, '');
