@@ -1,6 +1,12 @@
 const { log } = require('console');
 const fs = require('fs');
 
+const INDEX_KEY_MAP = {
+  'shannon': 'GutBiomeIndex',
+  'GoodBad': 'GoodBadIndex',
+  'GutFunction': 'GutFunctionIndex'
+};
+
 const getNewPages = (data, dynamicText) => {
   let newPages = 0;
   let indicesText = '';
@@ -15,13 +21,14 @@ const getNewPages = (data, dynamicText) => {
   let tempScore = 100;
 
   Object.keys(data.indices).forEach((index) => {
+    const normalizedKey = INDEX_KEY_MAP[index] || index;
     if (parseInt(data.indices[index]) < 31) {
       flag = 1;
-      indicesText += dynamicText.indices[index];
+      indicesText += dynamicText.indices[normalizedKey] || '';
     }
 
     if (parseInt(data.indices[index]) < tempScore) {
-      tempName = index;
+      tempName = normalizedKey;
       tempScore = data.indices[index];
     }
   });
@@ -43,7 +50,7 @@ const getNewPages = (data, dynamicText) => {
   bodyFunctionText = flag == 0 ? dynamicText.bodyFunction.stable : bodyFunctionText;
   bodyFunctionText = bodyFunctionText.slice(0, -1) + '。';
 
-  const thirdPartInsertText = dynamicText.productDescription[dynamicText.textType[tempName]];
+  const thirdPartInsertText = dynamicText.productDescription[dynamicText.textType[tempName]] || '';
 
   const lines =
     Math.ceil((indicesText.length + initIndexLen - firstLineLen) / lineTextLen) +

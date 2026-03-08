@@ -1803,16 +1803,8 @@ header {
       -ms-flex-align: center;
           align-items: center;
   gap: 8px; }
-  .p12-charts img:first-child {
-    -webkit-box-flex: 7;
-        -ms-flex: 7;
-            flex: 7;
-    width: 0; }
-  .p12-charts img:last-child {
-    -webkit-box-flex: 3;
-        -ms-flex: 3;
-            flex: 3;
-    width: 0; }
+  .p12-charts img {
+    width: 100%; }
 
 .p12-desc {
   font-size: 15px;
@@ -1877,14 +1869,18 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center; }
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
   .p14-chart img {
-    width: 80%;
-    height: auto;
-    -o-object-fit: contain;
-       object-fit: contain; }
+    width: 100%;
+    height: auto; }
+    .p14-chart img:last-child {
+      margin-top: -44px; }
 
 .p14-title {
   font-size: 28px;

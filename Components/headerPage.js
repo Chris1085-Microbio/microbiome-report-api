@@ -30,16 +30,9 @@ const htmlTemplate = `<!DOCTYPE html>
     <div class="container-A4" size="A4">
       <!-- p1 -->
       <page size="A4">
-        <header>
-          <div class="logo-container"></div>
-        </header>
-
-        <div class="cover d-flex flex-column align-items-center justify-content-center">
-          <!-- <div class="logo-container-xl d-flex flex-column justify-content-center align-items-center"></div> -->
-          <h1 class="text-center">個人化腸生態<br />健康管理</h1>
-          <h3 class="text-center subtitle pt-2"><span>Precision</span> Nutrition</h3>
-          <div class="test"></div>
-        </div>
-      </page>
+  <div class="cover-v2">
+    <img src="./assets/images_v2/1封面.jpg" alt="腸生態 Precision Nutrition 個人化健康管理" />
+  </div>
+</page>
 `
 module.exports = htmlTemplate

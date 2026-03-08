@@ -25,7 +25,7 @@ try {
   const data = JSON.parse(fs.readFileSync(`${jsonFile}`));
   const bloodData = JSON.parse(fs.readFileSync(`./json/${bloodTestFile}.json`));
   const dynamicText = JSON.parse(fs.readFileSync('./json/dynamicText.json'));
-  const { newPages } = computed.getNewPages(data, dynamicText);
+  const newPages = 0;
   const { bloodPages } = computed.calBloodPages(bloodData, sampleInfoFile, jsonFile);
   const jsonFilename = jsonFile.split('/').pop().replace(/.json/, '');
 
