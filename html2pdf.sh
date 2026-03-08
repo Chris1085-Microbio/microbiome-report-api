@@ -4,7 +4,8 @@
 # NOTICE: SampleInfo, Edit file為生化指數相關檔案名稱，皆需放進csv資料夾
 
 DIR=${PWD}/data
-SIX_DIR=/Users/chuanfang/chuanfang/Website/microbiome-report-api/SixCorepIndicesPlots_new
+### Todo: Change Dir path
+SIX_DIR=/Users/chuanfang/chuanfang/09.Projects/Website/microbiome-report-api/SixCorepIndicesPlots_new_v2
 SAMPLE_INFO_FILE=$1
 EDIT_FILE=$2
 DATE=$(date '+%Y')
