@@ -1,14 +1,15 @@
-// Include express from node_modules and define server related variables
 const express = require('express')
+const path = require('path')
+
 const app = express()
 const port = 3000
 
-// setting the route and corresponding response
+app.use(express.static(__dirname))
+
 app.get('/', (req, res) => {
-  res.render(index)
+  res.sendFile(path.join(__dirname, 'index.html'))
 })
 
-// Listen the server when it started
 app.listen(port, () => {
   console.log(`Express is running on http://localhost:${port}`)
 })
