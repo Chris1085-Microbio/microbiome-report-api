@@ -127,9 +127,63 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+@font-face {
+  font-family: 'NotoSansTC';
+  src: url("../../fonts/NotoSansTC-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'NotoSansTC';
+  src: url("../../fonts/NotoSansTC-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'NotoSansTC';
+  src: url("../../fonts/NotoSansTC-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'NotoSansTC';
+  src: url("../../fonts/NotoSansTC-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'NotoSansTC';
+  src: url("../../fonts/NotoSansTC-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'NotoSansTC';
+  src: url("../../fonts/NotoSansTC-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'NotoSansTC';
+  src: url("../../fonts/NotoSansTC-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'NotoSansTC';
+  src: url("../../fonts/NotoSansTC-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'NotoSansTC';
+  src: url("../../fonts/NotoSansTC-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal; }
+
 body {
   background: #cccccc;
-  font-family: 'Noto Sans TC', sans-serif; }
+  font-family: 'NotoSansTC', sans-serif; }
 
 header {
   position: relative; }
@@ -169,12 +223,19 @@ page[size='A5'][layout='landscape'] {
   width: 21cm;
   height: 14.8cm; }
 
+@page {
+  margin: 0;
+  size: 21cm 29.7cm; }
+
 @media print {
   body,
   page {
     margin: 0;
-    -webkit-box-shadow: 0;
-            box-shadow: 0; } }
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    background: white; }
+  page {
+    margin-bottom: 0; } }
 
 h1 {
   font-size: 80px;
@@ -813,13 +874,14 @@ header {
          object-position: right center; }
 
 .page-tab-v2 {
+  font-family: 'NotoSansTC', sans-serif;
+  font-weight: 900;
   position: absolute;
   top: 100px;
   right: 4px;
   width: 32px;
   color: white;
   font-size: 40px;
-  font-weight: bold;
   letter-spacing: 8px;
   -webkit-writing-mode: vertical-rl;
       -ms-writing-mode: tb-rl;
@@ -836,12 +898,13 @@ header {
   letter-spacing: 40px; }
 
 .divider-title-v2 {
+  font-family: 'NotoSansTC', sans-serif;
+  font-weight: 900;
   position: absolute;
   bottom: 300px;
   left: 120px;
   font-size: 52px;
-  font-weight: bold;
-  color: #333;
+  color: #3e3a39;
   letter-spacing: 4px;
   z-index: 1; }
 
@@ -859,13 +922,22 @@ header {
        object-fit: cover;
     display: block; }
 
+.page-breadcrumb {
+  font-family: 'NotoSansTC', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #3e3a39;
+  letter-spacing: 2px; }
+
 .page-number {
+  font-family: 'NotoSansTC', sans-serif;
+  font-weight: 500;
   position: absolute;
   top: 283.77083mm;
   right: 60px;
   font-size: 16px;
-  color: gray-500;
-  z-index: 1; }
+  z-index: 1;
+  color: #3e3a39; }
 
 .page-container {
   padding-left: 40px;
@@ -1039,15 +1111,21 @@ header {
 .p2-header {
   padding: 28px 50px 0; }
   .p2-header .page-breadcrumb {
+    font-family: 'NotoSansTC', sans-serif;
+    font-weight: 500;
     font-size: 18px;
-    color: #000;
+    color: #3e3a39;
     letter-spacing: 2px; }
 
 .p2-body {
   padding: 40px 20px 40px 50px; }
+  .p2-body p {
+    font-family: 'NotoSansTC', sans-serif;
+    font-weight: 400; }
 
 .p2-title {
   font-size: 32px;
+  font-family: 'NotoSansTC', sans-serif;
   font-weight: 900;
   color: #1a9aaa;
   letter-spacing: 3px;
@@ -1067,6 +1145,7 @@ header {
 
 .p2-subtitle {
   font-size: 32px;
+  font-family: 'NotoSansTC', sans-serif;
   font-weight: 900;
   color: #1a9aaa;
   letter-spacing: 3px;
@@ -1105,10 +1184,10 @@ header {
   background: #fff; }
 
 .p3-card-title {
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 36px;
+  font-weight: 900;
   color: #1a9aaa;
-  letter-spacing: 6px;
+  letter-spacing: 4px;
   text-align: center;
   display: block;
   padding: 8px 0;
@@ -1140,7 +1219,8 @@ header {
   padding: 10px 0 6px; }
   .p3-list-item .p3-label {
     font-size: 18px;
-    font-weight: bold;
+    font-family: 'NotoSansTC';
+    font-weight: 400;
     color: #333;
     -ms-flex-negative: 0;
         flex-shrink: 0;
@@ -1163,7 +1243,7 @@ header {
 
 .p3-customer-title {
   font-size: 32px;
-  font-weight: bold;
+  font-weight: 900;
   color: #1a9aaa;
   letter-spacing: 3px;
   display: block;
@@ -1180,7 +1260,8 @@ header {
       -ms-flex-direction: column;
           flex-direction: column;
   height: 100%;
-  padding-right: 80px; }
+  padding-right: 80px;
+  overflow: hidden; }
 
 .p4-header {
   padding: 28px 50px 0; }
@@ -1190,39 +1271,63 @@ header {
     letter-spacing: 2px; }
 
 .p4-body {
-  padding: 80px 50px 0; }
+  padding: 80px 50px 120px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
 
 .p4-grid {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 32px; }
-
-.p4-col {
+  gap: 28px;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1; }
 
+.p4-col {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 28px; }
+
 .p4-block {
   background-color: #d4eef2;
-  padding: 12px 16px;
-  margin-bottom: 28px; }
+  padding: 24px 16px; }
+  .p4-block:last-child {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1; }
 
 .p4-section-title {
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 36px;
+  font-weight: 900;
   color: #1a9aaa;
-  letter-spacing: 2px;
+  letter-spacing: 0px;
   margin-bottom: 18px;
   margin-top: 18px; }
 
 .p4-list {
   list-style: none;
-  padding: 0;
+  padding: 12px 0px;
   margin: 0; }
   .p4-list li {
     font-size: 17px;
-    font-weight: bold;
+    font-weight: 400;
     color: #333;
     line-height: 1.7;
     padding: 2px 0;
@@ -1256,7 +1361,7 @@ header {
 
 .p6-greeting {
   font-size: 17px;
-  font-weight: bold;
+  font-weight: 400;
   color: #333;
   line-height: 1.8;
   margin-bottom: 16px;
@@ -1293,7 +1398,7 @@ header {
           writing-mode: vertical-rl;
   text-orientation: upright;
   font-size: 28px;
-  font-weight: bold;
+  font-weight: 900;
   color: #1a7a8a;
   letter-spacing: 6px;
   line-height: 1;
@@ -1312,24 +1417,24 @@ header {
   margin: 0; }
   .p6-result-list li {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 400;
     color: #333;
     padding: 8px 0;
     text-align: right; }
 
 .p6-status--low {
   color: #e53935;
-  font-weight: bold;
+  font-weight: 700;
   min-width: 170px; }
 
 .p6-status--normal {
   color: #f0a030;
-  font-weight: bold;
+  font-weight: 700;
   min-width: 170px; }
 
 .p6-status--good {
   color: #1a9aaa;
-  font-weight: bold;
+  font-weight: 700;
   min-width: 170px; }
 
 .p6-legend {
@@ -1359,7 +1464,7 @@ header {
   padding: 12px 24px 12px 20px;
   color: #fff;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
   -webkit-transform: skewX(-10deg);
       -ms-transform: skewX(-10deg);
           transform: skewX(-10deg);
@@ -1421,7 +1526,7 @@ header {
 
 .p7-text {
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 400;
   color: #333;
   line-height: 2; }
 
@@ -1450,7 +1555,7 @@ header {
 
 .p8-title {
   font-size: 28px;
-  font-weight: bold;
+  font-weight: 900;
   color: #1a7a8a;
   margin-bottom: 16px; }
 
@@ -1464,13 +1569,13 @@ header {
 
 .p8-subtitle {
   font-size: 28px;
-  font-weight: bold;
+  font-weight: 900;
   color: #1a7a8a;
   margin-bottom: 12px; }
 
 .p8-text {
   font-size: 17px;
-  font-weight: bold;
+  font-weight: 400;
   color: #333;
   line-height: 1.9;
   margin-bottom: 16px; }
@@ -1518,7 +1623,7 @@ header {
 
 .p9-title {
   font-size: 32px;
-  font-weight: bold;
+  font-weight: 900;
   color: #1a7a8a; }
 
 .p9-table {
@@ -1529,12 +1634,12 @@ header {
     background-color: #28bad4;
     color: #fff;
     font-size: 17px;
-    font-weight: bold;
+    font-weight: 700;
     padding: 8px 12px;
     text-align: center; }
   .p9-table td {
     font-size: 17px;
-    font-weight: bold;
+    font-weight: 400;
     color: #333;
     padding: 10px 12px;
     text-align: center;
@@ -1546,13 +1651,13 @@ header {
     font-size: 16px;
     color: #333;
     line-height: 1.8;
-    font-weight: bold;
+    font-weight: 400;
     margin: 0;
     padding: 12px 16px; }
 
 .p9-comment-title {
   font-size: 17px;
-  font-weight: bold;
+  font-weight: 700;
   color: #fff;
   background-color: #444;
   padding: 6px 12px;
@@ -1591,7 +1696,7 @@ header {
 
 .p10-title {
   font-size: 32px;
-  font-weight: bold;
+  font-weight: 900;
   color: #1a7a8a; }
 
 .p10-table {
@@ -1602,13 +1707,13 @@ header {
     background-color: #28bad4;
     color: #fff;
     font-size: 17px;
-    font-weight: bold;
+    font-weight: 700;
     padding: 8px 12px;
     text-align: center;
     border: 1px solid #28bad4; }
   .p10-table td {
     font-size: 17px;
-    font-weight: bold;
+    font-weight: 400;
     color: #333;
     padding: 10px 12px;
     text-align: center;
@@ -1622,13 +1727,13 @@ header {
     font-size: 16px;
     color: #333;
     line-height: 1.8;
-    font-weight: bold;
+    font-weight: 400;
     margin: 0;
     padding: 12px 16px; }
 
 .p10-comment-title {
   font-size: 17px;
-  font-weight: bold;
+  font-weight: 700;
   color: #fff;
   background-color: #444;
   padding: 6px 12px;
@@ -1667,7 +1772,7 @@ header {
 
 .p11-title {
   font-size: 28px;
-  font-weight: bold;
+  font-weight: 900;
   color: #1a7a8a; }
 
 .p11-table {
@@ -1678,14 +1783,14 @@ header {
     background-color: #28bad4;
     color: #fff;
     font-size: 17px;
-    font-weight: bold;
+    font-weight: 700;
     padding: 14px 20px;
     text-align: center; }
     .p11-table th:first-child {
       width: 25%; }
   .p11-table td {
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 400;
     color: #333;
     padding: 16px 16px;
     vertical-align: middle;
@@ -1729,7 +1834,7 @@ header {
 
 .p11-card-label {
   font-size: 28px;
-  font-weight: bold;
+  font-weight: 900;
   color: black;
   text-align: center;
   margin-bottom: 12px; }
@@ -1747,7 +1852,7 @@ header {
 
 .p11-card-species {
   font-size: 15px;
-  font-weight: bold;
+  font-weight: 700;
   color: black;
   text-align: center;
   margin-bottom: 8px; }
@@ -1791,8 +1896,8 @@ header {
   gap: 12px; }
 
 .p12-title {
-  font-size: 28px;
-  font-weight: bold;
+  font-size: 32px;
+  font-weight: 900;
   color: #1a7a8a; }
 
 .p12-charts {
@@ -1808,7 +1913,7 @@ header {
 
 .p12-desc {
   font-size: 15px;
-  font-weight: bold;
+  font-weight: 400;
   color: #555;
   margin: 0; }
 
@@ -1820,15 +1925,15 @@ header {
     background-color: #28bad4;
     color: #fff;
     font-size: 16px;
-    font-weight: bold;
-    padding: 8px 12px;
+    font-weight: 700;
+    padding: 12px 12px;
     text-align: center;
     border: 1px solid #28bad4; }
   .p12-table td {
     font-size: 15px;
-    font-weight: bold;
+    font-weight: 400;
     color: #333;
-    padding: 8px 12px;
+    padding: 12px 12px;
     text-align: center;
     background-color: #fff; }
   .p12-table tr {
@@ -1884,14 +1989,26 @@ header {
 
 .p14-title {
   font-size: 28px;
-  font-weight: bold;
+  font-weight: 900;
   color: #1a7a8a; }
 
 .p14-text {
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 400;
   color: #333;
   line-height: 1.6; }
+
+.sixcore {
+  position: relative; }
+  .sixcore::after {
+    position: absolute;
+    content: '';
+    background-image: url("../images/SixCoreIndexLegend.png");
+    background-size: 96px 168px;
+    height: 168px;
+    width: 96px;
+    bottom: 20px;
+    right: 60px; }
 
 .p15-content {
   position: relative;
@@ -1957,7 +2074,7 @@ header {
             transform: translate(-50%, -50%);
     margin: 0;
     font-size: 32px;
-    font-weight: bold;
+    font-weight: 900;
     color: #1a7a8a;
     white-space: nowrap; }
 
@@ -1965,13 +2082,13 @@ header {
   font-size: 18px;
   color: #333;
   line-height: 1.6;
-  font-weight: bold;
+  font-weight: 400;
   margin: 0;
   padding: 12px 16px; }
 
 .p15-comment-title {
   font-size: 17px;
-  font-weight: bold;
+  font-weight: 700;
   color: #fff;
   background-color: #444;
   padding: 6px 12px;
@@ -2041,7 +2158,7 @@ header {
             transform: translate(-50%, -50%);
     margin: 0;
     font-size: 32px;
-    font-weight: bold;
+    font-weight: 900;
     color: #1a7a8a;
     white-space: nowrap; }
 
@@ -2049,13 +2166,13 @@ header {
   font-size: 18px;
   color: #333;
   line-height: 1.6;
-  font-weight: bold;
+  font-weight: 400;
   margin: 0;
   padding: 12px 16px; }
 
 .p16-comment-title {
   font-size: 17px;
-  font-weight: bold;
+  font-weight: 700;
   color: #fff;
   background-color: #444;
   padding: 6px 12px;
@@ -2125,7 +2242,7 @@ header {
             transform: translate(-50%, -50%);
     margin: 0;
     font-size: 32px;
-    font-weight: bold;
+    font-weight: 900;
     color: #1a7a8a;
     white-space: nowrap; }
 
@@ -2133,13 +2250,13 @@ header {
   font-size: 18px;
   color: #333;
   line-height: 1.6;
-  font-weight: bold;
+  font-weight: 400;
   margin: 0;
   padding: 12px 16px; }
 
 .p17-comment-title {
   font-size: 17px;
-  font-weight: bold;
+  font-weight: 700;
   color: #fff;
   background-color: #444;
   padding: 6px 12px;
@@ -2170,7 +2287,7 @@ header {
 
 .p19-title {
   font-size: 32px;
-  font-weight: bold;
+  font-weight: 900;
   color: #1a7a8a;
   margin-bottom: 8px; }
 
@@ -2245,7 +2362,7 @@ header {
 
 .bf-title {
   font-size: 32px;
-  font-weight: bold;
+  font-weight: 900;
   color: #1a7a8a;
   margin: 0; }
 
@@ -2267,7 +2384,7 @@ header {
     font-size: 18px;
     color: #333;
     line-height: 1.6;
-    font-weight: bold;
+    font-weight: 400;
     margin: 0 0 4px;
     padding-right: 20px; }
 
@@ -2372,7 +2489,7 @@ header {
       -ms-flex-pack: center;
           justify-content: center;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
   color: #fff;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
@@ -2408,7 +2525,7 @@ header {
 
 .bf-item-name {
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
   color: #222;
   display: block;
   line-height: 1.3; }
@@ -2716,7 +2833,7 @@ header {
 
 .p36-title {
   font-size: 32px;
-  font-weight: bold;
+  font-weight: 900;
   color: #1a7a8a; }
 
 .p36-list {
