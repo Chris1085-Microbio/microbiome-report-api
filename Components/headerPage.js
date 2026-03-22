@@ -21,7 +21,7 @@ const htmlTemplate = `<!DOCTYPE html>
   </head>
 
   <body>
-    <div class="container-A4" size="A4">
+    <div class="container-A4">
       <!-- p1 -->
       <page size="A4">
   <div class="cover-v2">

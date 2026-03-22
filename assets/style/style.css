@@ -188,18 +188,25 @@ body {
 header {
   position: relative; }
 
-page,
 .container-A4 {
-  position: relative;
-  background: white;
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 0.1cm;
-  page-break-after: always;
-  page-break-before: always; }
+  margin: 0;
+  padding: 0;
+  background: transparent; }
 
-page[size='A4'],
-.container-A4[size='A4'] {
+page {
+  position: relative;
+  display: block;
+  width: 210mm;
+  height: 297mm;
+  margin: 0;
+  padding: 0;
+  background: white;
+  box-sizing: border-box;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page; }
+
+page[size='A4'] {
   width: 210mm;
   height: 297mm; }
 
@@ -224,18 +231,26 @@ page[size='A5'][layout='landscape'] {
   height: 14.8cm; }
 
 @page {
-  margin: 0;
-  size: 21cm 29.7cm; }
+  size: A4;
+  margin: 0; }
 
 @media print {
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important; }
   body,
   page {
-    margin: 0;
     -webkit-box-shadow: none;
             box-shadow: none;
     background: white; }
+  .container-A4 {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important; }
   page {
-    margin-bottom: 0; } }
+    margin: 0 !important;
+    overflow: hidden !important; } }
 
 h1 {
   font-size: 80px;
@@ -878,8 +893,8 @@ header {
   font-weight: 900;
   position: absolute;
   top: 100px;
-  right: 4px;
-  width: 32px;
+  right: 0;
+  width: 56px;
   color: white;
   font-size: 40px;
   letter-spacing: 8px;
@@ -914,6 +929,7 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
+  overflow: hidden;
   z-index: 0; }
   .page-bg-v2 img {
     width: 100%;
