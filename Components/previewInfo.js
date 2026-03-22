@@ -15,19 +15,19 @@ const previewText = `      <!-- p2 -->
 
     <div class="p2-body">
       <h2 class="p2-title mb-4">個人化腸生態健康管理</h2>
-      <p class="mb-4 text-indent fw-bold">
+      <p class="mb-4 text-indent">
         『腸生態健康評估＋腸生態精準調理』是中天生物科技所提供的腸道全方位健康管理方案。不僅利用最先進的次世代基因定序技術，更搭配中天生技獨有的腸道微生態大數據資料庫進行分析，精準地評估您體內的腸道生態健康。
       </p>
-      <p class="mb-5 text-indent fw-bold">
+      <p class="mb-5 text-indent">
         經由解碼您的腸道菌相基因，結合您的血液生化生理檢測數據，透過這些資料，中天生物科技將提供您『個人化腸生態健康管理』策略，整合腸道微生態領域的國際研究成果，搭配本公司所研發的『腸生態精準調理』優質保健產品，長期照護您的身體健康。中天生物科技誠摯地將此產品獻給尊榮的您。
       </p>
 
       <div class="p2-banner">
-        <img src="./assets/images_v2/4.目錄插圖.png" alt="" />
+        <img src="./assets/images_v2/P2.jpg" alt="" />
       </div>
 
       <h5 class="p2-subtitle mb-3">中天生技獨家技術</h5>
-      <p class="text-indent fw-bold">
+      <p class="text-indent">
         中天生物科技利用模擬人類腸道菌「厭氧共生發酵技術」及「腸道免疫重建平臺」，獨家研發出多種符合個人腸道生態健康所需的優質保健食品。中天生物科技深信，透過『腸生態精準調理』，一定能有效調理您的腸道微生態。
       </p>
     </div>
@@ -152,13 +152,13 @@ const customerInfo = (data, jsonFile, sampleInfoFile, editDate) => {
 
       <div class="p3-customer-section">
         <h5 class="p3-customer-title mb-3">致顧客的話</h5>
-        <p class="fw-bold text-indent mb-3">
+        <p class="text-indent mb-3">
           中天生物科技始終相信，腸道是人與生命的關鍵核心。因此，我們乘持「治療疾病，先從腸道著手」的理念，透過調整與優化腸道微生態，協助人們建立更健康的身體狀態。
         </p>
-        <p class="fw-bold text-indent mb-3">
+        <p class="text-indent mb-3">
           由於每個人所處的環境、飲食與生活習慣不同，腸道菌相也存在顯著差異。我們因此提出「個人化腸生態健康管理」策略，協助每個人找到最適合自己的飲食營養管理方針；透過閱讀「腸生態健康引導」，一定能有效調理您的腸道微生態。
         </p>
-        <p class="fw-bold text-indent">
+        <p class="text-indent">
           中天生物科技提醒您，如果有感到任何不適的狀況，請諮詢專科醫師做進一步詳細的檢測。腸道微生態環境是動態變化，本評估僅能呈現您檢測當下，腸道微生態及相關功能風險，無法判斷您是否確實罹患疾病，若有疑慮仍需諮詢專科醫師進行詳細檢查。
         </p>
       </div>
@@ -189,7 +189,7 @@ const categoryText = `<!-- p4 -->
     <div class="p4-body">
       <div class="p4-grid">
         <div class="p4-col">
-          <div class="p4-block pb-4">
+          <div class="p4-block">
             <div class="p4-section-title">1. 腸道健康分析</div>
             <ul class="p4-list">
               <li>1.1 腸道分析總覽</li>
@@ -202,7 +202,7 @@ const categoryText = `<!-- p4 -->
             </ul>
           </div>
 
-          <div class="p4-block pb-4">
+          <div class="p4-block">
             <div class="p4-section-title">2. 六大核心指數</div>
             <ul class="p4-list">
               <li>2.1 微生態多樣性</li>
@@ -220,7 +220,7 @@ const categoryText = `<!-- p4 -->
         </div>
 
         <div class="p4-col">
-          <div class="p4-block pb-4">
+          <div class="p4-block">
             <div class="p4-section-title">4. 身體功能評估</div>
             <ul class="p4-list">
               <li>4.1 腦功能風險指數</li>
@@ -236,9 +236,9 @@ const categoryText = `<!-- p4 -->
             </ul>
           </div>
 
-          <div class="p4-block pb-5">
+          <div class="p4-block">
             <div class="p4-section-title mt-5 pb-3">5. 附錄</div>
-            <ul class="p4-list pb-3">
+            <ul class="p4-list">
               <li>5.1 腸道微生態</li>
               <li>5.2 如何檢測您的腸生態</li>
               <li>5.3 血液生化檢驗臨床意義</li>

@@ -123,17 +123,17 @@ const healthGuides = (data, dynamicText) => {
     </div>
 
     <div class="p7-body">
-            <p class="fw-bold text-indent">
+            <p class="p7-text text-indent">
               在您這次的腸道菌相檢測結果，首先在六大核心指數中，<span class="text-gold"
                 >${indicesText}
               </span>
             </p>
-            <p class="fw-bold text-indent">
+            <p class="p7-text text-indent">
               其次，在身體功能評估方面<span class="text-gold"
                 >${bodyFunctionText}
               </span>
             </p>
-            <p class="fw-bold text-indent">
+            <p class="p7-text text-indent">
               近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的<span
                 class="text-gold"
                 >${productDescription}</span
@@ -213,13 +213,13 @@ const healthGuides = (data, dynamicText) => {
     </div>
 
     <div class="p7-body">
-            <p class="fw-bold text-indent">
+            <p class="p7-text text-indent">
               在您這次的腸道菌相檢測結果，首先在六大核心指數中，<span class="text-gold"
                 >${indicesText}
               </span>
             </p>
     
-            <p class="fw-bold text-indent">
+            <p class="p7-text text-indent">
               其次，在身體功能評估方面，<span class="text-gold"
                 >${page1Part2}
               </span>
@@ -247,13 +247,13 @@ const healthGuides = (data, dynamicText) => {
     </div>
 
     <div class="p7-body">
-            <p class="fw-bold">
+            <p class="p7-text">
               <span class="text-gold"
                 >${page2Part2}
               </span>
             </p>
           
-            <p class="fw-bold text-indent">
+            <p class="p7-text text-indent">
               近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的<span
                 class="text-gold"
                 >${page2Part3}</span
@@ -296,13 +296,13 @@ const healthGuides = (data, dynamicText) => {
     </div>
 
     <div class="p7-body">
-            <p class="fw-bold text-indent">
+            <p class="p7-text text-indent">
               在您這次的腸道菌相檢測結果，首先在六大核心指數中，<span class="text-gold"
                 >${indicesText}
               </span>
             </p>
     
-            <p class="fw-bold text-indent">
+            <p class="p7-text text-indent">
               其次，在身體功能評估方面，<span class="text-gold"
                 >${page1Part2}
               </span>
@@ -330,7 +330,7 @@ const healthGuides = (data, dynamicText) => {
     </div>
 
     <div class="p7-body">
-            <p class="fw-bold">
+            <p class="p7-text">
               <span class="text-gold"
                 >${page2Part2}
               </span>
@@ -359,7 +359,7 @@ const healthGuides = (data, dynamicText) => {
     </div>
 
     <div class="p7-body">
-            <p class="fw-bold text-indent">
+            <p class="p7-text text-indent">
               近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的<span
                 class="text-gold"
                 >${page2Part3}</span
@@ -418,13 +418,13 @@ const healthGuides = (data, dynamicText) => {
     </div>
 
     <div class="p7-body">
-            <p class="fw-bold text-indent">
+            <p class="p7-text text-indent">
               在您這次的腸道菌相檢測結果，首先在六大核心指數中，<span class="text-gold"
                 >${indicesText}
               </span>
             </p>
     
-            <p class="fw-bold text-indent">
+            <p class="p7-text text-indent">
               其次，在身體功能評估方面，<span class="text-gold"
                 >${page1Part2}
               </span>
@@ -452,7 +452,7 @@ const healthGuides = (data, dynamicText) => {
     </div>
 
     <div class="p7-body">
-            <p class="fw-bold">
+            <p class="p7-text">
               <span class="text-gold"
                 >${page2Part2}
               </span>
@@ -481,13 +481,13 @@ const healthGuides = (data, dynamicText) => {
     </div>
 
     <div class="p7-body">
-            <p class="fw-bold">
+            <p class="p7-text">
               <span class="text-gold"
                 >${page3Part2}
               </span>
             </p>
           
-            <p class="fw-bold text-indent">
+            <p class="p7-text text-indent">
               近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的<span
                 class="text-gold"
                 >${page3Part3}</span
@@ -532,13 +532,13 @@ const healthGuides = (data, dynamicText) => {
     </div>
 
     <div class="p7-body">
-            <p class="fw-bold text-indent">
+            <p class="p7-text text-indent">
               在您這次的腸道菌相檢測結果，首先在六大核心指數中，<span class="text-gold"
                 >${indicesText}
               </span>
             </p>
     
-            <p class="fw-bold text-indent">
+            <p class="p7-text text-indent">
               其次，在身體功能評估方面，<span class="text-gold"
                 >${page1Part2}
               </span>
@@ -566,7 +566,7 @@ const healthGuides = (data, dynamicText) => {
     </div>
 
     <div class="p7-body">          
-            <p class="fw-bold text-indent">
+            <p class="p7-text text-indent">
               近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的<span
                 class="text-gold"
                 >${page2Part3}</span
@@ -614,13 +614,13 @@ const healthGuides = (data, dynamicText) => {
     </div>
 
     <div class="p7-body">
-            <p class="fw-bold text-indent">
+            <p class="p7-text text-indent">
               在您這次的腸道菌相檢測結果，首先在六大核心指數中，<span class="text-gold"
                 >${indicesText}
               </span>
             </p>
             <br />
-            <p class="fw-bold text-indent">
+            <p class="p7-text text-indent">
               其次，在身體功能評估方面，<span class="text-gold"
                 >${bodyFunctionText}
               </span>
@@ -649,7 +649,7 @@ const healthGuides = (data, dynamicText) => {
     </div>
 
     <div class="p7-body">
-            <p class="fw-bold text-indent">
+            <p class="p7-text text-indent">
               近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的<span
                 class="text-gold"
                 >${page2Part3}</span
@@ -697,19 +697,19 @@ const healthGuides = (data, dynamicText) => {
     </div>
 
     <div class="p7-body">
-            <p class="fw-bold text-indent">
+            <p class="p7-text text-indent">
               在您這次的腸道菌相檢測結果，首先在六大核心指數中，<span class="text-gold"
                 >${indicesText}
               </span>
             </p>
             <br />
-            <p class="fw-bold text-indent">
+            <p class="p7-text text-indent">
               其次，在身體功能評估方面，<span class="text-gold"
                 >${bodyFunctionText}
               </span>
             </p>
             <br />
-            <p class="fw-bold text-indent">
+            <p class="p7-text text-indent">
               近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的<span
                 class="text-gold"
                 >${page1Part3}</span
@@ -738,7 +738,7 @@ const healthGuides = (data, dynamicText) => {
     </div>
 
     <div class="p7-body">
-            <p class="fw-bold text-indent">
+            <p class="p7-text text-indent">
               近幾年來的國際文獻均指出，腸道菌與許多疾病有著高度的關聯性，因此定期的檢測腸道菌相變化，並透過中天生物科技所研發的<span
                 class="text-gold"
                 >${page2Part3}</span
@@ -1018,7 +1018,7 @@ const enterotyping = (data, dynamicText, pageNum) => {
       <div class="p11-cards">
         <div class="p11-card">
           <div class="p11-card-label">腸型1</div>
-          <img src="./assets/images/Gut_mod-1.png" alt="腸型1" />
+          <img src="./assets/images_v2/數值圖-06.png" alt="腸型1" />
           <div class="p11-card-body">
             <div class="p11-card-species">擬桿菌 Bacteroides</div>
             <p>
@@ -1029,7 +1029,7 @@ const enterotyping = (data, dynamicText, pageNum) => {
 
         <div class="p11-card">
           <div class="p11-card-label">腸型2</div>
-          <img src="./assets/images/Gut_mod-2.png" alt="腸型2" />
+          <img src="./assets/images_v2/數值圖-07.png" alt="腸型2" />
           <div class="p11-card-body">
             <div class="p11-card-species">普氏菌 Prevotella</div>
             <p>
@@ -1040,7 +1040,7 @@ const enterotyping = (data, dynamicText, pageNum) => {
 
         <div class="p11-card">
           <div class="p11-card-label">腸型3</div>
-          <img src="./assets/images/Gut_mod-3.png" alt="腸型3" />
+          <img src="./assets/images_v2/數值圖-08.png" alt="腸型3" />
           <div class="p11-card-body">
             <div class="p11-card-species">瘤胃球菌 Ruminococcus</div>
             <p>此類腸型人群其腸道中富含瘤胃球菌，瘤胃球菌較易吸收糖分，此類腸型人群較容易增重。</p>

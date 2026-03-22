@@ -99,7 +99,7 @@ const index1 = (data, dynamicText, newPages) => {
       <!-- 好壞菌叢指數 -->
       <div class="p15-section mt-4">
         <div class="p15-meter">
-          <img src="./assets/images_v2/數值圖2.png" alt="好壞菌叢指數" title="${parseInt(data.indices.GoodBadIndex)}" />
+          <img src="./assets/images_v2/數值圖2-2.png" alt="好壞菌叢指數" title="${parseInt(data.indices.GoodBadIndex)}" />
           <h2 class="p15-title">好壞菌叢指數</h2>
         </div>
         <div class="p15-comment">
