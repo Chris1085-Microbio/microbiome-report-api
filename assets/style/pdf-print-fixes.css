@@ -1,0 +1,69 @@
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #fff !important;
+}
+
+.container-A4,
+.container-A4[size='A4'] {
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  background: transparent !important;
+  page-break-before: auto !important;
+  page-break-after: auto !important;
+}
+
+page,
+page[size='A4'] {
+  width: 210mm !important;
+  height: 297mm !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  box-sizing: border-box;
+  break-before: page;
+  break-after: page;
+  page-break-before: always;
+  page-break-after: always;
+}
+
+page:first-of-type {
+  break-before: auto;
+  page-break-before: auto;
+}
+
+.page-bg-v2,
+.cover-v2 {
+  overflow: hidden;
+}
+
+.page-bg-v2 img,
+.cover-v2 img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    width: 210mm;
+    height: auto;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+  }
+
+  .container-A4,
+  .container-A4[size='A4'] {
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+  }
+}
