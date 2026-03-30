@@ -84,7 +84,7 @@ const index1 = (data, dynamicText, newPages) => {
       <!-- 微生態多樣性 -->
       <div class="p15-section">
         <div class="p15-meter">
-          <img src="./assets/images_v2/數值圖2.png" alt="微生態多樣性" title="${parseInt(
+          <img src="./assets/images_v2/GoodBadMetersResult/MicrobiomeIndex.png" alt="微生態多樣性" title="${parseInt(
             data.indices.GutBiomeIndex
           )}" />
           <h2 class="p15-title">微生態多樣性</h2>
@@ -99,7 +99,7 @@ const index1 = (data, dynamicText, newPages) => {
       <!-- 好壞菌叢指數 -->
       <div class="p15-section mt-4">
         <div class="p15-meter">
-          <img src="./assets/images_v2/數值圖2-2.png" alt="好壞菌叢指數" title="${parseInt(data.indices.GoodBadIndex)}" />
+          <img src="./assets/images_v2/GoodBadMetersResult/GoodBadIndex.png" alt="好壞菌叢指數" title="${parseInt(data.indices.GoodBadIndex)}" />
           <h2 class="p15-title">好壞菌叢指數</h2>
         </div>
         <div class="p15-comment">
@@ -143,7 +143,7 @@ const index2 = (data, dynamicText, newPages) => {
       <!-- 減糖健康指數 -->
       <div class="p16-section">
         <div class="p16-meter">
-          <img src="./assets/images_v2/數值圖2.png" alt="減糖健康指數" title="${parseInt(data.indices.GlucoseIndex)}" />
+          <img src="./assets/images_v2/GoodBadMetersResult/SugerIndex.png" alt="減糖健康指數" title="${parseInt(data.indices.GlucoseIndex)}" />
           <h2 class="p16-title">減糖健康指數</h2>
         </div>
         <div class="p16-comment">
@@ -158,7 +158,7 @@ const index2 = (data, dynamicText, newPages) => {
       <!-- 油切健康指數 -->
       <div class="p16-section mt-4">
         <div class="p16-meter">
-          <img src="./assets/images_v2/數值圖2.png" alt="油切健康指數" title="${parseInt(data.indices.OilIndex)}" />
+          <img src="./assets/images_v2/GoodBadMetersResult/OilIndex.png" alt="油切健康指數" title="${parseInt(data.indices.OilIndex)}" />
           <h2 class="p16-title">油切健康指數</h2>
         </div>
         <div class="p16-comment">
@@ -201,7 +201,7 @@ const index3 = (data, dynamicText, newPages) => {
       <!-- 免疫平衡指數 -->
       <div class="p17-section">
         <div class="p17-meter">
-          <img src="./assets/images_v2/數值圖2.png" alt="免疫平衡指數" title="${parseInt(data.indices.ImmuneIndex)}" />
+          <img src="./assets/images_v2/GoodBadMetersResult/ImmuneIndex.png" alt="免疫平衡指數" title="${parseInt(data.indices.ImmuneIndex)}" />
           <h2 class="p17-title">免疫平衡指數</h2>
         </div>
         <div class="p17-comment">
@@ -215,7 +215,7 @@ const index3 = (data, dynamicText, newPages) => {
       <!-- 腸道功能指數 -->
       <div class="p17-section mt-4">
         <div class="p17-meter">
-          <img src="./assets/images_v2/數值圖2.png" alt="腸道功能指數" title="${parseInt(
+          <img src="./assets/images_v2/GoodBadMetersResult/GutIndex.png" alt="腸道功能指數" title="${parseInt(
             data.indices.GutFunctionIndex
           )}" />
           <h2 class="p17-title">腸道功能指數</h2>

@@ -41,7 +41,7 @@ const PDAD = (data, newPages) => {
           </div>
         </div>
         <div class="bf-thermometer">
-          <img src="./assets/images_v2/數值圖3.png" alt="風險指數" />
+          <img src="./assets/images_v2/RiskMetersResult/BrainScore.png" alt="風險指數" />
         </div>
       </div>
 
@@ -126,7 +126,7 @@ const cvd = (data, newPages) => {
           </div>
         </div>
         <div class="bf-thermometer">
-          <img src="./assets/images_v2/數值圖3.png" alt="風險指數" />
+          <img src="./assets/images_v2/RiskMetersResult/HeartScore.png" alt="風險指數" />
         </div>
       </div>
 
@@ -211,7 +211,7 @@ const lung = (data, newPages) => {
           </div>
         </div>
         <div class="bf-thermometer">
-          <img src="./assets/images_v2/數值圖3.png" alt="風險指數" />
+          <img src="./assets/images_v2/RiskMetersResult/LungScore.png" alt="風險指數" />
         </div>
       </div>
 
@@ -296,7 +296,7 @@ const nafld = (data, newPages) => {
           </div>
         </div>
         <div class="bf-thermometer">
-          <img src="./assets/images_v2/數值圖3.png" alt="風險指數" />
+          <img src="./assets/images_v2/RiskMetersResult/LiverScore.png" alt="風險指數" />
         </div>
       </div>
 
@@ -381,7 +381,7 @@ const ckd = (data, newPages) => {
           </div>
         </div>
         <div class="bf-thermometer">
-          <img src="./assets/images_v2/數值圖3.png" alt="風險指數" />
+          <img src="./assets/images_v2/RiskMetersResult/KidneyScore.png" alt="風險指數" />
         </div>
       </div>
 
@@ -466,7 +466,7 @@ const gastitis = (data, newPages) => {
           </div>
         </div>
         <div class="bf-thermometer">
-          <img src="./assets/images_v2/數值圖3.png" alt="風險指數" />
+          <img src="./assets/images_v2/RiskMetersResult/StomachScore.png" alt="風險指數" />
         </div>
       </div>
 
@@ -551,7 +551,7 @@ const colitis = (data, newPages) => {
           </div>
         </div>
         <div class="bf-thermometer">
-          <img src="./assets/images_v2/數值圖3.png" alt="風險指數" />
+          <img src="./assets/images_v2/RiskMetersResult/IntestineScore.png" alt="風險指數" />
         </div>
       </div>
 
@@ -636,7 +636,7 @@ const immune = (data, newPages) => {
           </div>
         </div>
         <div class="bf-thermometer">
-          <img src="./assets/images_v2/數值圖3.png" alt="風險指數" />
+          <img src="./assets/images_v2/RiskMetersResult/ImmuneScore.png" alt="風險指數" />
         </div>
       </div>
 
@@ -721,7 +721,7 @@ const obesity = (data, newPages) => {
           </div>
         </div>
         <div class="bf-thermometer">
-          <img src="./assets/images_v2/數值圖3.png" alt="風險指數" />
+          <img src="./assets/images_v2/RiskMetersResult/ObeseScore.png" alt="風險指數" />
         </div>
       </div>
 
@@ -809,7 +809,7 @@ const metabolism = (data, newPages) => {
           </div>
         </div>
         <div class="bf-thermometer">
-          <img src="./assets/images_v2/數值圖3.png" alt="風險指數" />
+          <img src="./assets/images_v2/RiskMetersResult/MetabolismScore.png" alt="風險指數" />
         </div>
       </div>
 

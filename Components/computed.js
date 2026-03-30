@@ -81,9 +81,11 @@ const calBloodPages = (bloodData, sampleInfoFile, jsonFile) => {
 
   const sampleData = require(`../json/${sampleInfoFile}.json`);
   const filename = jsonFile.split('/').pop().replace(/.json/, '');
-  const { Sample: sampleId } = sampleData.find((item) => {
-    return item.FileName === filename;
-  });
+  const matched = sampleData.find((item) => item.FileName === filename);
+  if (!matched) {
+    return { bloodPages };
+  }
+  const { Sample: sampleId } = matched;
 
   const idArray = bloodData.map((data) => {
     return data.id;
