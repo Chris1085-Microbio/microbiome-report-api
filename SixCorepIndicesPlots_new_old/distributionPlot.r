@@ -22,22 +22,10 @@ ceiling_dec <- function(x, level=1) round(x + 5*10^(-level-1), level)
 
 # read json and png file
 
-args_full <- commandArgs(FALSE)
-script_file <- sub("--file=", "", args_full[grep("--file=", args_full)])
-if (length(script_file) > 0 && nchar(script_file) > 0) {
-  SourcePath <- dirname(normalizePath(script_file))
-} else {
-  if (requireNamespace("this.path", quietly = TRUE)) {
-    SourcePath <- dirname(this.path::this.path())
-  } else {
-    SourcePath <- getwd()
-  }
-}
-
 args <- commandArgs(trailingOnly = TRUE)
 filePath<-args[1]
 
-trianglePng <- readPNG(paste0(SourcePath, '/redTriangle.png'))	
+trianglePng <- readPNG('/Users/chuanfang/chuanfang/Website/microbiome-report-api/SixCorepIndicesPlots_new/redTriangle.png')	
 json_data <- fromJSON(filePath)
 
 # read numGenus in json file
@@ -84,4 +72,4 @@ ggplot(data, aes(x, y)) +
   annotate("text", x = textNum, y = 0.3, label = paste("您的菌數數量:",numGenus),size=28,fontface="bold") + # 加入annotate text
   annotation_raster(trianglePng, ymin = 0.26,ymax= 0.28,xmin = redColumnNum - 0.25,xmax = redColumnNum + 0.25) # 加入紅色三角形
 
-  ggsave(paste0(SourcePath, "/8_test.png"),width = 12, height = 8.5, dpi = 300)
+  ggsave("/Users/chuanfang/chuanfang/Website/microbiome-report-api/SixCorepIndicesPlots_new/8_test.png",width = 12, height = 9, dpi = 300)

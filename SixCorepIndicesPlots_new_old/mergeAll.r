@@ -1,15 +1,3 @@
-args_full <- commandArgs(FALSE)
-script_file <- sub("--file=", "", args_full[grep("--file=", args_full)])
-if (length(script_file) > 0 && nchar(script_file) > 0) {
-  SourcePath <- dirname(normalizePath(script_file))
-} else {
-  if (requireNamespace("this.path", quietly = TRUE)) {
-    SourcePath <- dirname(this.path::this.path())
-  } else {
-    SourcePath <- getwd()
-  }
-}
-
 args <- commandArgs(trailingOnly = TRUE)
 filePath<-args[1]
 
@@ -96,7 +84,7 @@ for (i in 1: length(pie_percentArrRemove)) {
 }
 
 if(length(newPie_percentArr)==0){
-  ggsave(paste0(SourcePath, "/12_test.png"),width = 12, height = 5, dpi = 300)
+  ggsave("/Users/chuanfang/chuanfang/Website/microbiome-report-api/SixCorepIndicesPlots_new/12_test.png",width = 12, height = 5, dpi = 300)
 }else{
   df2 = data.frame(group=newPie_Phylum, value=newPie_percentArr)
 
@@ -118,5 +106,5 @@ if(length(newPie_percentArr)==0){
     theme(plot.margin = unit(c(1,1,1,1),"cm"))
 
   circlePlot + piePlot + plot_layout(ncol = 2, widths = c(3, 2))
-  ggsave(paste0(SourcePath, "/12_test.png"),width = 12, height = 5, dpi = 300)
+  ggsave("/Users/chuanfang/chuanfang/Website/microbiome-report-api/SixCorepIndicesPlots_new/12_test.png",width = 12, height = 5, dpi = 300)
 }
