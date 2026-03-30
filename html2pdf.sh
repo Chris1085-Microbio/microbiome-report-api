@@ -3,9 +3,9 @@
 # Usage: sh html2pdf.sh 1230_sampleInfo  blood
 # NOTICE: SampleInfo, Edit file為生化指數相關檔案名稱，皆需放進csv資料夾
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 DIR=${PWD}/data
-### Todo: Change Dir path
-SIX_DIR=/Users/chuanfang/chuanfang/09.Projects/Website/microbiome-report-api/SixCorepIndicesPlots_new_v2
+SIX_DIR="${SCRIPT_DIR}/SixCorepIndicesPlots_new"
 SAMPLE_INFO_FILE=$1
 EDIT_FILE=$2
 DATE=$(date '+%Y')
@@ -17,7 +17,7 @@ mkdir -p reports/${DATE}/pdf/
 node ./scripts/csv2json.js csv/${SAMPLE_INFO_FILE}.csv ${SAMPLE_INFO_FILE}
 node ./scripts/csv2json.js csv/${EDIT_FILE}.csv ${EDIT_FILE}
 
-for FILE in "$DIR"/*
+for FILE in "$DIR"/*.json
 do
   echo "$FILE"
 	FILENAME=$(basename "$FILE")
@@ -28,13 +28,13 @@ do
 	sleep 1
 
 	echo "Covert report  $JSON_NAME"
-	node ./scripts/convertReportAll.js $FILE $SAMPLE_INFO_FILE $EDIT_FILE $EDIT_DATE 
+	node ./scripts/convertReportAll.js $FILE $SAMPLE_INFO_FILE $EDIT_FILE $EDIT_DATE
 	sleep 3
 
 	echo "Html2pdf $JSON_NAME"
-	node ./scripts/html2pdf.js $JSON_NAME	
+	node ./scripts/html2pdf.js $JSON_NAME
 	sleep 1
 
 done
 
-rm Rplots.pdf ./SixCorepIndicesPlots_new/Rplots.pdf
+rm -f Rplots.pdf ${SIX_DIR}/Rplots.pdf
