@@ -23,6 +23,11 @@ do
 	FILENAME=$(basename "$FILE")
 	JSON_NAME="${FILENAME%.*}"
 
+	echo "Cleaning previous output"
+	rm -f ./report.html
+	rm -f ./assets/images_v2/8_test.png ./assets/images_v2/12_test.png ./assets/images_v2/SixCoreIndex.png
+	rm -rf ./assets/images_v2/GoodBadMetersResult/ ./assets/images_v2/RiskMetersResult/
+
 	echo "Six plot $JSON_NAME"
 	sh $SIX_DIR/plot.sh $FILE
 	sleep 1
